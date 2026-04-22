@@ -62,11 +62,20 @@ ul{list-style:none}
 .mob-tog.active span:nth-child(2){opacity:0}
 .mob-tog.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
+/* ═══════ HERO FRAME ═══════ */
+.hero-frame{padding:88px 10px 14px}
+@media(min-width:640px){.hero-frame{padding:88px 18px 18px}}
+.hero-wrapper{position:relative;border-radius:28px;padding:1.5px;background:linear-gradient(135deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,.04) 50%,rgba(232,122,30,.22) 100%);box-shadow:0 32px 80px rgba(0,0,0,.6),0 2px 0 rgba(255,255,255,.06) inset}
+@media(min-width:640px){.hero-wrapper{border-radius:40px}}
+
 /* ═══════ HERO ═══════ */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000;padding-top:88px}
-.hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;animation:kenBurns 28s ease-in-out infinite alternate}
-@keyframes kenBurns{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.1) translate(-1%,-0.8%)}}
+.hero{position:relative;min-height:calc(92vh - 88px);display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000;border-radius:calc(28px - 1.5px);padding-top:0}
+@media(min-width:640px){.hero{border-radius:calc(40px - 1.5px)}}
+
+/* VIDEO */
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-vid-mobile{display:none}
+@media(max-width:768px){.hero-vid-desktop{display:none}.hero-vid-mobile{display:block}}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.2) 30%,rgba(0,0,0,.4) 60%,rgba(8,8,8,.97) 90%,#080808 100%);z-index:1}
 .hero-overlay::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.025) 2px,rgba(0,0,0,.025) 4px);pointer-events:none}
 #particleCanvas{position:absolute;inset:0;z-index:2;pointer-events:none}
@@ -438,8 +447,15 @@ ul{list-style:none}
 </nav>
 
 <!-- ═══════ HERO ═══════ -->
+<div class="hero-frame">
+<div class="hero-wrapper">
 <section id="hero" class="hero">
-    <div class="hero-bg"><img src="../assets/images/hero1.jpg" alt="Spartan Camp Adventure" onerror="this.src='assets/images/offroad.png'"></div>
+    <video class="hero-vid hero-vid-desktop" autoplay muted loop playsinline disablepictureinpicture>
+        <source src="../assets/videos/hero-desktop.mp4" type="video/mp4">
+    </video>
+    <video class="hero-vid hero-vid-mobile" autoplay muted loop playsinline disablepictureinpicture>
+        <source src="../assets/videos/hero-mobile.mp4" type="video/mp4">
+    </video>
     <div class="hero-overlay"></div>
     <canvas id="particleCanvas"></canvas>
     <div class="hero-content">
@@ -472,6 +488,8 @@ ul{list-style:none}
     </div>
     <div class="divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#080808"/></svg></div>
 </section>
+</div>
+</div>
 
 <!-- ═══════ EXPERIENȚA ═══════ -->
 <section id="experienta" class="section">
