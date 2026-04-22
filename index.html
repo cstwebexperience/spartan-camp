@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Spartan Camp Romania – Experiența supremă de aventură, off-road, poligon de tragere cu forțe speciale, party și turism în România.">
+    <meta name="description" content="Spartan Camp Romania – Experiența supremă de aventură, off-road, poligon de tragere cu forțe speciale, party și turism în România. Ediția 2026.">
     <title>Spartan Camp Adventure Romania | Experiența Supremă de Aventură</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,19 +12,19 @@
 <style>
 /* ═══════════════ RESET & VARIABLES ═══════════════ */
 :root {
-    --bg: #0a0a0a;
-    --bg2: #0e0e0e;
-    --bg-card: #141414;
+    --bg: #080808;
+    --bg2: #0d0d0d;
+    --bg-card: #111111;
     --text: #f0f0f0;
     --text2: #8a8a8a;
-    --text3: #555;
+    --text3: #444;
     --accent: #e87a1e;
     --accent-lt: #f5a623;
     --accent-dk: #c45e0a;
-    --glow: rgba(232,122,30,0.35);
+    --glow: rgba(232,122,30,0.4);
     --green: #22c55e;
     --border: rgba(255,255,255,0.06);
-    --border-a: rgba(232,122,30,0.25);
+    --border-a: rgba(232,122,30,0.28);
     --ff-d: 'Bebas Neue', sans-serif;
     --ff-h: 'Oswald', sans-serif;
     --ff-b: 'Inter', sans-serif;
@@ -42,17 +42,17 @@ ul{list-style:none}
 #scrollProgress{position:fixed;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-lt));z-index:9999;box-shadow:0 0 12px var(--glow);transition:width .05s linear}
 
 /* ═══════ NAVBAR ═══════ */
-.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all .4s ease;background:transparent}
-.navbar.scrolled{background:rgba(10,10,10,.88);backdrop-filter:blur(24px);padding:10px 0;border-bottom:1px solid var(--border);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:all .4s ease;background:transparent}
+.navbar.scrolled{background:rgba(8,8,8,.92);backdrop-filter:blur(24px);padding:12px 0;border-bottom:1px solid var(--border);box-shadow:0 4px 30px rgba(0,0,0,.4)}
 .nav-c{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
-.logo-img{height:50px;border-radius:8px;filter:drop-shadow(0 0 8px rgba(232,122,30,.2));transition:all .3s}
-.logo-img:hover{transform:scale(1.08);filter:drop-shadow(0 0 16px var(--glow))}
+.logo-img{height:52px;border-radius:8px;filter:drop-shadow(0 0 8px rgba(232,122,30,.2));transition:all .3s}
+.logo-img:hover{transform:scale(1.06);filter:drop-shadow(0 0 16px var(--glow))}
 .nav-links{display:flex;gap:32px;align-items:center}
-.nav-links a{font-family:var(--ff-h);font-size:.85rem;font-weight:500;text-transform:uppercase;letter-spacing:2px;color:var(--text2);transition:all .3s;position:relative;padding:4px 0}
+.nav-links a{font-family:var(--ff-h);font-size:.82rem;font-weight:500;text-transform:uppercase;letter-spacing:2px;color:var(--text2);transition:all .3s;position:relative;padding:4px 0}
 .nav-links a::after{content:'';position:absolute;bottom:-2px;left:50%;width:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-lt));transition:all .4s;transform:translateX(-50%);border-radius:2px}
 .nav-links a:hover{color:var(--accent-lt)}
 .nav-links a:hover::after{width:100%}
-.nav-cta{font-family:var(--ff-h);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;padding:12px 28px;background:linear-gradient(135deg,var(--accent),var(--accent-lt));color:#000;border-radius:6px;transition:all .3s;position:relative;overflow:hidden}
+.nav-cta{font-family:var(--ff-h);font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;padding:13px 30px;background:linear-gradient(135deg,var(--accent),var(--accent-lt));color:#000;border-radius:6px;transition:all .3s;position:relative;overflow:hidden}
 .nav-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transform:translateX(-100%);transition:transform .6s}
 .nav-cta:hover::before{transform:translateX(100%)}
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--glow)}
@@ -65,17 +65,17 @@ ul{list-style:none}
 /* ═══════ HERO ═══════ */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000}
 .hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;animation:kenBurns 25s ease-in-out infinite alternate}
-@keyframes kenBurns{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.12) translate(-1.5%,-1%)}}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.25) 30%,rgba(0,0,0,.35) 60%,rgba(10,10,10,.95) 90%,#0a0a0a 100%);z-index:1}
-.hero-overlay::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);pointer-events:none}
+.hero-bg img{width:100%;height:100%;object-fit:cover;animation:kenBurns 28s ease-in-out infinite alternate}
+@keyframes kenBurns{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.1) translate(-1%,-0.8%)}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.2) 30%,rgba(0,0,0,.4) 60%,rgba(8,8,8,.97) 90%,#080808 100%);z-index:1}
+.hero-overlay::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.025) 2px,rgba(0,0,0,.025) 4px);pointer-events:none}
 #particleCanvas{position:absolute;inset:0;z-index:2;pointer-events:none}
-.hero-content{position:relative;z-index:3;text-align:center;max-width:950px;padding:0 24px}
+.hero-content{position:relative;z-index:3;text-align:center;max-width:1000px;padding:0 24px}
 
 /* Hero badge */
 .hero-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 28px;background:rgba(232,122,30,.08);border-radius:50px;font-family:var(--ff-h);font-size:.82rem;letter-spacing:3px;color:var(--accent-lt);margin-bottom:36px;position:relative;overflow:hidden;opacity:0;animation:fadeSlideDown .8s ease forwards;animation-delay:.2s}
 .hero-badge::before{content:'';position:absolute;inset:-2px;background:linear-gradient(90deg,var(--accent),var(--accent-lt),#ff6b00,var(--accent-lt),var(--accent));background-size:300% 100%;border-radius:52px;z-index:-2;animation:gradShift 3s linear infinite}
-.hero-badge::after{content:'';position:absolute;inset:1px;background:rgba(10,10,10,.92);border-radius:50px;z-index:-1}
+.hero-badge::after{content:'';position:absolute;inset:1px;background:rgba(8,8,8,.94);border-radius:50px;z-index:-1}
 @keyframes gradShift{0%{background-position:0 50%}100%{background-position:300% 50%}}
 @keyframes fadeSlideDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
 
@@ -88,19 +88,26 @@ ul{list-style:none}
 @keyframes titleReveal{to{opacity:1;transform:translateY(0) scale(1)}}
 .hero-title-line.accent{font-size:clamp(3.5rem,12vw,9rem);background:linear-gradient(90deg,var(--accent),var(--accent-lt),#ff6b00,var(--accent-lt));background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 60px var(--glow));animation:titleReveal 1s cubic-bezier(.16,1,.3,1) forwards,gradShift 4s linear infinite;animation-delay:.7s,0s}
 
-/* Hero subtitle & CTA */
 .hero-sub{font-family:var(--ff-h);font-size:clamp(.85rem,1.8vw,1.1rem);color:var(--text2);letter-spacing:4px;text-transform:uppercase;margin-bottom:50px;opacity:0;animation:fadeUp 1s ease forwards;animation-delay:1.3s}
-.hero-ctas{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:70px;opacity:0;animation:fadeUp 1s ease forwards;animation-delay:1.6s}
-.hero-stats{display:flex;justify-content:center;align-items:center;gap:50px;flex-wrap:wrap;opacity:0;animation:fadeUp 1s ease forwards;animation-delay:1.9s}
+.hero-ctas{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:60px;opacity:0;animation:fadeUp 1s ease forwards;animation-delay:1.6s}
 @keyframes fadeUp{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}
 
+/* COUNTDOWN */
+.hero-countdown{display:flex;justify-content:center;gap:0;margin-bottom:50px;opacity:0;animation:fadeUp 1s ease forwards;animation-delay:1.8s}
+.cd-item{text-align:center;padding:0 28px;position:relative}
+.cd-item:not(:last-child)::after{content:':';position:absolute;right:-2px;top:50%;transform:translateY(-60%);font-family:var(--ff-d);font-size:2.8rem;color:var(--accent);opacity:.5}
+.cd-num{font-family:var(--ff-d);font-size:clamp(2.5rem,6vw,4.5rem);background:linear-gradient(135deg,var(--accent),var(--accent-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;filter:drop-shadow(0 0 20px var(--glow));display:block}
+.cd-label{font-family:var(--ff-h);font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--text3);margin-top:6px;display:block}
+
+/* Hero stats */
+.hero-stats{display:flex;justify-content:center;align-items:center;gap:50px;flex-wrap:wrap;opacity:0;animation:fadeUp 1s ease forwards;animation-delay:2s}
 .stat{text-align:center}
 .stat-num{font-family:var(--ff-d);font-size:3.2rem;background:linear-gradient(135deg,var(--accent),var(--accent-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
 .stat-plus{font-family:var(--ff-d);font-size:2rem;background:linear-gradient(135deg,var(--accent),var(--accent-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .stat-label{display:block;font-size:.75rem;color:var(--text2);text-transform:uppercase;letter-spacing:2.5px;margin-top:8px}
 .stat-div{width:1px;height:50px;background:linear-gradient(to bottom,transparent,var(--accent),transparent);opacity:.4}
 
-.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;animation:fadeUp 1s ease forwards,floatY 3s ease-in-out infinite;animation-delay:2.3s,2.3s}
+.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;animation:fadeUp 1s ease forwards,floatY 3s ease-in-out infinite;animation-delay:2.4s,2.4s}
 .hero-scroll span{font-size:.65rem;text-transform:uppercase;letter-spacing:4px;color:var(--text3)}
 .scroll-mouse{width:24px;height:38px;border:2px solid rgba(255,255,255,.2);border-radius:12px;display:flex;justify-content:center;padding-top:8px}
 .scroll-wheel{width:3px;height:8px;background:var(--accent);border-radius:2px;animation:scrollW 2s ease-in-out infinite}
@@ -144,8 +151,6 @@ ul{list-style:none}
 /* ═══════ DIVIDERS ═══════ */
 .divider{position:absolute;bottom:-1px;left:0;width:100%;overflow:hidden;line-height:0;z-index:5}
 .divider svg{display:block;width:100%;height:80px}
-.divider-top{position:absolute;top:-1px;left:0;width:100%;overflow:hidden;line-height:0;z-index:5;transform:rotate(180deg)}
-.divider-top svg{display:block;width:100%;height:80px}
 
 /* ═══════ EXPERIENCE GRID ═══════ */
 .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -167,8 +172,25 @@ ul{list-style:none}
 .exp-ct p{font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.7;max-width:420px;opacity:0;transform:translateY(10px);transition:all .5s ease .1s}
 .exp-card:hover .exp-ct p{opacity:1;transform:translateY(0)}
 
+/* ═══════ PROGRAM 4 ZILE ═══════ */
+.sec-program{background:var(--bg2)}
+.prog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.prog-day{position:relative;padding:40px 28px;border-right:1px solid var(--border);transition:all .4s}
+.prog-day:last-child{border-right:none}
+.prog-day::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent-lt));transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.prog-day:hover::before{transform:scaleX(1)}
+.prog-day:hover{background:rgba(232,122,30,.03)}
+.prog-num{font-family:var(--ff-d);font-size:5rem;color:rgba(232,122,30,.08);line-height:1;margin-bottom:16px;transition:color .4s}
+.prog-day:hover .prog-num{color:rgba(232,122,30,.15)}
+.prog-day-label{font-family:var(--ff-h);font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
+.prog-day h3{font-family:var(--ff-d);font-size:1.8rem;letter-spacing:2px;margin-bottom:18px;color:var(--text)}
+.prog-items{display:flex;flex-direction:column;gap:10px}
+.prog-item{display:flex;align-items:flex-start;gap:10px;font-size:.85rem;color:var(--text2)}
+.prog-item span:first-child{flex-shrink:0;font-size:1rem;margin-top:1px}
+.prog-wrap{border:1px solid var(--border);border-radius:20px;overflow:hidden}
+
 /* ═══════ GALLERY ═══════ */
-.sec-gallery{background:var(--bg2)}
+.sec-gallery{background:var(--bg)}
 .gal-filter{display:flex;justify-content:center;gap:10px;margin-bottom:50px;flex-wrap:wrap}
 .filt-btn{font-family:var(--ff-h);font-size:.8rem;letter-spacing:2.5px;text-transform:uppercase;padding:10px 26px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:50px;color:var(--text2);cursor:pointer;transition:all .3s}
 .filt-btn:hover{border-color:var(--accent);color:var(--accent-lt)}
@@ -185,11 +207,9 @@ ul{list-style:none}
 
 /* ═══════ FEATURES ═══════ */
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:60px}
-.feat-card{background:rgba(20,20,20,.6);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:40px 28px;text-align:center;transition:all .5s;position:relative;overflow:hidden}
+.feat-card{background:rgba(17,17,17,.8);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:40px 28px;text-align:center;transition:all .5s;position:relative;overflow:hidden}
 .feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-lt),#ff6b00);background-size:300% 100%;transform:scaleX(0);transform-origin:left;transition:transform .5s;animation:gradShift 3s linear infinite paused}
 .feat-card:hover::before{transform:scaleX(1);animation-play-state:running}
-.feat-card::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at center,rgba(232,122,30,.04) 0%,transparent 60%);opacity:0;transition:opacity .5s}
-.feat-card:hover::after{opacity:1}
 .feat-card:hover{border-color:var(--border-a);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.3)}
 .feat-icon{font-size:2.8rem;margin-bottom:20px;position:relative;z-index:1;transition:transform .5s}
 .feat-card:hover .feat-icon{transform:scale(1.15)}
@@ -198,18 +218,34 @@ ul{list-style:none}
 .feat-badge{display:inline-block;margin-top:18px;padding:5px 18px;font-family:var(--ff-h);font-size:.68rem;letter-spacing:2.5px;border-radius:50px;background:rgba(34,197,94,.08);color:var(--green);border:1px solid rgba(34,197,94,.25);position:relative;z-index:1}
 
 /* Discount banner */
-.disc-banner{background:linear-gradient(135deg,rgba(232,122,30,.08),rgba(245,166,35,.03));border:1px solid var(--border-a);border-radius:16px;padding:44px;position:relative;overflow:hidden}
-.disc-banner::before{content:'';position:absolute;inset:-2px;background:linear-gradient(90deg,var(--accent),var(--accent-lt),#ff6b00,var(--accent-lt),var(--accent));background-size:400% 100%;animation:gradShift 6s linear infinite;border-radius:18px;z-index:-1;opacity:.3}
-.disc-banner::after{content:'';position:absolute;inset:1px;background:linear-gradient(135deg,rgba(14,14,14,.97),rgba(20,20,20,.97));border-radius:15px;z-index:-1}
+.disc-banner{background:linear-gradient(135deg,rgba(232,122,30,.06),rgba(245,166,35,.02));border:1px solid var(--border-a);border-radius:16px;padding:44px;position:relative;overflow:hidden}
+.disc-banner::before{content:'';position:absolute;inset:-2px;background:linear-gradient(90deg,var(--accent),var(--accent-lt),#ff6b00,var(--accent-lt),var(--accent));background-size:400% 100%;animation:gradShift 6s linear infinite;border-radius:18px;z-index:-1;opacity:.25}
+.disc-banner::after{content:'';position:absolute;inset:1px;background:linear-gradient(135deg,rgba(11,11,11,.97),rgba(17,17,17,.97));border-radius:15px;z-index:-1}
 .disc-ct{display:flex;align-items:center;gap:36px;position:relative;z-index:1}
-.disc-badge{flex-shrink:0;font-family:var(--ff-d);font-size:4rem;background:linear-gradient(135deg,var(--accent),var(--accent-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;filter:drop-shadow(0 0 20px var(--glow))}
+.disc-badge{flex-shrink:0;font-family:var(--ff-d);font-size:4.5rem;background:linear-gradient(135deg,var(--accent),var(--accent-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;filter:drop-shadow(0 0 20px var(--glow))}
 .disc-text h3{font-family:var(--ff-h);font-size:1.3rem;letter-spacing:1.5px;margin-bottom:8px}
 .disc-text p{color:var(--text2);font-size:.95rem}
 
+/* ═══════ TESTIMONIALE ═══════ */
+.sec-testi{background:var(--bg2)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testi-card{background:rgba(17,17,17,.7);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:36px;transition:all .4s;position:relative;overflow:hidden}
+.testi-card::before{content:'';position:absolute;top:0;left:0;width:60px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-lt));border-radius:0 0 4px 0;transition:width .5s}
+.testi-card:hover::before{width:100%}
+.testi-card:hover{border-color:var(--border-a);transform:translateY(-5px);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.testi-stars{display:flex;gap:4px;margin-bottom:18px}
+.testi-stars span{color:#f59e0b;font-size:1rem}
+.testi-quote{font-size:1.8rem;color:var(--accent);opacity:.3;font-family:Georgia,serif;line-height:1;margin-bottom:12px}
+.testi-text{font-size:.9rem;color:var(--text2);line-height:1.75;margin-bottom:24px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:14px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-lt));display:flex;align-items:center;justify-content:center;font-family:var(--ff-h);font-size:1.1rem;font-weight:700;color:#000;flex-shrink:0}
+.testi-name{font-family:var(--ff-h);font-size:.88rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text)}
+.testi-loc{font-size:.75rem;color:var(--text3);margin-top:2px}
+
 /* ═══════ TEAM ═══════ */
-.sec-team{background:var(--bg2)}
+.sec-team{background:var(--bg)}
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.team-card{background:rgba(20,20,20,.5);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:16px;padding:36px 24px;text-align:center;transition:all .5s;position:relative;overflow:hidden}
+.team-card{background:rgba(17,17,17,.5);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:16px;padding:36px 24px;text-align:center;transition:all .5s;position:relative;overflow:hidden}
 .team-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:50px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-lt));border-radius:0 0 4px 4px;opacity:0;transition:all .5s}
 .team-card:hover::before{opacity:1;width:80px}
 .team-card:hover{border-color:var(--border-a);transform:translateY(-6px);box-shadow:0 25px 60px rgba(0,0,0,.4)}
@@ -220,9 +256,9 @@ ul{list-style:none}
 
 /* ═══════ TICKETS ═══════ */
 .tick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
-.tick-card{background:rgba(20,20,20,.6);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:40px 28px;transition:all .5s;position:relative}
+.tick-card{background:rgba(17,17,17,.6);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:40px 28px;transition:all .5s;position:relative}
 .tick-card:hover{border-color:var(--border-a);transform:translateY(-6px);box-shadow:0 25px 70px rgba(0,0,0,.4)}
-.tick-feat{border-color:var(--accent);background:linear-gradient(180deg,rgba(232,122,30,.06),rgba(20,20,20,.6));transform:scale(1.05);box-shadow:0 25px 80px rgba(232,122,30,.12)}
+.tick-feat{border-color:var(--accent);background:linear-gradient(180deg,rgba(232,122,30,.06),rgba(17,17,17,.6));transform:scale(1.05);box-shadow:0 25px 80px rgba(232,122,30,.12)}
 .tick-feat:hover{transform:scale(1.05) translateY(-6px)}
 .tick-pop{position:absolute;top:-14px;left:50%;transform:translateX(-50%);padding:7px 26px;background:linear-gradient(135deg,var(--accent),var(--accent-lt));color:#000;font-family:var(--ff-h);font-size:.72rem;font-weight:700;letter-spacing:2.5px;border-radius:50px;white-space:nowrap;box-shadow:0 4px 20px var(--glow)}
 .tick-head{text-align:center;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border)}
@@ -250,9 +286,9 @@ ul{list-style:none}
 .cb-highlight:hover{background:rgba(232,122,30,.08)}
 
 /* ═══════ MODAL ═══════ */
-.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(12px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:all .4s}
+.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(12px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:all .4s}
 .modal-ov.active{opacity:1;visibility:visible}
-.modal{background:rgba(28,28,28,.95);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:24px;padding:44px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(30px) scale(.95);transition:all .4s cubic-bezier(.34,1.56,.64,1);position:relative}
+.modal{background:rgba(20,20,20,.96);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:24px;padding:44px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(30px) scale(.95);transition:all .4s cubic-bezier(.34,1.56,.64,1);position:relative}
 .modal-ov.active .modal{transform:translateY(0) scale(1)}
 .modal-x{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text2);font-size:1.8rem;cursor:pointer;transition:all .3s;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:10px}
 .modal-x:hover{color:var(--accent);border-color:var(--accent)}
@@ -263,12 +299,11 @@ ul{list-style:none}
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .f-grp{margin-bottom:16px}
 .f-grp label{display:block;font-family:var(--ff-h);font-size:.75rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--text2);margin-bottom:8px}
-.f-grp input,.f-grp select,.f-grp textarea{width:100%;padding:15px 18px;background:rgba(10,10,10,.6);border:1px solid rgba(255,255,255,.08);border-radius:10px;color:var(--text);font-family:var(--ff-b);font-size:.95rem;transition:all .3s;outline:none}
-.f-grp input:focus,.f-grp select:focus,.f-grp textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(232,122,30,.08),0 0 20px rgba(232,122,30,.05);background:rgba(10,10,10,.8)}
+.f-grp input,.f-grp select,.f-grp textarea{width:100%;padding:15px 18px;background:rgba(8,8,8,.7);border:1px solid rgba(255,255,255,.08);border-radius:10px;color:var(--text);font-family:var(--ff-b);font-size:.95rem;transition:all .3s;outline:none}
+.f-grp input:focus,.f-grp select:focus,.f-grp textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(232,122,30,.08),0 0 20px rgba(232,122,30,.05);background:rgba(8,8,8,.9)}
 .f-grp select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a0a0a0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
 .f-grp textarea{resize:vertical;min-height:120px}
-
-.summary{background:rgba(10,10,10,.5);border:1px solid var(--border);border-radius:14px;padding:24px;margin:24px 0}
+.summary{background:rgba(8,8,8,.6);border:1px solid var(--border);border-radius:14px;padding:24px;margin:24px 0}
 .sum-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;font-size:.9rem;color:var(--text2)}
 .sum-total{border-top:1px solid var(--border);margin-top:10px;padding-top:16px;font-family:var(--ff-h);font-size:1.1rem;font-weight:700;color:var(--text);letter-spacing:1px}
 .sum-total span:last-child{background:linear-gradient(135deg,var(--accent),var(--accent-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:1.4rem}
@@ -277,9 +312,9 @@ ul{list-style:none}
 /* ═══════ CONTACT ═══════ */
 .sec-contact{background:var(--bg2)}
 .contact-wrap{display:grid;grid-template-columns:2fr 1fr;gap:36px;align-items:start}
-.contact-form{background:rgba(20,20,20,.6);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:44px}
+.contact-form{background:rgba(17,17,17,.6);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:44px}
 .c-info{display:flex;flex-direction:column;gap:18px}
-.c-info-card{background:rgba(20,20,20,.5);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:16px;padding:30px;text-align:center;transition:all .4s;position:relative;overflow:hidden}
+.c-info-card{background:rgba(17,17,17,.5);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:16px;padding:30px;text-align:center;transition:all .4s;position:relative;overflow:hidden}
 .c-info-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-lt));transform:scaleX(0);transition:transform .5s}
 .c-info-card:hover::before{transform:scaleX(1)}
 .c-info-card:hover{border-color:var(--border-a);transform:translateY(-4px);box-shadow:0 15px 40px rgba(0,0,0,.3)}
@@ -287,10 +322,12 @@ ul{list-style:none}
 .c-info-card:hover .c-icon{transform:scale(1.15)}
 .c-info-card h4{font-family:var(--ff-h);font-size:.82rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;color:var(--accent-lt)}
 .c-info-card p{font-size:.88rem;color:var(--text2)}
+.c-info-card a{color:var(--accent-lt);transition:color .3s}
+.c-info-card a:hover{color:var(--accent)}
 
 /* ═══════ FINAL CTA ═══════ */
 .sec-cta{background:radial-gradient(ellipse at center,rgba(232,122,30,.05) 0%,var(--bg) 70%);text-align:center;padding:120px 0;position:relative;overflow:hidden}
-.sec-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(232,122,30,.06) 0%,transparent 70%);animation:ctaPulse 4s ease-in-out infinite}
+.sec-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(232,122,30,.05) 0%,transparent 70%);animation:ctaPulse 4s ease-in-out infinite}
 @keyframes ctaPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.5}50%{transform:translate(-50%,-50%) scale(1.3);opacity:1}}
 .cta-inner{max-width:700px;margin:0 auto;position:relative;z-index:1}
 .cta-logo{width:200px;margin:0 auto 44px;border-radius:16px;border:1px solid var(--border);filter:drop-shadow(0 0 20px rgba(232,122,30,.2));transition:all .5s}
@@ -299,7 +336,7 @@ ul{list-style:none}
 .cta-inner p{font-size:1.1rem;color:var(--text2);margin-bottom:44px;line-height:1.7}
 
 /* ═══════ FOOTER ═══════ */
-.footer{background:#050505;padding:80px 0 24px;border-top:1px solid var(--border)}
+.footer{background:#030303;padding:80px 0 24px;border-top:1px solid var(--border)}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:60px}
 .foot-logo{height:60px;border-radius:8px;margin-bottom:18px;filter:drop-shadow(0 0 10px rgba(232,122,30,.15))}
 .foot-brand p{font-size:.88rem;color:var(--text2);line-height:1.8;max-width:400px}
@@ -309,22 +346,33 @@ ul{list-style:none}
 .foot-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s}
 .foot-links a:hover{color:var(--accent-lt)}
 .foot-links a:hover::after{width:100%}
-.foot-bot{border-top:1px solid var(--border);padding-top:24px;text-align:center}
+.foot-socials{display:flex;gap:12px;margin-top:20px}
+.foot-soc{width:40px;height:40px;border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:all .3s;color:var(--text2)}
+.foot-soc:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 20px var(--glow)}
+.foot-bot{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .foot-bot p{font-size:.78rem;color:var(--text3);letter-spacing:1px}
 
 /* ═══════ TOAST ═══════ */
-.toast{position:fixed;bottom:32px;right:32px;display:flex;align-items:center;gap:14px;padding:18px 28px;background:rgba(28,28,28,.95);backdrop-filter:blur(16px);border:1px solid var(--green);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5);z-index:3000;transform:translateX(calc(100% + 40px));transition:transform .6s cubic-bezier(.34,1.56,.64,1)}
+.toast{position:fixed;bottom:32px;right:32px;display:flex;align-items:center;gap:14px;padding:18px 28px;background:rgba(20,20,20,.97);backdrop-filter:blur(16px);border:1px solid var(--green);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5);z-index:3000;transform:translateX(calc(100% + 40px));transition:transform .6s cubic-bezier(.34,1.56,.64,1)}
 .toast.show{transform:translateX(0)}
 .toast-ic{width:34px;height:34px;background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.1rem}
 .toast-msg{font-size:.88rem;color:var(--text)}
 
 /* ═══════ LIGHTBOX ═══════ */
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.97);z-index:3000;display:flex;align-items:center;justify-content:center;padding:40px;opacity:0;visibility:hidden;transition:all .4s;cursor:pointer}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.98);z-index:3000;display:flex;align-items:center;justify-content:center;padding:40px;opacity:0;visibility:hidden;transition:all .4s;cursor:pointer}
 .lightbox.active{opacity:1;visibility:visible}
 .lb-close{position:absolute;top:24px;right:24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;font-size:2rem;cursor:pointer;transition:all .3s;z-index:1;width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:12px}
 .lb-close:hover{color:var(--accent);border-color:var(--accent)}
 .lb-img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:8px;transform:scale(.85);transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
 .lightbox.active .lb-img{transform:scale(1)}
+
+/* ═══════ WHATSAPP ═══════ */
+.wa-btn{position:fixed;bottom:32px;left:32px;z-index:1000;width:58px;height:58px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(37,211,102,.3);transition:all .3s;animation:waPulse 3s ease-in-out infinite}
+.wa-btn:hover{transform:scale(1.1) translateY(-3px);box-shadow:0 15px 40px rgba(37,211,102,.4)}
+.wa-btn svg{width:28px;height:28px;fill:#fff}
+@keyframes waPulse{0%,100%{box-shadow:0 8px 30px rgba(37,211,102,.3)}50%{box-shadow:0 8px 40px rgba(37,211,102,.5),0 0 0 8px rgba(37,211,102,.06)}}
+.wa-tooltip{position:absolute;left:68px;background:rgba(20,20,20,.95);border:1px solid var(--border);color:var(--text);padding:8px 16px;border-radius:10px;font-size:.78rem;font-family:var(--ff-h);letter-spacing:1.5px;white-space:nowrap;opacity:0;transform:translateX(-10px);transition:all .3s;pointer-events:none}
+.wa-btn:hover .wa-tooltip{opacity:1;transform:translateX(0)}
 
 /* ═══════ RESPONSIVE ═══════ */
 @media(max-width:1024px){
@@ -333,10 +381,12 @@ ul{list-style:none}
 .tick-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
 .tick-feat{transform:none}.tick-feat:hover{transform:translateY(-6px)}
 .foot-grid{grid-template-columns:1fr 1fr;gap:40px}
+.prog-grid{grid-template-columns:repeat(2,1fr)}
+.testi-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
 .nav-links,.nav-cta{display:none}.mob-tog{display:flex}
-.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(10,10,10,.98);backdrop-filter:blur(24px);padding:24px;gap:20px;border-bottom:1px solid var(--border)}
+.nav-links.active{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(8,8,8,.99);backdrop-filter:blur(24px);padding:24px;gap:20px;border-bottom:1px solid var(--border)}
 .exp-grid{grid-template-columns:1fr}.exp-card-lg{grid-column:span 1}
 .gal-grid{grid-template-columns:repeat(2,1fr)}
 .feat-grid,.team-grid{grid-template-columns:1fr}
@@ -345,6 +395,11 @@ ul{list-style:none}
 .foot-grid{grid-template-columns:1fr;gap:32px}
 .modal{padding:28px}.contact-form{padding:28px}
 .sec-head{margin-bottom:60px}.section{padding:80px 0}
+.prog-grid{grid-template-columns:1fr}.prog-day{border-right:none;border-bottom:1px solid var(--border)}
+.prog-day:last-child{border-bottom:none}
+.testi-grid{grid-template-columns:1fr}
+.hero-countdown{gap:0}.cd-item{padding:0 16px}
+.foot-bot{flex-direction:column;text-align:center}
 }
 @media(max-width:480px){
 .gal-grid{grid-template-columns:1fr}
@@ -352,6 +407,7 @@ ul{list-style:none}
 .hero-badge{font-size:.68rem;letter-spacing:2px;padding:8px 18px}
 .gal-filter{gap:8px}.filt-btn{padding:8px 16px;font-size:.72rem}
 .hero-stats{gap:20px}.stat-num{font-size:2.2rem}
+.wa-btn{bottom:24px;left:20px}
 }
 
 /* ═══════ MISC ═══════ */
@@ -367,26 +423,32 @@ ul{list-style:none}
 <!-- Scroll Progress -->
 <div id="scrollProgress"></div>
 
+<!-- WhatsApp -->
+<a href="https://wa.me/40700000000" target="_blank" class="wa-btn" aria-label="WhatsApp">
+    <span class="wa-tooltip">SCRIE-NE PE WHATSAPP</span>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
 <!-- ═══════ NAVBAR ═══════ -->
 <nav id="navbar" class="navbar">
     <div class="nav-c">
         <a href="#hero"><img src="assets/images/logo-light.jpg" alt="Spartan Camp" class="logo-img"></a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#experienta">Experiența</a></li>
+            <li><a href="#program">Program</a></li>
             <li><a href="#galerie">Galerie</a></li>
             <li><a href="#facilitati">Facilități</a></li>
-            <li><a href="#echipa">Echipa</a></li>
             <li><a href="#bilete">Bilete</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#bilete" class="nav-cta">Cumpără Bilet</a>
+        <a href="#bilete" class="nav-cta">🎫 Cumpără Bilet</a>
         <button class="mob-tog" id="mobTog"><span></span><span></span><span></span></button>
     </div>
 </nav>
 
 <!-- ═══════ HERO ═══════ -->
 <section id="hero" class="hero">
-    <div class="hero-bg"><img src="assets/images/offroad.png" alt="Off-road adventure"></div>
+    <div class="hero-bg"><img src="assets/images/hero1.jpg" alt="Spartan Camp Adventure" onerror="this.src='assets/images/offroad.png'"></div>
     <div class="hero-overlay"></div>
     <canvas id="particleCanvas"></canvas>
     <div class="hero-content">
@@ -401,6 +463,15 @@ ul{list-style:none}
             <a href="#bilete" class="btn btn-p btn-glow">🎫 CUMPĂRĂ BILET</a>
             <a href="#contact" class="btn btn-s">📞 SOLICITĂ CONSULTANȚĂ</a>
         </div>
+
+        <!-- COUNTDOWN -->
+        <div class="hero-countdown">
+            <div class="cd-item"><span class="cd-num" id="cdDays">00</span><span class="cd-label">Zile</span></div>
+            <div class="cd-item"><span class="cd-num" id="cdHours">00</span><span class="cd-label">Ore</span></div>
+            <div class="cd-item"><span class="cd-num" id="cdMin">00</span><span class="cd-label">Minute</span></div>
+            <div class="cd-item"><span class="cd-num" id="cdSec">00</span><span class="cd-label">Secunde</span></div>
+        </div>
+
         <div class="hero-stats">
             <div class="stat"><span class="stat-num" data-count="500">0</span><span class="stat-plus">+</span><span class="stat-label">Participanți</span></div>
             <div class="stat-div"></div>
@@ -410,7 +481,7 @@ ul{list-style:none}
         </div>
     </div>
     <div class="hero-scroll"><div class="scroll-mouse"><div class="scroll-wheel"></div></div><span>Descoperă mai mult</span></div>
-    <div class="divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#0a0a0a"/></svg></div>
+    <div class="divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#080808"/></svg></div>
 </section>
 
 <!-- ═══════ EXPERIENȚA ═══════ -->
@@ -448,7 +519,66 @@ ul{list-style:none}
             </div>
         </div>
     </div>
-    <div class="divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,20 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="#0e0e0e"/></svg></div>
+    <div class="divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,20 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="#0d0d0d"/></svg></div>
+</section>
+
+<!-- ═══════ PROGRAM 4 ZILE ═══════ -->
+<section id="program" class="section sec-program">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="sec-tag">CE FACEM</span>
+            <h2 class="sec-title">Program <span class="accent">4 Zile</span></h2>
+            <p class="sec-sub">Fiecare zi e planificată pentru maximum de adrenalină, relaxare și amintiri.</p>
+        </div>
+        <div class="prog-wrap reveal">
+            <div class="prog-grid">
+                <div class="prog-day">
+                    <div class="prog-num">01</div>
+                    <span class="prog-day-label">Ziua 1 — Sosire</span>
+                    <h3>Check-in & Cunoaștere</h3>
+                    <div class="prog-items">
+                        <div class="prog-item"><span>🚌</span><span>Plecare cu autocarul din București</span></div>
+                        <div class="prog-item"><span>🏡</span><span>Cazare la vilă / cabane</span></div>
+                        <div class="prog-item"><span>🍽️</span><span>Cină de bun-venit, prezentări</span></div>
+                        <div class="prog-item"><span>🔥</span><span>Foc de tabără, socializare</span></div>
+                    </div>
+                </div>
+                <div class="prog-day">
+                    <div class="prog-num">02</div>
+                    <span class="prog-day-label">Ziua 2 — Adrenalină</span>
+                    <h3>Off-Road & Poligon</h3>
+                    <div class="prog-items">
+                        <div class="prog-item"><span>☀️</span><span>Mic dejun complet, briefing</span></div>
+                        <div class="prog-item"><span>🚗</span><span>Zi întreagă de off-road cu buggy</span></div>
+                        <div class="prog-item"><span>🎯</span><span>Poligon de tragere — forțe speciale</span></div>
+                        <div class="prog-item"><span>🎶</span><span>Party cu DJ, masă festivă</span></div>
+                    </div>
+                </div>
+                <div class="prog-day">
+                    <div class="prog-num">03</div>
+                    <span class="prog-day-label">Ziua 3 — Turism</span>
+                    <h3>Salina & Castelul Bran</h3>
+                    <div class="prog-items">
+                        <div class="prog-item"><span>🏛️</span><span>Salina Târgu Ocna — tur complet</span></div>
+                        <div class="prog-item"><span>🏰</span><span>Castelul Bran / Dracula</span></div>
+                        <div class="prog-item"><span>🌄</span><span>Peisaje transilvănene</span></div>
+                        <div class="prog-item"><span>🍖</span><span>Grătar & relaxare în natură</span></div>
+                    </div>
+                </div>
+                <div class="prog-day">
+                    <div class="prog-num">04</div>
+                    <span class="prog-day-label">Ziua 4 — Finalizare</span>
+                    <h3>Relaxare & Întoarcere</h3>
+                    <div class="prog-items">
+                        <div class="prog-item"><span>💆</span><span>Masaj & wellness opțional</span></div>
+                        <div class="prog-item"><span>📸</span><span>Sesiune foto de grup</span></div>
+                        <div class="prog-item"><span>🎁</span><span>Premii & surprize Spartan</span></div>
+                        <div class="prog-item"><span>🚌</span><span>Întoarcere în București</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- ═══════ GALERIE ═══════ -->
@@ -467,12 +597,14 @@ ul{list-style:none}
             <button class="filt-btn" data-f="turism">Turism</button>
         </div>
         <div class="gal-grid" id="galGrid">
-            <div class="gal-item reveal-scale" data-cat="offroad"><img src="assets/images/offroad.png" alt="Off-road" loading="lazy"><div class="gal-ov"><span class="gal-label">Off-Road Extrem</span></div></div>
-            <div class="gal-item reveal-scale" data-cat="poligon" style="transition-delay:.1s"><img src="assets/images/poligon.png" alt="Poligon" loading="lazy"><div class="gal-ov"><span class="gal-label">Poligon de Tragere</span></div></div>
-            <div class="gal-item reveal-scale" data-cat="party" style="transition-delay:.2s"><img src="assets/images/party.png" alt="Party" loading="lazy"><div class="gal-ov"><span class="gal-label">Party & DJ</span></div></div>
-            <div class="gal-item reveal-scale" data-cat="turism" style="transition-delay:.3s"><img src="assets/images/salina.png" alt="Salina" loading="lazy"><div class="gal-ov"><span class="gal-label">Salina Târgu Ocna</span></div></div>
-            <div class="gal-item reveal-scale" data-cat="turism" style="transition-delay:.4s"><img src="assets/images/castel.png" alt="Castel" loading="lazy"><div class="gal-ov"><span class="gal-label">Castelul Dracula</span></div></div>
-            <div class="gal-item reveal-scale" data-cat="party" style="transition-delay:.5s"><img src="assets/images/food.png" alt="Food" loading="lazy"><div class="gal-ov"><span class="gal-label">Mâncare Home-Made</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="offroad"><img src="assets/images/hero1.jpg" alt="Spartan Camp" loading="lazy" onerror="this.src='assets/images/offroad.png'"><div class="gal-ov"><span class="gal-label">Spartan Camp</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="offroad" style="transition-delay:.1s"><img src="assets/images/offroad.png" alt="Off-road" loading="lazy"><div class="gal-ov"><span class="gal-label">Off-Road Extrem</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="poligon" style="transition-delay:.2s"><img src="assets/images/poligon.png" alt="Poligon" loading="lazy"><div class="gal-ov"><span class="gal-label">Poligon de Tragere</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="party" style="transition-delay:.3s"><img src="assets/images/party.png" alt="Party" loading="lazy"><div class="gal-ov"><span class="gal-label">Party & DJ</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="turism" style="transition-delay:.4s"><img src="assets/images/salina.png" alt="Salina" loading="lazy"><div class="gal-ov"><span class="gal-label">Salina Târgu Ocna</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="turism" style="transition-delay:.5s"><img src="assets/images/castel.png" alt="Castel" loading="lazy"><div class="gal-ov"><span class="gal-label">Castelul Dracula</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="party" style="transition-delay:.6s"><img src="assets/images/food.png" alt="Food" loading="lazy"><div class="gal-ov"><span class="gal-label">Mâncare Home-Made</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="offroad" style="transition-delay:.7s"><img src="assets/images/hero2.jpg" alt="Spartan Camp 2" loading="lazy" onerror="this.src='assets/images/offroad.png'"><div class="gal-ov"><span class="gal-label">Aventură Pură</span></div></div>
         </div>
     </div>
 </section>
@@ -494,10 +626,42 @@ ul{list-style:none}
             <div class="feat-card reveal" style="transition-delay:.5s"><div class="feat-icon">💆</div><h3>Masaj la Cerere</h3><p>Serviciu de masaj disponibil pentru relaxare după activitățile intense.</p><div class="feat-badge">EXTRA</div></div>
         </div>
         <div class="disc-banner reveal">
-            <div class="disc-ct"><div class="disc-badge">-15%</div><div class="disc-text"><h3>Vii cu mașina ta? Primești 15% reducere!</h3><p>Alege opțiunea de transport propriu și beneficiezi automat de discount.</p></div></div>
+            <div class="disc-ct"><div class="disc-badge">-15%</div><div class="disc-text"><h3>Vii cu mașina ta? Primești 15% reducere!</h3><p>Alege opțiunea de transport propriu și beneficiezi automat de discount la prețul biletului.</p></div></div>
         </div>
     </div>
-    <div class="divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,60 C360,20 720,80 1080,20 C1260,0 1380,30 1440,20 L1440,80 L0,80 Z" fill="#0e0e0e"/></svg></div>
+    <div class="divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,60 C360,20 720,80 1080,20 C1260,0 1380,30 1440,20 L1440,80 L0,80 Z" fill="#0d0d0d"/></svg></div>
+</section>
+
+<!-- ═══════ TESTIMONIALE ═══════ -->
+<section class="section sec-testi">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="sec-tag">CE SPUN EI</span>
+            <h2 class="sec-title">Experiențe <span class="accent">Reale</span></h2>
+            <p class="sec-sub">Oameni reali, experiențe autentice. Asta e Spartan Camp.</p>
+        </div>
+        <div class="testi-grid">
+            <div class="testi-card reveal" style="transition-delay:0s">
+                <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                <div class="testi-quote">"</div>
+                <p class="testi-text">Cel mai tare weekend din viața mea. Off-road-ul a fost extrem, poligonul de tragere — de neimaginat. Revin cu siguranță la ediția următoare!</p>
+                <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Alexandru M.</div><div class="testi-loc">București · Ediția 2024</div></div></div>
+            </div>
+            <div class="testi-card reveal" style="transition-delay:.15s">
+                <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                <div class="testi-quote">"</div>
+                <p class="testi-text">Am venit cu colegii de birou și a fost cel mai bun team building posibil. Organizare impecabilă, mâncare excelentă, distracție garantată.</p>
+                <div class="testi-author"><div class="testi-avatar">C</div><div><div class="testi-name">Cristina P.</div><div class="testi-loc">Cluj-Napoca · Ediția 2024</div></div></div>
+            </div>
+            <div class="testi-card reveal" style="transition-delay:.3s">
+                <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                <div class="testi-quote">"</div>
+                <p class="testi-text">Castelul Bran, salina, off-road-ul — totul într-un pachet. Prețul e mai mult decât corect. Nu am regrete, doar amintiri frumoase.</p>
+                <div class="testi-author"><div class="testi-avatar">R</div><div><div class="testi-name">Radu T.</div><div class="testi-loc">Timișoara · Ediția 2025</div></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#080808"/></svg></div>
 </section>
 
 <!-- ═══════ ECHIPA ═══════ -->
@@ -518,6 +682,7 @@ ul{list-style:none}
             <div class="team-card reveal" style="transition-delay:.4s"><div class="tm-icon">🛡️</div><h3>Pază Permanentă</h3><p>Securitate 24/7 pe toată durata taberei.</p></div>
         </div>
     </div>
+    <div class="divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,30 C480,70 960,10 1440,50 L1440,80 L0,80 Z" fill="#080808"/></svg></div>
 </section>
 
 <!-- ═══════ BILETE ═══════ -->
@@ -530,7 +695,7 @@ ul{list-style:none}
         </div>
         <div class="tick-grid">
             <div class="tick-card reveal">
-                <div class="tick-head"><span class="tick-label">STANDARD</span><div class="tick-price"><span class="price-amt" id="priceStandard">1.200</span> <span class="price-cur">RON</span><br><span class="price-per">/persoană</span></div></div>
+                <div class="tick-head"><span class="tick-label">STANDARD</span><div class="tick-price"><span class="price-amt" id="priceStandard">1.200</span> <span class="price-cur">RON</span><br><span class="price-per">/persoană · all-inclusive</span></div></div>
                 <ul class="tick-feats">
                     <li><span class="ck">✓</span> Transport autocar inclus</li>
                     <li><span class="ck">✓</span> Cazare completă</li>
@@ -541,11 +706,11 @@ ul{list-style:none}
                     <li class="dis"><span class="xx">✗</span> Vizite turistice</li>
                 </ul>
                 <label class="chk-label"><input type="checkbox" class="own-tr" data-t="standard" data-b="1200"><span class="chk-mark"></span><span>Vin cu transport propriu (-15%)</span></label>
-                <button class="btn btn-ticket" onclick="openCO('standard')">REZERVĂ ACUM</button>
+                <button class="btn btn-ticket" onclick="openCO('standard')">REZERVĂ ACUM →</button>
             </div>
             <div class="tick-card tick-feat reveal" style="transition-delay:.15s">
                 <div class="tick-pop">⚡ CEL MAI POPULAR</div>
-                <div class="tick-head"><span class="tick-label">PREMIUM</span><div class="tick-price"><span class="price-amt" id="pricePremium">1.800</span> <span class="price-cur">RON</span><br><span class="price-per">/persoană</span></div></div>
+                <div class="tick-head"><span class="tick-label">PREMIUM</span><div class="tick-price"><span class="price-amt" id="pricePremium">1.800</span> <span class="price-cur">RON</span><br><span class="price-per">/persoană · all-inclusive</span></div></div>
                 <ul class="tick-feats">
                     <li><span class="ck">✓</span> Transport autocar inclus</li>
                     <li><span class="ck">✓</span> Cazare premium (vilă/cabană)</li>
@@ -556,10 +721,10 @@ ul{list-style:none}
                     <li><span class="ck">✓</span> Salina + Castelul Dracula</li>
                 </ul>
                 <label class="chk-label"><input type="checkbox" class="own-tr" data-t="premium" data-b="1800"><span class="chk-mark"></span><span>Vin cu transport propriu (-15%)</span></label>
-                <button class="btn btn-p btn-ticket" onclick="openCO('premium')">REZERVĂ ACUM</button>
+                <button class="btn btn-p btn-ticket" onclick="openCO('premium')">REZERVĂ ACUM →</button>
             </div>
             <div class="tick-card reveal" style="transition-delay:.3s">
-                <div class="tick-head"><span class="tick-label">VIP SPARTAN</span><div class="tick-price"><span class="price-amt" id="priceVip">2.500</span> <span class="price-cur">RON</span><br><span class="price-per">/persoană</span></div></div>
+                <div class="tick-head"><span class="tick-label">VIP SPARTAN</span><div class="tick-price"><span class="price-amt" id="priceVip">2.500</span> <span class="price-cur">RON</span><br><span class="price-per">/persoană · all-inclusive</span></div></div>
                 <ul class="tick-feats">
                     <li><span class="ck">✓</span> Transport premium</li>
                     <li><span class="ck">✓</span> Cazare VIP (vilă + jacuzzi)</li>
@@ -571,7 +736,7 @@ ul{list-style:none}
                     <li><span class="ck">✓</span> Masaj inclus</li>
                 </ul>
                 <label class="chk-label"><input type="checkbox" class="own-tr" data-t="vip" data-b="2500"><span class="chk-mark"></span><span>Vin cu transport propriu (-15%)</span></label>
-                <button class="btn btn-ticket" onclick="openCO('vip')">REZERVĂ ACUM</button>
+                <button class="btn btn-ticket" onclick="openCO('vip')">REZERVĂ ACUM →</button>
             </div>
         </div>
     </div>
@@ -605,7 +770,7 @@ ul{list-style:none}
         <div class="sec-head reveal">
             <span class="sec-tag">VORBIM?</span>
             <h2 class="sec-title">Solicită <span class="accent">Consultanță</span></h2>
-            <p class="sec-sub">Ai întrebări? Echipa noastră te contactează pentru toate detaliile.</p>
+            <p class="sec-sub">Ai întrebări? Echipa noastră te contactează în maxim 24 de ore.</p>
         </div>
         <div class="contact-wrap reveal">
             <form id="contactForm" class="contact-form">
@@ -616,9 +781,10 @@ ul{list-style:none}
                 <button type="submit" class="btn btn-p btn-full">TRIMITE MESAJUL</button>
             </form>
             <div class="c-info">
-                <div class="c-info-card"><div class="c-icon">📞</div><h4>Telefon</h4><p>+40 7XX XXX XXX</p></div>
-                <div class="c-info-card"><div class="c-icon">📧</div><h4>Email</h4><p>contact@spartancamp.ro</p></div>
-                <div class="c-info-card"><div class="c-icon">📍</div><h4>Locație</h4><p>România — Traseele vor fi anunțate</p></div>
+                <div class="c-info-card"><div class="c-icon">📞</div><h4>Telefon / WhatsApp</h4><p><a href="tel:+40700000000">+40 7XX XXX XXX</a></p></div>
+                <div class="c-info-card"><div class="c-icon">📧</div><h4>Email</h4><p><a href="mailto:contact@spartancamp.ro">contact@spartancamp.ro</a></p></div>
+                <div class="c-info-card"><div class="c-icon">📍</div><h4>Locație</h4><p>România — Traseele vor fi anunțate cu 2 săptămâni înainte</p></div>
+                <div class="c-info-card"><div class="c-icon">📅</div><h4>Data</h4><p>Ediția 2026 — Locuri limitate</p></div>
             </div>
         </div>
     </div>
@@ -630,8 +796,11 @@ ul{list-style:none}
         <div class="cta-inner reveal">
             <img src="assets/images/logo-dark.jpg" alt="Spartan Camp" class="cta-logo">
             <h2>Ești pregătit să devii <span class="accent">SPARTAN</span>?</h2>
-            <p>Locurile sunt limitate. Nu rata cea mai intensă experiență de aventură din România.</p>
-            <div style="display:flex;justify-content:center"><a href="#bilete" class="btn btn-p btn-glow btn-lg">🎫 CUMPĂRĂ BILET ACUM</a></div>
+            <p>Locurile se ocupă rapid. Nu rata cea mai intensă experiență de aventură din România — ediția 2026.</p>
+            <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap">
+                <a href="#bilete" class="btn btn-p btn-glow btn-lg">🎫 CUMPĂRĂ BILET ACUM</a>
+                <a href="https://wa.me/40700000000" target="_blank" class="btn btn-s btn-lg">💬 WHATSAPP</a>
+            </div>
         </div>
     </div>
 </section>
@@ -640,11 +809,35 @@ ul{list-style:none}
 <footer class="footer">
     <div class="container">
         <div class="foot-grid">
-            <div class="foot-brand"><img src="assets/images/logo-light.jpg" alt="Spartan Camp" class="foot-logo"><p>Experiența supremă de aventură în România. Off-road, poligon, party și turism — totul într-un singur pachet.</p></div>
-            <div class="foot-links"><h4>Navigare</h4><ul><li><a href="#experienta">Experiența</a></li><li><a href="#galerie">Galerie</a></li><li><a href="#facilitati">Facilități</a></li><li><a href="#echipa">Echipa</a></li></ul></div>
-            <div class="foot-links"><h4>Acțiune</h4><ul><li><a href="#bilete">Cumpără Bilet</a></li><li><a href="#contact">Contact</a></li><li><a href="#">Termeni & Condiții</a></li><li><a href="#">Politica de Confidențialitate</a></li></ul></div>
+            <div class="foot-brand">
+                <img src="assets/images/logo-light.jpg" alt="Spartan Camp" class="foot-logo">
+                <p>Experiența supremă de aventură în România. Off-road, poligon, party și turism — totul într-un singur pachet all-inclusive.</p>
+                <div class="foot-socials">
+                    <a href="#" class="foot-soc" aria-label="Facebook">f</a>
+                    <a href="#" class="foot-soc" aria-label="Instagram">ig</a>
+                    <a href="#" class="foot-soc" aria-label="TikTok">tt</a>
+                    <a href="https://wa.me/40700000000" class="foot-soc" aria-label="WhatsApp">wa</a>
+                </div>
+            </div>
+            <div class="foot-links"><h4>Navigare</h4><ul>
+                <li><a href="#experienta">Experiența</a></li>
+                <li><a href="#program">Program 4 Zile</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#facilitati">Facilități</a></li>
+                <li><a href="#echipa">Echipa</a></li>
+            </ul></div>
+            <div class="foot-links"><h4>Acțiune</h4><ul>
+                <li><a href="#bilete">Cumpără Bilet</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Termeni & Condiții</a></li>
+                <li><a href="#">Politica de Confidențialitate</a></li>
+                <li><a href="#">GDPR</a></li>
+            </ul></div>
         </div>
-        <div class="foot-bot"><p>&copy; 2026 Spartan Camp Adventure Romania. Toate drepturile rezervate.</p></div>
+        <div class="foot-bot">
+            <p>&copy; 2026 Spartan Camp Adventure Romania. Toate drepturile rezervate.</p>
+            <p style="color:var(--text3)">Construit cu ❤️ pentru aventurieri</p>
+        </div>
     </div>
 </footer>
 
@@ -674,16 +867,11 @@ const navLinks = document.getElementById('navLinks');
 mobTog.addEventListener('click', () => { mobTog.classList.toggle('active'); navLinks.classList.toggle('active'); });
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobTog.classList.remove('active'); navLinks.classList.remove('active'); }));
 
-// ═══════ SCROLL REVEAL ANIMATIONS ═══════
+// ═══════ SCROLL REVEAL ═══════
 function initReveal() {
     const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
     const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if(e.isIntersecting) {
-                e.target.classList.add('vis');
-                obs.unobserve(e.target);
-            }
-        });
+        entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     els.forEach(el => obs.observe(el));
 }
@@ -693,16 +881,13 @@ initReveal();
 function initCounters() {
     const counters = document.querySelectorAll('[data-count]');
     const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if(e.isIntersecting) { animCount(e.target); obs.unobserve(e.target); }
-        });
+        entries.forEach(e => { if(e.isIntersecting) { animCount(e.target); obs.unobserve(e.target); } });
     }, { threshold: 0.5 });
     counters.forEach(c => obs.observe(c));
 }
 function animCount(el) {
     const target = parseInt(el.dataset.count);
-    const dur = 2500;
-    const start = performance.now();
+    const dur = 2500, start = performance.now();
     function upd(ts) {
         const p = Math.min((ts-start)/dur, 1);
         const eased = 1 - Math.pow(1-p, 4);
@@ -714,6 +899,33 @@ function animCount(el) {
 }
 initCounters();
 
+// ═══════ COUNTDOWN ═══════
+function initCountdown() {
+    const target = new Date('2026-07-15T08:00:00');
+    function update() {
+        const now = new Date();
+        const diff = target - now;
+        if(diff <= 0) {
+            document.getElementById('cdDays').textContent = '00';
+            document.getElementById('cdHours').textContent = '00';
+            document.getElementById('cdMin').textContent = '00';
+            document.getElementById('cdSec').textContent = '00';
+            return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cdDays').textContent = String(d).padStart(2,'0');
+        document.getElementById('cdHours').textContent = String(h).padStart(2,'0');
+        document.getElementById('cdMin').textContent = String(m).padStart(2,'0');
+        document.getElementById('cdSec').textContent = String(s).padStart(2,'0');
+    }
+    update();
+    setInterval(update, 1000);
+}
+initCountdown();
+
 // ═══════ PARTICLES ═══════
 (function() {
     const c = document.getElementById('particleCanvas');
@@ -721,53 +933,28 @@ initCounters();
     const ctx = c.getContext('2d');
     const N = 55;
     let particles = [];
-
     function resize() { c.width = c.parentElement.offsetWidth; c.height = c.parentElement.offsetHeight; }
-    
     class P {
         constructor() { this.reset(); }
         reset() {
-            this.x = Math.random()*c.width;
-            this.y = c.height + Math.random()*100;
-            this.sz = Math.random()*3+.5;
-            this.vy = -(Math.random()*1.5+.3);
-            this.vx = (Math.random()-.5)*.8;
-            this.op = Math.random()*.6+.1;
-            this.fade = Math.random()*.005+.002;
-            this.w = Math.random()*Math.PI*2;
+            this.x = Math.random()*c.width; this.y = c.height + Math.random()*100;
+            this.sz = Math.random()*3+.5; this.vy = -(Math.random()*1.5+.3);
+            this.vx = (Math.random()-.5)*.8; this.op = Math.random()*.6+.1;
+            this.fade = Math.random()*.005+.002; this.w = Math.random()*Math.PI*2;
             this.ws = Math.random()*.02+.01;
             const h = 25+Math.random()*20, s = 80+Math.random()*20, l = 50+Math.random()*20;
             this.col = `hsla(${h},${s}%,${l}%,`;
         }
-        update() {
-            this.w += this.ws;
-            this.x += this.vx + Math.sin(this.w)*.3;
-            this.y += this.vy;
-            this.op -= this.fade;
-            if(this.op <= 0 || this.y < -20) this.reset();
-        }
+        update() { this.w+=this.ws; this.x+=this.vx+Math.sin(this.w)*.3; this.y+=this.vy; this.op-=this.fade; if(this.op<=0||this.y<-20) this.reset(); }
         draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.sz, 0, Math.PI*2);
-            ctx.fillStyle = this.col+this.op+')';
-            ctx.fill();
-            if(this.sz > 1.5) {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.sz*3, 0, Math.PI*2);
-                ctx.fillStyle = this.col+(this.op*.15)+')';
-                ctx.fill();
-            }
+            ctx.beginPath(); ctx.arc(this.x,this.y,this.sz,0,Math.PI*2);
+            ctx.fillStyle=this.col+this.op+')'; ctx.fill();
+            if(this.sz>1.5){ ctx.beginPath(); ctx.arc(this.x,this.y,this.sz*3,0,Math.PI*2); ctx.fillStyle=this.col+(this.op*.15)+')'; ctx.fill(); }
         }
     }
-
     resize();
-    for(let i=0;i<N;i++) { const p = new P(); p.y = Math.random()*c.height; particles.push(p); }
-
-    function anim() {
-        ctx.clearRect(0,0,c.width,c.height);
-        particles.forEach(p => { p.update(); p.draw(); });
-        requestAnimationFrame(anim);
-    }
+    for(let i=0;i<N;i++){ const p=new P(); p.y=Math.random()*c.height; particles.push(p); }
+    function anim() { ctx.clearRect(0,0,c.width,c.height); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(anim); }
     anim();
     window.addEventListener('resize', resize);
 })();
@@ -806,7 +993,6 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') { closeLB(); cl
 // ═══════ TICKETING ═══════
 const prices = { standard:1200, premium:1800, vip:2500 };
 const labels = { standard:'STANDARD', premium:'PREMIUM', vip:'VIP SPARTAN' };
-
 document.querySelectorAll('.own-tr').forEach(cb => {
     cb.addEventListener('change', () => {
         const t = cb.dataset.t, b = parseInt(cb.dataset.b);
@@ -832,14 +1018,11 @@ function openCO(type) {
     updateSum();
 }
 window.openCO = openCO;
-
 function closeCO() { document.getElementById('coModal').classList.remove('active'); document.body.style.overflow=''; }
 document.getElementById('coClose').addEventListener('click', closeCO);
 document.getElementById('coModal').addEventListener('click', e => { if(e.target.id==='coModal') closeCO(); });
-
 document.getElementById('coOwnTr').addEventListener('change', updateSum);
 document.getElementById('coQty').addEventListener('input', updateSum);
-
 function updateSum() {
     const own = document.getElementById('coOwnTr').checked;
     const qty = parseInt(document.getElementById('coQty').value) || 1;
@@ -852,10 +1035,8 @@ function updateSum() {
     document.getElementById('sumUnit').textContent = base.toLocaleString('ro-RO')+' RON';
     document.getElementById('sumTotal').textContent = (unit*qty).toLocaleString('ro-RO')+' RON';
 }
-
 document.getElementById('coForm').addEventListener('submit', e => {
-    e.preventDefault();
-    closeCO();
+    e.preventDefault(); closeCO();
     showToast('🎫 Rezervare trimisă cu succes! Te contactăm în curând.');
     e.target.reset();
 });
@@ -910,15 +1091,6 @@ document.querySelectorAll('.exp-card, .tick-card').forEach(card => {
     hero.addEventListener('mouseleave', () => { glow.style.opacity='0'; });
 })();
 
-// ═══════ SMOOTH SCROLL ═══════
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', function(e) {
-        e.preventDefault();
-        const t = document.querySelector(this.getAttribute('href'));
-        if(t) window.scrollTo({ top: t.getBoundingClientRect().top+window.pageYOffset-nav.offsetHeight, behavior:'smooth' });
-    });
-});
-
 // ═══════ TEXT DECODE EFFECT ═══════
 (function() {
     const tags = document.querySelectorAll('.sec-tag');
@@ -943,6 +1115,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }, { threshold: 0.5 });
     tags.forEach(t => obs.observe(t));
 })();
+
+// ═══════ SMOOTH SCROLL ═══════
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+        e.preventDefault();
+        const t = document.querySelector(this.getAttribute('href'));
+        if(t) window.scrollTo({ top: t.getBoundingClientRect().top+window.pageYOffset-nav.offsetHeight, behavior:'smooth' });
+    });
+});
 </script>
 </body>
 </html>
