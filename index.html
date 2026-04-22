@@ -140,7 +140,8 @@ ul{list-style:none}
 .why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-lt));transform:scaleX(0);transform-origin:left;transition:transform .5s}
 .why-card:hover::before{transform:scaleX(1)}
 .why-card:hover{border-color:var(--border-a);transform:translateY(-6px);box-shadow:0 25px 60px rgba(0,0,0,.35)}
-.why-icon{font-size:3rem;margin-bottom:22px}
+.why-icon{width:54px;height:54px;border:1px solid var(--border-a);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;color:var(--accent)}
+.why-icon svg{width:24px;height:24px}
 .why-card h3{font-family:var(--ff-h);font-size:1.15rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;color:var(--text)}
 .why-card p{font-size:.9rem;color:var(--text2);line-height:1.75}
 
@@ -178,7 +179,7 @@ ul{list-style:none}
 .prog-day h3{font-family:var(--ff-d);font-size:1.8rem;letter-spacing:2px;margin-bottom:18px;color:var(--text)}
 .prog-items{display:flex;flex-direction:column;gap:10px}
 .prog-item{display:flex;align-items:flex-start;gap:10px;font-size:.85rem;color:var(--text2)}
-.prog-item span:first-child{flex-shrink:0;font-size:1rem;margin-top:1px}
+.prog-item span:first-child{flex-shrink:0;color:var(--accent);font-size:.7rem;font-weight:700;margin-top:3px;letter-spacing:1px}
 .prog-wrap{border:1px solid var(--border);border-radius:20px;overflow:hidden}
 
 /* GALLERY */
@@ -203,8 +204,9 @@ ul{list-style:none}
 .feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-lt),#ff6b00);background-size:300% 100%;transform:scaleX(0);transform-origin:left;transition:transform .5s;animation:gradShift 3s linear infinite paused}
 .feat-card:hover::before{transform:scaleX(1);animation-play-state:running}
 .feat-card:hover{border-color:var(--border-a);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.3)}
-.feat-icon{font-size:2.8rem;margin-bottom:20px;transition:transform .5s}
-.feat-card:hover .feat-icon{transform:scale(1.15)}
+.feat-icon{width:54px;height:54px;border:1px solid var(--border-a);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--accent);position:relative;z-index:1;transition:transform .5s}
+.feat-icon svg{width:24px;height:24px}
+.feat-card:hover .feat-icon{transform:scale(1.1)}
 .feat-card h3{font-family:var(--ff-h);font-size:1.1rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:12px}
 .feat-card p{font-size:.88rem;color:var(--text2);line-height:1.7}
 .feat-badge{display:inline-block;margin-top:18px;padding:5px 18px;font-family:var(--ff-h);font-size:.68rem;letter-spacing:2.5px;border-radius:50px;background:rgba(34,197,94,.08);color:var(--green);border:1px solid rgba(34,197,94,.25)}
@@ -241,8 +243,9 @@ ul{list-style:none}
 .team-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:50px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-lt));border-radius:0 0 4px 4px;opacity:0;transition:all .5s}
 .team-card:hover::before{opacity:1;width:80px}
 .team-card:hover{border-color:var(--border-a);transform:translateY(-6px);box-shadow:0 25px 60px rgba(0,0,0,.4)}
-.tm-icon{font-size:2.8rem;margin-bottom:18px;transition:transform .4s}
-.team-card:hover .tm-icon{transform:scale(1.2) rotate(5deg)}
+.tm-icon{width:48px;height:48px;border:1px solid var(--border-a);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--accent);transition:transform .4s}
+.tm-icon svg{width:22px;height:22px}
+.team-card:hover .tm-icon{transform:scale(1.15)}
 .team-card h3{font-family:var(--ff-h);font-size:.95rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;color:var(--accent-lt)}
 .team-card p{font-size:.83rem;color:var(--text2);line-height:1.7}
 
@@ -308,8 +311,9 @@ ul{list-style:none}
 .c-info-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-lt));transform:scaleX(0);transition:transform .5s}
 .c-info-card:hover::before{transform:scaleX(1)}
 .c-info-card:hover{border-color:var(--border-a);transform:translateY(-4px);box-shadow:0 15px 40px rgba(0,0,0,.3)}
-.c-icon{font-size:2rem;margin-bottom:14px;transition:transform .4s}
-.c-info-card:hover .c-icon{transform:scale(1.15)}
+.c-icon{width:44px;height:44px;border:1px solid var(--border-a);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:var(--accent);transition:transform .4s}
+.c-icon svg{width:20px;height:20px}
+.c-info-card:hover .c-icon{transform:scale(1.1)}
 .c-info-card h4{font-family:var(--ff-h);font-size:.82rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;color:var(--accent-lt)}
 .c-info-card p{font-size:.88rem;color:var(--text2)}
 .c-info-card a{color:var(--accent-lt);transition:color .3s}
@@ -429,7 +433,7 @@ ul{list-style:none}
             <li><a href="#tickets">Tickets</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#tickets" class="nav-cta">🎫 Book Now</a>
+        <a href="#tickets" class="nav-cta">BOOK NOW</a>
         <button class="mob-tog" id="mobTog"><span></span><span></span><span></span></button>
     </div>
 </nav>
@@ -447,8 +451,8 @@ ul{list-style:none}
         </h1>
         <p class="hero-sub">Extreme off-road · Live shooting range · Legendary party · Breathtaking Romania</p>
         <div class="hero-ctas">
-            <a href="#tickets" class="btn btn-p btn-glow">🎫 BOOK YOUR SPOT</a>
-            <a href="#contact" class="btn btn-s">📞 REQUEST A CALLBACK</a>
+            <a href="#tickets" class="btn btn-p btn-glow">BOOK YOUR SPOT</a>
+            <a href="#contact" class="btn btn-s">REQUEST A CALLBACK</a>
         </div>
         <div class="hero-countdown">
             <div class="cd-item"><span class="cd-num" id="cdDays">00</span><span class="cd-label">Days</span></div>
@@ -477,17 +481,17 @@ ul{list-style:none}
         </div>
         <div class="why-grid">
             <div class="why-card reveal" style="transition-delay:0s">
-                <div class="why-icon">🏔️</div>
+                <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 20 21 20 12 4 3 20"/><line x1="12" y1="12" x2="16" y2="20"/></svg></div>
                 <h3>Raw Romanian Wilderness</h3>
                 <p>Untouched mountain terrain, dramatic landscapes and routes that no UK adventure park can replicate. This is the real thing — no safety nets, no tourist traps.</p>
             </div>
             <div class="why-card reveal" style="transition-delay:.15s">
-                <div class="why-icon">💷</div>
+                <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M15 9a3 3 0 00-5.12 2.12C9.52 12.59 11 13 11 13H9m0 2h6"/></svg></div>
                 <h3>Exceptional Value for Money</h3>
                 <p>A 4-day all-inclusive adventure in Romania costs a fraction of what you'd pay for a comparable experience in the UK. More adrenaline, less spend.</p>
             </div>
             <div class="why-card reveal" style="transition-delay:.3s">
-                <div class="why-icon">🎖️</div>
+                <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                 <h3>Led by Special Forces</h3>
                 <p>Real Romanian military instructors. A live shooting range experience that is simply not available in the UK. This alone makes the trip worth every penny.</p>
             </div>
@@ -507,27 +511,27 @@ ul{list-style:none}
         <div class="exp-grid">
             <div class="exp-card exp-card-lg reveal-left">
                 <div class="exp-img"><img src="assets/images/offroad.png" alt="Extreme off-road" loading="lazy"><div class="exp-ov"></div></div>
-                <div class="exp-ct"><span class="exp-tag">🚗 MAIN EVENT</span><h3>Extreme Off-Road</h3><p>A full day of high-octane off-road driving through the mountains of Romania. Powerful buggies, wild trails, mud, dust and pure unadulterated adrenaline. No experience needed — just nerve.</p></div>
+                <div class="exp-ct"><span class="exp-tag">MAIN EVENT</span><h3>Extreme Off-Road</h3><p>A full day of high-octane off-road driving through the mountains of Romania. Powerful buggies, wild trails, mud, dust and pure unadulterated adrenaline. No experience needed — just nerve.</p></div>
             </div>
             <div class="exp-card reveal-right" style="transition-delay:.15s">
                 <div class="exp-img"><img src="assets/images/poligon.png" alt="Shooting range" loading="lazy"><div class="exp-ov"></div></div>
-                <div class="exp-ct"><span class="exp-tag">🎯 ADRENALINE</span><h3>Live Shooting Range</h3><p>Fire real weapons alongside Romanian Special Forces — Bacău Commandos and paratroopers. An experience simply not available in the UK.</p></div>
+                <div class="exp-ct"><span class="exp-tag">ADRENALINE</span><h3>Live Shooting Range</h3><p>Fire real weapons alongside Romanian Special Forces — Bacău Commandos and paratroopers. An experience simply not available in the UK.</p></div>
             </div>
             <div class="exp-card reveal-right" style="transition-delay:.3s">
                 <div class="exp-img"><img src="assets/images/party.png" alt="Party night" loading="lazy"><div class="exp-ov"></div></div>
-                <div class="exp-ct"><span class="exp-tag">🎶 NIGHTLIFE</span><h3>Epic Party Night</h3><p>Professional DJ, live grill, a banquet feast prepared by a private chef. All homemade, all spectacular. The night you'll talk about for years.</p></div>
+                <div class="exp-ct"><span class="exp-tag">NIGHTLIFE</span><h3>Epic Party Night</h3><p>Professional DJ, live grill, a banquet feast prepared by a private chef. All homemade, all spectacular. The night you'll talk about for years.</p></div>
             </div>
             <div class="exp-card reveal-left" style="transition-delay:.15s">
                 <div class="exp-img"><img src="assets/images/salina.png" alt="Salt mine" loading="lazy"><div class="exp-ov"></div></div>
-                <div class="exp-ct"><span class="exp-tag">🏛️ TOURISM</span><h3>Târgu Ocna Salt Mine</h3><p>A unique underground experience with therapeutic salt air and breathtaking subterranean architecture. Nothing like it back home.</p></div>
+                <div class="exp-ct"><span class="exp-tag">TOURISM</span><h3>Târgu Ocna Salt Mine</h3><p>A unique underground experience with therapeutic salt air and breathtaking subterranean architecture. Nothing like it back home.</p></div>
             </div>
             <div class="exp-card reveal-left" style="transition-delay:.3s">
                 <div class="exp-img"><img src="assets/images/castel.png" alt="Dracula Castle" loading="lazy"><div class="exp-ov"></div></div>
-                <div class="exp-ct"><span class="exp-tag">🏰 LEGENDARY</span><h3>Dracula's Castle</h3><p>Step into legend at Bran Castle. History, mystery and sweeping Transylvanian landscapes — the centrepiece of Eastern European adventure travel.</p></div>
+                <div class="exp-ct"><span class="exp-tag">LEGENDARY</span><h3>Dracula's Castle</h3><p>Step into legend at Bran Castle. History, mystery and sweeping Transylvanian landscapes — the centrepiece of Eastern European adventure travel.</p></div>
             </div>
             <div class="exp-card reveal-right" style="transition-delay:.45s">
                 <div class="exp-img"><img src="assets/images/food.png" alt="Homemade food" loading="lazy"><div class="exp-ov"></div></div>
-                <div class="exp-ct"><span class="exp-tag">🍖 GASTRONOMY</span><h3>Homemade Romanian Feasts</h3><p>Two hearty meals daily. Grilled meats, fresh vegetables, farmhouse eggs, artisan cheese. 100% natural, 100% delicious.</p></div>
+                <div class="exp-ct"><span class="exp-tag">GASTRONOMY</span><h3>Homemade Romanian Feasts</h3><p>Two hearty meals daily. Grilled meats, fresh vegetables, farmhouse eggs, artisan cheese. 100% natural, 100% delicious.</p></div>
             </div>
         </div>
     </div>
@@ -548,10 +552,10 @@ ul{list-style:none}
                     <span class="prog-day-label">Day 1 — Arrival</span>
                     <h3>Check-In & Connect</h3>
                     <div class="prog-items">
-                        <div class="prog-item"><span>🚌</span><span>Departure by coach from Bucharest</span></div>
-                        <div class="prog-item"><span>🏡</span><span>Check-in at the villa or cabins</span></div>
-                        <div class="prog-item"><span>🍽️</span><span>Welcome dinner and introductions</span></div>
-                        <div class="prog-item"><span>🔥</span><span>Campfire, drinks and socialising</span></div>
+                        <div class="prog-item"><span>›</span><span>Departure by coach from Bucharest</span></div>
+                        <div class="prog-item"><span>›</span><span>Check-in at the villa or cabins</span></div>
+                        <div class="prog-item"><span>›</span><span>Welcome dinner and introductions</span></div>
+                        <div class="prog-item"><span>›</span><span>Campfire, drinks and socialising</span></div>
                     </div>
                 </div>
                 <div class="prog-day">
@@ -559,10 +563,10 @@ ul{list-style:none}
                     <span class="prog-day-label">Day 2 — Pure Adrenaline</span>
                     <h3>Off-Road & Shooting Range</h3>
                     <div class="prog-items">
-                        <div class="prog-item"><span>☀️</span><span>Full breakfast and mission briefing</span></div>
-                        <div class="prog-item"><span>🚗</span><span>Full day extreme off-road with buggies</span></div>
-                        <div class="prog-item"><span>🎯</span><span>Live shooting range — Special Forces</span></div>
-                        <div class="prog-item"><span>🎶</span><span>DJ night and celebratory feast</span></div>
+                        <div class="prog-item"><span>›</span><span>Full breakfast and mission briefing</span></div>
+                        <div class="prog-item"><span>›</span><span>Full day extreme off-road with buggies</span></div>
+                        <div class="prog-item"><span>›</span><span>Live shooting range — Special Forces</span></div>
+                        <div class="prog-item"><span>›</span><span>DJ night and celebratory feast</span></div>
                     </div>
                 </div>
                 <div class="prog-day">
@@ -570,10 +574,10 @@ ul{list-style:none}
                     <span class="prog-day-label">Day 3 — Explore Romania</span>
                     <h3>Salt Mine & Dracula's Castle</h3>
                     <div class="prog-items">
-                        <div class="prog-item"><span>🏛️</span><span>Târgu Ocna Salt Mine — full guided tour</span></div>
-                        <div class="prog-item"><span>🏰</span><span>Bran Castle — Dracula's legendary fortress</span></div>
-                        <div class="prog-item"><span>🌄</span><span>Scenic Transylvanian drives</span></div>
-                        <div class="prog-item"><span>🍖</span><span>Outdoor grill and evening relaxation</span></div>
+                        <div class="prog-item"><span>›</span><span>Târgu Ocna Salt Mine — full guided tour</span></div>
+                        <div class="prog-item"><span>›</span><span>Bran Castle — Dracula's legendary fortress</span></div>
+                        <div class="prog-item"><span>›</span><span>Scenic Transylvanian drives</span></div>
+                        <div class="prog-item"><span>›</span><span>Outdoor grill and evening relaxation</span></div>
                     </div>
                 </div>
                 <div class="prog-day">
@@ -581,10 +585,10 @@ ul{list-style:none}
                     <span class="prog-day-label">Day 4 — Final Day</span>
                     <h3>Relax & Depart</h3>
                     <div class="prog-items">
-                        <div class="prog-item"><span>💆</span><span>Optional massage and wellness</span></div>
-                        <div class="prog-item"><span>📸</span><span>Group photo session</span></div>
-                        <div class="prog-item"><span>🎁</span><span>Spartan Camp awards and surprises</span></div>
-                        <div class="prog-item"><span>🚌</span><span>Return transfer to Bucharest</span></div>
+                        <div class="prog-item"><span>›</span><span>Optional massage and wellness</span></div>
+                        <div class="prog-item"><span>›</span><span>Group photo session</span></div>
+                        <div class="prog-item"><span>›</span><span>Spartan Camp awards and surprises</span></div>
+                        <div class="prog-item"><span>›</span><span>Return transfer to Bucharest</span></div>
                     </div>
                 </div>
             </div>
@@ -630,12 +634,12 @@ ul{list-style:none}
             <p class="sec-sub">One price. Zero surprises. We handle every detail so you focus entirely on the experience.</p>
         </div>
         <div class="feat-grid">
-            <div class="feat-card reveal"><div class="feat-icon">🚌</div><h3>Premium Transport</h3><p>Brand-new coaches with air conditioning and all comforts for a smooth journey to and from the camp.</p><div class="feat-badge">INCLUDED</div></div>
-            <div class="feat-card reveal" style="transition-delay:.1s"><div class="feat-icon">🏡</div><h3>Full Accommodation</h3><p>Stay in a modern villa, rustic cabins or a jacuzzi suite — surrounded by spectacular Romanian nature.</p><div class="feat-badge">INCLUDED</div></div>
-            <div class="feat-card reveal" style="transition-delay:.2s"><div class="feat-icon">🍽️</div><h3>2 Meals Per Day</h3><p>Breakfast and dinner prepared by professional chefs. Everything is homemade, hearty and authentically Romanian.</p><div class="feat-badge">INCLUDED</div></div>
-            <div class="feat-card reveal" style="transition-delay:.3s"><div class="feat-icon">🚗</div><h3>Off-Road & Buggy Access</h3><p>Full day access to extreme off-road trails with professional-grade buggies and safety equipment.</p><div class="feat-badge">INCLUDED</div></div>
-            <div class="feat-card reveal" style="transition-delay:.4s"><div class="feat-icon">🎯</div><h3>Shooting Range Session</h3><p>A fully supervised live shooting experience led by Romanian Special Forces instructors. Unforgettable.</p><div class="feat-badge">INCLUDED</div></div>
-            <div class="feat-card reveal" style="transition-delay:.5s"><div class="feat-icon">💆</div><h3>Massage on Request</h3><p>Professional massage service available throughout the camp for recovery and relaxation.</p><div class="feat-badge">OPTIONAL EXTRA</div></div>
+            <div class="feat-card reveal"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="13" rx="2"/><path d="M1 11h22M5 19v2M19 19v2"/></svg></div><h3>Premium Transport</h3><p>Brand-new coaches with air conditioning and all comforts for a smooth journey to and from the camp.</p><div class="feat-badge">INCLUDED</div></div>
+            <div class="feat-card reveal" style="transition-delay:.1s"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>Full Accommodation</h3><p>Stay in a modern villa, rustic cabins or a jacuzzi suite — surrounded by spectacular Romanian nature.</p><div class="feat-badge">INCLUDED</div></div>
+            <div class="feat-card reveal" style="transition-delay:.2s"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2s2-.9 2-2V2M7 11v11M15 2c0 0 0 9 4.5 9H21V2"/><path d="M19.5 11v11"/></svg></div><h3>2 Meals Per Day</h3><p>Breakfast and dinner prepared by professional chefs. Everything is homemade, hearty and authentically Romanian.</p><div class="feat-badge">INCLUDED</div></div>
+            <div class="feat-card reveal" style="transition-delay:.3s"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 01-2-2V9a2 2 0 012-2h2l3-5h8l3 5h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-1 0a2 2 0 11-4 0 2 2 0 014 0zm-8 0a2 2 0 11-4 0 2 2 0 014 0z"/></svg></div><h3>Off-Road & Buggy Access</h3><p>Full day access to extreme off-road trails with professional-grade buggies and safety equipment.</p><div class="feat-badge">INCLUDED</div></div>
+            <div class="feat-card reveal" style="transition-delay:.4s"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Shooting Range Session</h3><p>A fully supervised live shooting experience led by Romanian Special Forces instructors. Unforgettable.</p><div class="feat-badge">INCLUDED</div></div>
+            <div class="feat-card reveal" style="transition-delay:.5s"><div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div><h3>Massage on Request</h3><p>Professional massage service available throughout the camp for recovery and relaxation.</p><div class="feat-badge">OPTIONAL EXTRA</div></div>
         </div>
         <div class="disc-banner reveal">
             <div class="disc-ct"><div class="disc-badge">-15%</div><div class="disc-text"><h3>Driving to Romania? Get 15% off!</h3><p>Choose the self-drive option and receive an automatic 15% discount on your ticket price.</p></div></div>
@@ -685,13 +689,13 @@ ul{list-style:none}
             <p class="sec-sub">You are in the hands of verified professionals. Every member of our team is an expert in their field.</p>
         </div>
         <div class="team-grid">
-            <div class="team-card reveal"><div class="tm-icon">🎖️</div><h3>Special Forces</h3><p>Bacău Commandos and paratroopers — real-world military instructors with live operational experience.</p></div>
-            <div class="team-card reveal" style="transition-delay:.1s"><div class="tm-icon">🚙</div><h3>Off-Road Experts</h3><p>Professional drivers with thousands of kilometres of extreme terrain experience across Romania's mountains.</p></div>
-            <div class="team-card reveal" style="transition-delay:.2s"><div class="tm-icon">🏥</div><h3>Medical Team</h3><p>Qualified first-aiders and medical staff on site throughout the entire duration of the camp.</p></div>
-            <div class="team-card reveal" style="transition-delay:.25s"><div class="tm-icon">👨‍🍳</div><h3>Private Chefs</h3><p>Traditional Romanian cuisine crafted from locally sourced, 100% natural ingredients. Farm to table.</p></div>
-            <div class="team-card reveal" style="transition-delay:.3s"><div class="tm-icon">🎵</div><h3>Professional DJ</h3><p>Live sets, premium sound system and an atmosphere that keeps the energy high all night long.</p></div>
-            <div class="team-card reveal" style="transition-delay:.35s"><div class="tm-icon">🗺️</div><h3>Licensed Tour Guide</h3><p>Accredited guide leading visits to Romania's most spectacular cultural and natural landmarks.</p></div>
-            <div class="team-card reveal" style="transition-delay:.4s"><div class="tm-icon">🛡️</div><h3>24/7 Security</h3><p>Dedicated security personnel on site around the clock for the entire duration of the camp.</p></div>
+            <div class="team-card reveal"><div class="tm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Special Forces</h3><p>Bacău Commandos and paratroopers — real-world military instructors with live operational experience.</p></div>
+            <div class="team-card reveal" style="transition-delay:.1s"><div class="tm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 20 21 20 14 7 10 14 7 11 3 20"/></svg></div><h3>Off-Road Experts</h3><p>Professional drivers with thousands of kilometres of extreme terrain experience across Romania's mountains.</p></div>
+            <div class="team-card reveal" style="transition-delay:.2s"><div class="tm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><h3>Medical Team</h3><p>Qualified first-aiders and medical staff on site throughout the entire duration of the camp.</p></div>
+            <div class="team-card reveal" style="transition-delay:.25s"><div class="tm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2s2-.9 2-2V2M7 11v11M15 2c0 0 0 9 4.5 9H21V2M19.5 11v11"/></svg></div><h3>Private Chefs</h3><p>Traditional Romanian cuisine crafted from locally sourced, 100% natural ingredients. Farm to table.</p></div>
+            <div class="team-card reveal" style="transition-delay:.3s"><div class="tm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><h3>Professional DJ</h3><p>Live sets, premium sound system and an atmosphere that keeps the energy high all night long.</p></div>
+            <div class="team-card reveal" style="transition-delay:.35s"><div class="tm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 3 22 10 18 17 22 21 18 21 2 14 6 10 2"/><line x1="10" y1="2" x2="10" y2="18"/><line x1="17" y1="6" x2="17" y2="22"/></svg></div><h3>Licensed Tour Guide</h3><p>Accredited guide leading visits to Romania's most spectacular cultural and natural landmarks.</p></div>
+            <div class="team-card reveal" style="transition-delay:.4s"><div class="tm-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div><h3>24/7 Security</h3><p>Dedicated security personnel on site around the clock for the entire duration of the camp.</p></div>
         </div>
     </div>
     <div class="divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,30 C480,70 960,10 1440,50 L1440,80 L0,80 Z" fill="#080808"/></svg></div>
@@ -721,7 +725,7 @@ ul{list-style:none}
                 <button class="btn btn-ticket" onclick="openCO('standard')">BOOK NOW →</button>
             </div>
             <div class="tick-card tick-feat reveal" style="transition-delay:.15s">
-                <div class="tick-pop">⚡ MOST POPULAR</div>
+                <div class="tick-pop">MOST POPULAR</div>
                 <div class="tick-head"><span class="tick-label">PREMIUM</span><div class="tick-price"><span class="price-amt" id="pricePremium">1,800</span> <span class="price-cur">RON</span><br><span class="price-per">/person · all-inclusive</span></div></div>
                 <ul class="tick-feats">
                     <li><span class="ck">✓</span> Coach transport included</li>
@@ -789,14 +793,14 @@ ul{list-style:none}
                 <div class="f-row"><div class="f-grp"><label>Your Name *</label><input type="text" required placeholder="John Smith"></div><div class="f-grp"><label>Email *</label><input type="email" required placeholder="john@email.com"></div></div>
                 <div class="f-row"><div class="f-grp"><label>Phone Number *</label><input type="tel" required placeholder="+44 7XXX XXX XXX"></div><div class="f-grp"><label>I'm interested in...</label><select><option value="">Select...</option><option>Extreme Off-Road & Buggy</option><option>Live Shooting Range</option><option>Party & Entertainment</option><option>Tourism (Salt Mine & Castle)</option><option>Full Package</option><option>Group / Corporate Booking</option></select></div></div>
                 <div class="f-grp"><label>Message</label><textarea rows="4" placeholder="Tell us what you'd like to know..."></textarea></div>
-                <div class="f-grp"><label class="chk-label cb-highlight"><input type="checkbox" id="callbackCB" checked><span class="chk-mark"></span><span>🔔 <strong>Please call me back before I pay</strong></span></label></div>
+                <div class="f-grp"><label class="chk-label cb-highlight"><input type="checkbox" id="callbackCB" checked><span class="chk-mark"></span><span><strong>Please call me back before I pay</strong></span></label></div>
                 <button type="submit" class="btn btn-p btn-full">SEND MESSAGE</button>
             </form>
             <div class="c-info">
-                <div class="c-info-card"><div class="c-icon">📞</div><h4>Phone / WhatsApp</h4><p><a href="tel:+40700000000">+40 7XX XXX XXX</a></p></div>
-                <div class="c-info-card"><div class="c-icon">📧</div><h4>Email</h4><p><a href="mailto:contact@spartancamp.com">contact@spartancamp.com</a></p></div>
-                <div class="c-info-card"><div class="c-icon">📍</div><h4>Location</h4><p>Romania — Exact routes confirmed 2 weeks before departure</p></div>
-                <div class="c-info-card"><div class="c-icon">📅</div><h4>Date</h4><p>2026 Edition — Limited spots available</p></div>
+                <div class="c-info-card"><div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.69 12 19.79 19.79 0 011.62 3.38 2 2 0 013.6 1.22h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.9a16 16 0 006.29 6.29l.91-.91a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div><h4>Phone / WhatsApp</h4><p><a href="tel:+40700000000">+40 7XX XXX XXX</a></p></div>
+                <div class="c-info-card"><div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg></div><h4>Email</h4><p><a href="mailto:contact@spartancamp.com">contact@spartancamp.com</a></p></div>
+                <div class="c-info-card"><div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h4>Location</h4><p>Romania — Exact routes confirmed 2 weeks before departure</p></div>
+                <div class="c-info-card"><div class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><h4>Date</h4><p>2026 Edition — Limited spots available</p></div>
             </div>
         </div>
     </div>
@@ -810,8 +814,8 @@ ul{list-style:none}
             <h2>Ready to Become a <span class="accent">SPARTAN</span>?</h2>
             <p>Spots fill up fast. Don't miss your chance to experience the most intense adventure holiday Romania has to offer — the 2026 edition awaits.</p>
             <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap">
-                <a href="#tickets" class="btn btn-p btn-glow btn-lg">🎫 BOOK YOUR SPOT NOW</a>
-                <a href="https://wa.me/40700000000" target="_blank" class="btn btn-s btn-lg">💬 WHATSAPP US</a>
+                <a href="#tickets" class="btn btn-p btn-glow btn-lg">BOOK YOUR SPOT NOW</a>
+                <a href="https://wa.me/40700000000" target="_blank" class="btn btn-s btn-lg">WHATSAPP US</a>
             </div>
         </div>
     </div>
@@ -848,7 +852,7 @@ ul{list-style:none}
         </div>
         <div class="foot-bot">
             <p>&copy; 2026 Spartan Camp Adventure Romania. All rights reserved.</p>
-            <p style="color:var(--text3)">Built for adventurers ⚔️</p>
+            <p style="color:var(--text3)">Built for adventurers</p>
         </div>
     </div>
 </footer>
