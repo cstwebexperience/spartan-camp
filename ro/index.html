@@ -72,12 +72,7 @@ ul{list-style:none}
 #particleCanvas{position:absolute;inset:0;z-index:2;pointer-events:none}
 .hero-content{position:relative;z-index:3;text-align:center;max-width:1000px;padding:0 24px}
 
-/* Hero badge */
-.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 28px;background:rgba(232,122,30,.08);border-radius:50px;font-family:var(--ff-h);font-size:.82rem;letter-spacing:3px;color:var(--accent-lt);margin-bottom:36px;position:relative;overflow:hidden;opacity:0;animation:fadeSlideDown .8s ease forwards;animation-delay:.2s}
-.hero-badge::before{content:'';position:absolute;inset:-2px;background:linear-gradient(90deg,var(--accent),var(--accent-lt),#ff6b00,var(--accent-lt),var(--accent));background-size:300% 100%;border-radius:52px;z-index:-2;animation:gradShift 3s linear infinite}
-.hero-badge::after{content:'';position:absolute;inset:1px;background:rgba(8,8,8,.94);border-radius:50px;z-index:-1}
 @keyframes gradShift{0%{background-position:0 50%}100%{background-position:300% 50%}}
-@keyframes fadeSlideDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
 
 /* Hero title */
 .hero-title{font-family:var(--ff-d);line-height:.92;margin-bottom:28px}
@@ -107,12 +102,6 @@ ul{list-style:none}
 .stat-label{display:block;font-size:.75rem;color:var(--text2);text-transform:uppercase;letter-spacing:2.5px;margin-top:8px}
 .stat-div{width:1px;height:50px;background:linear-gradient(to bottom,transparent,var(--accent),transparent);opacity:.4}
 
-.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;animation:fadeUp 1s ease forwards,floatY 3s ease-in-out infinite;animation-delay:2.4s,2.4s}
-.hero-scroll span{font-size:.65rem;text-transform:uppercase;letter-spacing:4px;color:var(--text3)}
-.scroll-mouse{width:24px;height:38px;border:2px solid rgba(255,255,255,.2);border-radius:12px;display:flex;justify-content:center;padding-top:8px}
-.scroll-wheel{width:3px;height:8px;background:var(--accent);border-radius:2px;animation:scrollW 2s ease-in-out infinite}
-@keyframes scrollW{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(12px)}}
-@keyframes floatY{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
 
 /* ═══════ BUTTONS ═══════ */
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-h);font-size:.95rem;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;padding:16px 36px;border:none;border-radius:8px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
@@ -404,7 +393,6 @@ ul{list-style:none}
 @media(max-width:480px){
 .gal-grid{grid-template-columns:1fr}
 .hero-ctas{flex-direction:column;align-items:stretch;padding:0 12px}
-.hero-badge{font-size:.68rem;letter-spacing:2px;padding:8px 18px}
 .gal-filter{gap:8px}.filt-btn{padding:8px 16px;font-size:.72rem}
 .hero-stats{gap:20px}.stat-num{font-size:2.2rem}
 .wa-btn{bottom:24px;left:20px}
@@ -452,7 +440,6 @@ ul{list-style:none}
     <div class="hero-overlay"></div>
     <canvas id="particleCanvas"></canvas>
     <div class="hero-content">
-        <div class="hero-badge"><span>⚔️</span><span>EDIȚIA 2026 — LOCURI LIMITATE</span></div>
         <h1 class="hero-title">
             <span class="hero-title-line">SIMTE</span>
             <span class="hero-title-line accent">ADRENALINA</span>
@@ -480,7 +467,6 @@ ul{list-style:none}
             <div class="stat"><span class="stat-num" data-count="100">0</span><span class="stat-plus">%</span><span class="stat-label">All-Inclusive</span></div>
         </div>
     </div>
-    <div class="hero-scroll"><div class="scroll-mouse"><div class="scroll-wheel"></div></div><span>Descoperă mai mult</span></div>
     <div class="divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z" fill="#080808"/></svg></div>
 </section>
 
