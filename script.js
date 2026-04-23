@@ -40,18 +40,23 @@ function initLogoTransparency() {
             var px = d.data;
             for (var i = 0; i < px.length; i += 4) {
                 var r = px[i], g = px[i + 1], b = px[i + 2];
-                if (r > 220 && g > 220 && b > 220) {
-                    var brightness = (r + g + b) / 3;
-                    px[i + 3] = Math.max(0, Math.round(255 - (brightness - 220) * 7.3));
+                // Replace near-white pixels with navbar dark color #080808
+                if (r > 200 && g > 200 && b > 200) {
+                    px[i]     = 8;
+                    px[i + 1] = 8;
+                    px[i + 2] = 8;
                 }
             }
             ctx.putImageData(d, 0, 0);
             img.src = c.toDataURL('image/png');
-        } catch (e) { /* cross-origin fallback — skip silently */ }
+        } catch (e) { /* skip silently */ }
     }
 
-    if (img.complete && img.naturalWidth > 0) process();
-    else img.addEventListener('load', process);
+    if (img.complete && img.naturalWidth > 0) {
+        process();
+    } else {
+        img.addEventListener('load', process, { once: true });
+    }
 }
 
 /* ═══════════════════════════════════════════════════════════
