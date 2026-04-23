@@ -31,32 +31,30 @@ function initLogoTransparency() {
 
     function process() {
         try {
+            var w = img.naturalWidth, h = img.naturalHeight;
+            if (!w || !h) return;
             var c = document.createElement('canvas');
-            c.width = img.naturalWidth;
-            c.height = img.naturalHeight;
+            c.width = w; c.height = h;
             var ctx = c.getContext('2d');
             ctx.drawImage(img, 0, 0);
-            var d = ctx.getImageData(0, 0, c.width, c.height);
-            var px = d.data;
+            var data = ctx.getImageData(0, 0, w, h);
+            var px = data.data;
             for (var i = 0; i < px.length; i += 4) {
-                var r = px[i], g = px[i + 1], b = px[i + 2];
-                // Replace near-white pixels with navbar dark color #080808
-                if (r > 200 && g > 200 && b > 200) {
-                    px[i]     = 8;
-                    px[i + 1] = 8;
-                    px[i + 2] = 8;
+                if (px[i] > 200 && px[i+1] > 200 && px[i+2] > 200) {
+                    px[i] = 8; px[i+1] = 8; px[i+2] = 8;
                 }
             }
-            ctx.putImageData(d, 0, 0);
-            img.src = c.toDataURL('image/png');
-        } catch (e) { /* skip silently */ }
+            ctx.putImageData(data, 0, 0);
+            c.toBlob(function(blob) {
+                var url = URL.createObjectURL(blob);
+                img.addEventListener('load', function() { URL.revokeObjectURL(url); }, { once: true });
+                img.src = url;
+            }, 'image/png');
+        } catch(e) {}
     }
 
-    if (img.complete && img.naturalWidth > 0) {
-        process();
-    } else {
-        img.addEventListener('load', process, { once: true });
-    }
+    if (img.complete && img.naturalWidth > 0) process();
+    else img.addEventListener('load', process, { once: true });
 }
 
 /* ═══════════════════════════════════════════════════════════
