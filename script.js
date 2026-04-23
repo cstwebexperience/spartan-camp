@@ -4,6 +4,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initLogoTransparency();
     initScrollProgress();
     initNavbar();
     initMobileMenu();
@@ -20,6 +21,38 @@ document.addEventListener('DOMContentLoaded', () => {
     initMagneticButtons();
     initTextGlitch();
 });
+
+/* ═══════════════════════════════════════════════════════════
+   LOGO TRANSPARENCY — Remove white background via Canvas
+   ═══════════════════════════════════════════════════════════ */
+function initLogoTransparency() {
+    var img = document.querySelector('.logo-img');
+    if (!img) return;
+
+    function process() {
+        try {
+            var c = document.createElement('canvas');
+            c.width = img.naturalWidth;
+            c.height = img.naturalHeight;
+            var ctx = c.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            var d = ctx.getImageData(0, 0, c.width, c.height);
+            var px = d.data;
+            for (var i = 0; i < px.length; i += 4) {
+                var r = px[i], g = px[i + 1], b = px[i + 2];
+                if (r > 220 && g > 220 && b > 220) {
+                    var brightness = (r + g + b) / 3;
+                    px[i + 3] = Math.max(0, Math.round(255 - (brightness - 220) * 7.3));
+                }
+            }
+            ctx.putImageData(d, 0, 0);
+            img.src = c.toDataURL('image/png');
+        } catch (e) { /* cross-origin fallback — skip silently */ }
+    }
+
+    if (img.complete && img.naturalWidth > 0) process();
+    else img.addEventListener('load', process);
+}
 
 /* ═══════════════════════════════════════════════════════════
    SCROLL PROGRESS BAR
