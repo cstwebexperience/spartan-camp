@@ -209,6 +209,19 @@ ul{list-style:none}
 .gal-item:hover .gal-label{transform:translateY(0)}
 .gal-item.hide{display:none}
 
+/* PHONE FRAMES */
+.phone-row{display:flex;justify-content:center;gap:56px;margin-top:56px;flex-wrap:wrap;align-items:flex-start}
+.phone-wrap{display:flex;flex-direction:column;align-items:center}
+.phone{width:248px;background:linear-gradient(160deg,#252525,#111);border-radius:50px;padding:14px 10px 20px;box-shadow:0 0 0 1px #3a3a3a,0 0 0 3px #111,0 0 0 5px #272727,0 60px 120px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.07);position:relative}
+.phone::before{content:'';position:absolute;left:-4px;top:80px;width:3px;height:28px;background:#222;border-radius:3px 0 0 3px;box-shadow:0 -34px 0 #222}
+.phone::after{content:'';position:absolute;right:-4px;top:100px;width:3px;height:56px;background:#222;border-radius:0 3px 3px 0}
+.phone-notch{width:76px;height:5px;background:#1c1c1c;border-radius:3px;margin:0 auto 10px}
+.phone-screen{border-radius:36px;overflow:hidden;background:#000;aspect-ratio:9/16}
+.phone-screen video{width:100%;height:100%;object-fit:contain;background:#000}
+.phone-home-bar{width:88px;height:4px;background:#1c1c1c;border-radius:2px;margin:12px auto 0}
+.phone-label{font-family:var(--ff-h);font-size:.78rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent-lt);margin-top:22px;text-align:center}
+@media(max-width:640px){.phone-row{gap:28px}.phone{width:160px;border-radius:36px}.phone-notch{width:52px}.phone-home-bar{width:60px}}
+
 /* INCLUDED */
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:60px}
 .feat-card{background:rgba(17,17,17,.8);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:40px 28px;text-align:center;transition:all .5s;position:relative;overflow:hidden}
@@ -658,19 +671,27 @@ ul{list-style:none}
             <div class="gal-item reveal-scale" data-cat="offroad" style="transition-delay:.8s"><img src="assets/images/g9.jpg" alt="Off-Road Adventure" loading="lazy"><div class="gal-ov"><span class="gal-label">Off-Road Adventure</span></div></div>
         </div>
 
-        <!-- Videos row -->
-        <div class="gal-vids reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px">
-            <div class="gal-item" style="aspect-ratio:16/9">
-                <video src="assets/videos/buggy.mp4" autoplay muted loop playsinline webkit-playsinline style="pointer-events:none"></video>
-                <div class="gal-ov" style="opacity:1;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 55%)">
-                    <span class="gal-label" style="transform:translateY(0)">Buggy Rides</span>
+        <!-- Phone frame videos -->
+        <div class="phone-row reveal">
+            <div class="phone-wrap">
+                <div class="phone">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <video id="vid-buggy" src="assets/videos/buggy.mp4" autoplay muted loop playsinline webkit-playsinline preload="none" style="pointer-events:none"></video>
+                    </div>
+                    <div class="phone-home-bar"></div>
                 </div>
+                <p class="phone-label">Buggy Rides</p>
             </div>
-            <div class="gal-item" style="aspect-ratio:16/9">
-                <video src="assets/videos/shooting.mp4" autoplay muted loop playsinline webkit-playsinline style="pointer-events:none"></video>
-                <div class="gal-ov" style="opacity:1;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 55%)">
-                    <span class="gal-label" style="transform:translateY(0)">Shooting Range</span>
+            <div class="phone-wrap">
+                <div class="phone">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <video id="vid-shooting" src="assets/videos/shooting.mp4" autoplay muted loop playsinline webkit-playsinline preload="none" style="pointer-events:none"></video>
+                    </div>
+                    <div class="phone-home-bar"></div>
                 </div>
+                <p class="phone-label">Shooting Range</p>
             </div>
         </div>
     </div>
@@ -915,6 +936,26 @@ function closeLB(){lb.classList.remove('active');document.body.style.overflow=''
 document.getElementById('lbClose').addEventListener('click',closeLB);
 lb.addEventListener('click',e=>{if(e.target===lb)closeLB();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLB();closeCO();}});
+
+// Preload gallery videos when gallery is 600px away from viewport
+(function(){
+  var galSection=document.getElementById('gallery');
+  if(!galSection)return;
+  var done=false;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting&&!done){
+        done=true;
+        ['vid-buggy','vid-shooting'].forEach(function(id){
+          var v=document.getElementById(id);
+          if(v){v.preload='auto';v.load();}
+        });
+        obs.disconnect();
+      }
+    });
+  },{rootMargin:'600px'});
+  obs.observe(galSection);
+})();
 
 const prices={standard:999,premium:1099,vip:1180};
 const labels={standard:'SILVER PREMIUM',premium:'PREMIUM',vip:'VIP TICKETS'};
