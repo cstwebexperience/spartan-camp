@@ -447,9 +447,47 @@ ul{list-style:none}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--accent-dk);border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+
+/* LANG PICKER */
+#lang-picker{position:fixed;inset:0;z-index:99999;background:#080808;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;transition:opacity .6s ease,transform .6s ease}
+#lang-picker.hide{opacity:0;pointer-events:none;transform:scale(1.04)}
+.lp-logo{height:68px;border-radius:10px;filter:drop-shadow(0 0 24px rgba(232,122,30,.4))}
+.lp-head{text-align:center}
+.lp-title{font-family:var(--ff-d);font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:6px;color:var(--text);margin-bottom:6px}
+.lp-sub{font-family:var(--ff-h);font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--text2)}
+.lp-cards{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.lp-card{display:flex;flex-direction:column;align-items:center;gap:18px;padding:36px 52px;background:var(--bg-card);border:1px solid var(--border);border-radius:18px;cursor:pointer;transition:all .3s ease;color:var(--text)}
+.lp-card:hover{border-color:var(--border-a);background:#181818;transform:translateY(-8px);box-shadow:0 24px 60px rgba(232,122,30,.18)}
+.lp-card:focus{outline:2px solid var(--accent);outline-offset:4px}
+.lp-flag{width:76px;height:50px;border-radius:6px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.6);flex-shrink:0}
+.lp-flag svg{width:100%;height:100%;display:block}
+.lp-lang{font-family:var(--ff-h);font-size:1.05rem;font-weight:600;letter-spacing:3px;text-transform:uppercase}
+@media(max-width:480px){.lp-card{padding:28px 36px}.lp-cards{gap:14px}}
 </style>
 </head>
 <body>
+
+<div id="lang-picker" role="dialog" aria-modal="true" aria-label="Select language">
+  <img src="assets/images/logo-light.jpg" alt="Spartan Camp" class="lp-logo">
+  <div class="lp-head">
+    <div class="lp-title">Choose Your Language</div>
+    <p class="lp-sub">Alege Limba / Select Language</p>
+  </div>
+  <div class="lp-cards">
+    <div class="lp-card" onclick="selectLang('ro')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')selectLang('ro')">
+      <div class="lp-flag">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002B7F"/><rect x="1" width="1" height="2" fill="#FCD116"/><rect x="2" width="1" height="2" fill="#CE1126"/></svg>
+      </div>
+      <span class="lp-lang">Română</span>
+    </div>
+    <div class="lp-card" onclick="selectLang('en')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')selectLang('en')">
+      <div class="lp-flag">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>
+      </div>
+      <span class="lp-lang">English</span>
+    </div>
+  </div>
+</div>
 
 <div id="scrollProgress"></div>
 
@@ -897,6 +935,23 @@ ul{list-style:none}
 <div class="lightbox" id="lightbox"><button class="lb-close" id="lbClose">&times;</button><img src="" alt="" class="lb-img" id="lbImg"></div>
 
 <script>
+(function(){
+  const picker=document.getElementById('lang-picker');
+  if(localStorage.getItem('sc-lang')){picker.style.display='none';return;}
+  document.body.style.overflow='hidden';
+})();
+
+function selectLang(lang){
+  localStorage.setItem('sc-lang',lang);
+  const picker=document.getElementById('lang-picker');
+  picker.classList.add('hide');
+  if(lang==='ro'){
+    setTimeout(()=>window.location.href='/ro/',600);
+  } else {
+    setTimeout(()=>{picker.style.display='none';document.body.style.overflow='';},600);
+  }
+}
+
 const sp=document.getElementById('scrollProgress');
 window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;sp.style.width=(s/h*100)+'%';},{passive:true});
 
