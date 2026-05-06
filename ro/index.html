@@ -418,16 +418,78 @@ ul{list-style:none}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--accent-dk);border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+
+/* WHY GRID */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+@media(max-width:768px){.why-grid{grid-template-columns:1fr}}
+.why-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:36px 28px;transition:all .4s}
+.why-card:hover{border-color:var(--border-a);transform:translateY(-6px);box-shadow:0 20px 60px rgba(232,122,30,.12)}
+.why-icon{width:52px;height:52px;margin-bottom:20px;color:var(--accent)}
+.why-icon svg{width:100%;height:100%}
+.why-card h3{font-family:var(--ff-h);font-size:1.15rem;font-weight:600;margin-bottom:12px;letter-spacing:1px}
+.why-card p{color:var(--text2);font-size:.9rem;line-height:1.7}
+
+/* PHONE FRAMES */
+.phone-row{display:flex;justify-content:center;gap:56px;margin-top:56px;flex-wrap:wrap;align-items:flex-start}
+.phone-wrap{display:flex;flex-direction:column;align-items:center}
+.phone{width:248px;background:linear-gradient(160deg,#252525,#111);border-radius:50px;padding:14px 10px 20px;box-shadow:0 0 0 1px #3a3a3a,0 0 0 3px #111,0 0 0 5px #272727,0 60px 120px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.07);position:relative}
+.phone::before{content:'';position:absolute;left:-4px;top:80px;width:3px;height:28px;background:#222;border-radius:3px 0 0 3px;box-shadow:0 -34px 0 #222}
+.phone::after{content:'';position:absolute;right:-4px;top:100px;width:3px;height:56px;background:#222;border-radius:0 3px 3px 0}
+.phone-notch{width:76px;height:5px;background:#1c1c1c;border-radius:3px;margin:0 auto 10px}
+.phone-screen{border-radius:36px;overflow:hidden;background:#000;aspect-ratio:9/16}
+.phone-screen video{width:100%;height:100%;object-fit:contain;background:#000}
+.phone-home-bar{width:88px;height:4px;background:#1c1c1c;border-radius:2px;margin:12px auto 0}
+#vid-shooting{object-fit:cover}
+.phone-label{font-family:var(--ff-h);font-size:.78rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent-lt);margin-top:22px;text-align:center}
+@media(max-width:640px){.phone-row{gap:28px}.phone{width:160px;border-radius:36px}.phone-notch{width:52px}.phone-home-bar{width:60px}}
+
+/* LANG PICKER */
+#lang-picker{position:fixed;inset:0;z-index:99999;background:#080808;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;transition:opacity .6s ease,transform .6s ease}
+#lang-picker.hide{opacity:0;pointer-events:none;transform:scale(1.04)}
+.lp-logo{height:68px;border-radius:10px;filter:drop-shadow(0 0 24px rgba(232,122,30,.4))}
+.lp-head{text-align:center}
+.lp-title{font-family:var(--ff-d);font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:6px;color:var(--text);margin-bottom:6px}
+.lp-sub{font-family:var(--ff-h);font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:var(--text2)}
+.lp-cards{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
+.lp-card{display:flex;flex-direction:column;align-items:center;gap:18px;padding:36px 52px;background:var(--bg-card);border:1px solid var(--border);border-radius:18px;cursor:pointer;transition:all .3s ease;color:var(--text)}
+.lp-card:hover{border-color:var(--border-a);background:#181818;transform:translateY(-8px);box-shadow:0 24px 60px rgba(232,122,30,.18)}
+.lp-card:focus{outline:2px solid var(--accent);outline-offset:4px}
+.lp-flag{width:76px;height:50px;border-radius:6px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.6);flex-shrink:0}
+.lp-flag svg{width:100%;height:100%;display:block}
+.lp-lang{font-family:var(--ff-h);font-size:1.05rem;font-weight:600;letter-spacing:3px;text-transform:uppercase}
+@media(max-width:480px){.lp-card{padding:28px 36px}.lp-cards{gap:14px}}
 </style>
 </head>
 <body>
+
+<div id="lang-picker" role="dialog" aria-modal="true" aria-label="Selectează limba">
+  <img src="../assets/images/logo-light.jpg" alt="Spartan Camp" class="lp-logo">
+  <div class="lp-head">
+    <div class="lp-title">Alege Limba</div>
+    <p class="lp-sub">Alege Limba / Select Language</p>
+  </div>
+  <div class="lp-cards">
+    <div class="lp-card" onclick="selectLang('ro')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')selectLang('ro')">
+      <div class="lp-flag">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2"><rect width="1" height="2" fill="#002B7F"/><rect x="1" width="1" height="2" fill="#FCD116"/><rect x="2" width="1" height="2" fill="#CE1126"/></svg>
+      </div>
+      <span class="lp-lang">Română</span>
+    </div>
+    <div class="lp-card" onclick="selectLang('en')" role="button" tabindex="0" onkeydown="if(event.key==='Enter')selectLang('en')">
+      <div class="lp-flag">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>
+      </div>
+      <span class="lp-lang">English</span>
+    </div>
+  </div>
+</div>
 
 <!-- Scroll Progress -->
 <div id="scrollProgress"></div>
 
 <!-- WhatsApp -->
 <a href="https://wa.me/40700000000" target="_blank" class="wa-btn" aria-label="WhatsApp">
-    <span class="wa-tooltip">SCRIE-NE PE WHATSAPP</span>
+    <span class="wa-tooltip">SCRIE-NE ACUM</span>
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -492,6 +554,35 @@ ul{list-style:none}
 </section>
 </div>
 </div>
+
+<!-- DE CE SPARTAN CAMP -->
+<section class="section">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="sec-tag">DE CE SPARTAN CAMP</span>
+            <h2 class="sec-title">Aventură Dincolo de <span class="accent">Limite</span></h2>
+            <p class="sec-sub">Uită de monotonie. Acesta este locul unde îți depășești limitele, legi prietenii puternice și creezi povești demne de spus. România este terenul tău de joacă — sălbatică, autentică și nefiltrată.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card reveal" style="transition-delay:0s">
+                <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 20 21 20 12 4 3 20"/><line x1="12" y1="12" x2="16" y2="20"/></svg></div>
+                <h3>Natură Sălbatică Românească</h3>
+                <p>Teren montan nealterat, peisaje dramatice și trasee pe care nu le vei găsi nicăieri altundeva. Asta este real — fără plase de siguranță, fără turism banal.</p>
+            </div>
+            <div class="why-card reveal" style="transition-delay:.15s">
+                <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M15 9a3 3 0 00-5.12 2.12C9.52 12.59 11 13 11 13H9m0 2h6"/></svg></div>
+                <h3>Raport Calitate-Preț Excepțional</h3>
+                <p>O aventură all-inclusive de 4 zile în România, la un preț accesibil. Mai multă adrenalină, mai puțin stres financiar.</p>
+            </div>
+            <div class="why-card reveal" style="transition-delay:.3s">
+                <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <h3>Condus de Forțe Speciale</h3>
+                <p>Instructori militari reali din Armata Română. O experiență la poligon cu Comando Bacău și parașutiști — de neuitat.</p>
+            </div>
+        </div>
+    </div>
+    <div class="divider"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,20 C480,80 960,0 1440,40 L1440,80 L0,80 Z" fill="#0d0d0d"/></svg></div>
+</section>
 
 <!-- ═══════ EXPERIENȚA ═══════ -->
 <section id="experienta" class="section">
@@ -606,14 +697,38 @@ ul{list-style:none}
             <button class="filt-btn" data-f="turism">Turism</button>
         </div>
         <div class="gal-grid" id="galGrid">
-            <div class="gal-item reveal-scale" data-cat="offroad"><img src="../assets/images/hero1.jpg" alt="Spartan Camp" loading="lazy" onerror="this.src='assets/images/offroad.png'"><div class="gal-ov"><span class="gal-label">Spartan Camp</span></div></div>
-            <div class="gal-item reveal-scale" data-cat="offroad" style="transition-delay:.1s"><img src="../assets/images/offroad.png" alt="Off-road" loading="lazy"><div class="gal-ov"><span class="gal-label">Off-Road Extrem</span></div></div>
-            <div class="gal-item reveal-scale" data-cat="poligon" style="transition-delay:.2s"><img src="../assets/images/poligon.png" alt="Poligon" loading="lazy"><div class="gal-ov"><span class="gal-label">Poligon de Tragere</span></div></div>
-            <div class="gal-item reveal-scale" data-cat="party" style="transition-delay:.3s"><img src="../assets/images/party.png" alt="Party" loading="lazy"><div class="gal-ov"><span class="gal-label">Party & DJ</span></div></div>
-            <div class="gal-item reveal-scale" data-cat="turism" style="transition-delay:.4s"><img src="../assets/images/salina.png" alt="Salina" loading="lazy"><div class="gal-ov"><span class="gal-label">Salina Târgu Ocna</span></div></div>
-            <div class="gal-item reveal-scale" data-cat="turism" style="transition-delay:.5s"><img src="../assets/images/castel.png" alt="Castel" loading="lazy"><div class="gal-ov"><span class="gal-label">Castelul Dracula</span></div></div>
-            <div class="gal-item reveal-scale" data-cat="party" style="transition-delay:.6s"><img src="../assets/images/food.png" alt="Food" loading="lazy"><div class="gal-ov"><span class="gal-label">Mâncare Home-Made</span></div></div>
-            <div class="gal-item reveal-scale" data-cat="offroad" style="transition-delay:.7s"><img src="../assets/images/hero2.jpg" alt="Spartan Camp 2" loading="lazy" onerror="this.src='assets/images/offroad.png'"><div class="gal-ov"><span class="gal-label">Aventură Pură</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="offroad"><img src="../assets/images/g1.jpg" alt="ATV Camp" loading="lazy"><div class="gal-ov"><span class="gal-label">Spartan Camp</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="offroad" style="transition-delay:.1s"><img src="../assets/images/g2.jpg" alt="Off-road extrem" loading="lazy"><div class="gal-ov"><span class="gal-label">Off-Road Extrem</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="offroad" style="transition-delay:.2s"><img src="../assets/images/g3.jpg" alt="Enduro" loading="lazy"><div class="gal-ov"><span class="gal-label">Experiență Enduro</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="offroad" style="transition-delay:.3s"><img src="../assets/images/g4.jpg" alt="ATV Adventure" loading="lazy"><div class="gal-ov"><span class="gal-label">Aventură ATV</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="turism" style="transition-delay:.4s"><img src="../assets/images/g5.jpg" alt="Munții României" loading="lazy"><div class="gal-ov"><span class="gal-label">Munții României</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="turism" style="transition-delay:.5s"><img src="../assets/images/g6.jpg" alt="Traseu montan" loading="lazy"><div class="gal-ov"><span class="gal-label">Traseu Montan</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="offroad" style="transition-delay:.6s"><img src="../assets/images/g7.jpg" alt="Off-Road POV" loading="lazy"><div class="gal-ov"><span class="gal-label">Off-Road POV</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="offroad" style="transition-delay:.7s"><img src="../assets/images/g8.jpg" alt="ATV Premium" loading="lazy"><div class="gal-ov"><span class="gal-label">ATV Premium</span></div></div>
+            <div class="gal-item reveal-scale" data-cat="offroad" style="transition-delay:.8s"><img src="../assets/images/g9.jpg" alt="Aventură Off-Road" loading="lazy"><div class="gal-ov"><span class="gal-label">Aventură Off-Road</span></div></div>
+        </div>
+        <!-- Phone frame videos -->
+        <div class="phone-row reveal">
+            <div class="phone-wrap">
+                <div class="phone">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <video id="vid-buggy" src="../assets/videos/buggy.mp4" autoplay muted loop playsinline webkit-playsinline preload="none" style="pointer-events:none"></video>
+                    </div>
+                    <div class="phone-home-bar"></div>
+                </div>
+                <p class="phone-label">Buggy Rides</p>
+            </div>
+            <div class="phone-wrap">
+                <div class="phone">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <video id="vid-shooting" src="../assets/videos/shooting.mp4" autoplay muted loop playsinline webkit-playsinline preload="none" style="pointer-events:none"></video>
+                    </div>
+                    <div class="phone-home-bar"></div>
+                </div>
+                <p class="phone-label">Poligon de Tragere</p>
+            </div>
         </div>
     </div>
 </section>
@@ -824,6 +939,23 @@ ul{list-style:none}
 <div class="lightbox" id="lightbox"><button class="lb-close" id="lbClose">&times;</button><img src="" alt="" class="lb-img" id="lbImg"></div>
 
 <script>
+(function(){
+  const picker=document.getElementById('lang-picker');
+  if(localStorage.getItem('sc-lang')){picker.style.display='none';return;}
+  document.body.style.overflow='hidden';
+})();
+
+function selectLang(lang){
+  localStorage.setItem('sc-lang',lang);
+  const picker=document.getElementById('lang-picker');
+  picker.classList.add('hide');
+  if(lang==='en'){
+    setTimeout(()=>window.location.href='/',600);
+  } else {
+    setTimeout(()=>{picker.style.display='none';document.body.style.overflow='';},600);
+  }
+}
+
 // ═══════ SCROLL PROGRESS ═══════
 const sp = document.getElementById('scrollProgress');
 window.addEventListener('scroll', () => {
@@ -934,6 +1066,26 @@ initCountdown();
     function anim() { ctx.clearRect(0,0,c.width,c.height); particles.forEach(p=>{p.update();p.draw();}); requestAnimationFrame(anim); }
     anim();
     window.addEventListener('resize', resize);
+})();
+
+// ═══════ PRELOAD GALLERY VIDEOS ═══════
+(function(){
+  var galSection=document.getElementById('galerie');
+  if(!galSection)return;
+  var done=false;
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting&&!done){
+        done=true;
+        ['vid-buggy','vid-shooting'].forEach(function(id){
+          var v=document.getElementById(id);
+          if(v){v.preload='auto';v.load();}
+        });
+        obs.disconnect();
+      }
+    });
+  },{rootMargin:'600px'});
+  obs.observe(galSection);
 })();
 
 // ═══════ GALLERY FILTER ═══════
