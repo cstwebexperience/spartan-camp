@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ═══════════════ RESET & VARIABLES ═══════════════ */
 :root {
     --bg: #080808;
     --bg2: #0d0d0d;
@@ -40,10 +39,8 @@ ul{list-style:none}
 .container{max-width:1280px;margin:0 auto;padding:0 24px}
 .accent{color:var(--accent)}
 
-/* ═══════ SCROLL PROGRESS ═══════ */
 #scrollProgress{position:fixed;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-lt));z-index:9999;box-shadow:0 0 12px var(--glow);transition:width .05s linear}
 
-/* ═══════ NAVBAR ═══════ */
 .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:all .4s ease;background:transparent}
 .navbar.scrolled{background:rgba(8,8,8,.92);backdrop-filter:blur(24px);padding:12px 0;border-bottom:1px solid var(--border);box-shadow:0 4px 30px rgba(0,0,0,.4)}
 .nav-c{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
@@ -64,13 +61,11 @@ ul{list-style:none}
 .mob-tog.active span:nth-child(2){opacity:0}
 .mob-tog.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* ═══════ HERO FRAME ═══════ */
 .hero-frame{padding:88px 10px 14px}
 @media(min-width:640px){.hero-frame{padding:88px 18px 18px}}
 .hero-wrapper{position:relative;border-radius:28px;padding:1.5px;background:linear-gradient(135deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,.04) 50%,rgba(232,122,30,.22) 100%);box-shadow:0 32px 80px rgba(0,0,0,.6),0 2px 0 rgba(255,255,255,.06) inset}
 @media(min-width:640px){.hero-wrapper{border-radius:40px}}
 
-/* ═══════ HERO ═══════ */
 .hero{position:relative;min-height:calc(92vh - 88px);display:flex;align-items:center;justify-content:center;overflow:hidden;background:#000;border-radius:calc(28px - 1.5px);padding-top:0}
 @media(min-width:640px){.hero{border-radius:calc(40px - 1.5px)}}
 
@@ -114,7 +109,6 @@ ul{list-style:none}
 .stat-div{width:1px;height:50px;background:linear-gradient(to bottom,transparent,var(--accent),transparent);opacity:.4}
 
 
-/* ═══════ BUTTONS ═══════ */
 .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--ff-h);font-size:.95rem;font-weight:600;text-transform:uppercase;letter-spacing:2.5px;padding:16px 36px;border:none;border-radius:8px;cursor:pointer;transition:all .3s;position:relative;overflow:hidden}
 .btn-p{background:linear-gradient(135deg,var(--accent),var(--accent-lt));background-size:200% 100%;color:#000;font-weight:700}
 .btn-p::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);transition:left .6s}
@@ -129,7 +123,6 @@ ul{list-style:none}
 .btn-full{width:100%;justify-content:center;padding:18px;font-size:1rem}
 .btn-lg{padding:22px 52px;font-size:1.1rem}
 
-/* ═══════ SECTIONS ═══════ */
 .section{padding:130px 0;position:relative}
 .sec-head{text-align:center;max-width:720px;margin:0 auto 90px}
 .sec-tag{display:inline-flex;align-items:center;gap:16px;font-family:var(--ff-h);font-size:.78rem;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
@@ -138,7 +131,6 @@ ul{list-style:none}
 .sec-title{font-family:var(--ff-d);font-size:clamp(2.5rem,5vw,4.2rem);letter-spacing:4px;line-height:1.1;margin-bottom:20px}
 .sec-sub{font-size:1.05rem;color:var(--text2);line-height:1.8}
 
-/* ═══════ SCROLL ANIMATIONS ═══════ */
 .reveal{opacity:0;transform:translateY(50px);transition:all .9s cubic-bezier(.16,1,.3,1)}
 .reveal.vis{opacity:1;transform:translateY(0)}
 .reveal-left{opacity:0;transform:translateX(-60px);transition:all .9s cubic-bezier(.16,1,.3,1)}
@@ -148,11 +140,9 @@ ul{list-style:none}
 .reveal-scale{opacity:0;transform:scale(.85);transition:all .8s cubic-bezier(.16,1,.3,1)}
 .reveal-scale.vis{opacity:1;transform:scale(1)}
 
-/* ═══════ DIVIDERS ═══════ */
 .divider{position:absolute;bottom:-1px;left:0;width:100%;overflow:hidden;line-height:0;z-index:5}
 .divider svg{display:block;width:100%;height:80px}
 
-/* ═══════ EXPERIENCE GRID ═══════ */
 .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .exp-card{position:relative;border-radius:16px;overflow:hidden;background:var(--bg-card);border:1px solid var(--border);transition:all .5s ease;cursor:pointer}
 .exp-card-lg{grid-column:span 2;grid-row:span 2}
@@ -172,7 +162,6 @@ ul{list-style:none}
 .exp-ct p{font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.7;max-width:420px;opacity:0;transform:translateY(10px);transition:all .5s ease .1s}
 .exp-card:hover .exp-ct p{opacity:1;transform:translateY(0)}
 
-/* ═══════ PROGRAM 4 ZILE ═══════ */
 .sec-program{background:var(--bg2)}
 .prog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
 .prog-day{position:relative;padding:40px 28px;border-right:1px solid var(--border);transition:all .4s}
@@ -189,7 +178,6 @@ ul{list-style:none}
 .prog-item span:first-child{flex-shrink:0;color:var(--accent);font-size:.7rem;font-weight:700;margin-top:3px;letter-spacing:1px}
 .prog-wrap{border:1px solid var(--border);border-radius:20px;overflow:hidden}
 
-/* ═══════ GALLERY ═══════ */
 .sec-gallery{background:var(--bg)}
 .gal-filter{display:flex;justify-content:center;gap:10px;margin-bottom:50px;flex-wrap:wrap}
 .filt-btn{font-family:var(--ff-h);font-size:.8rem;letter-spacing:2.5px;text-transform:uppercase;padding:10px 26px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:50px;color:var(--text2);cursor:pointer;transition:all .3s}
@@ -205,7 +193,6 @@ ul{list-style:none}
 .gal-item:hover .gal-label{transform:translateY(0)}
 .gal-item.hide{display:none}
 
-/* ═══════ FEATURES ═══════ */
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:60px}
 .feat-card{background:rgba(17,17,17,.8);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:16px;padding:40px 28px;text-align:center;transition:all .5s;position:relative;overflow:hidden}
 .feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-lt),#ff6b00);background-size:300% 100%;transform:scaleX(0);transform-origin:left;transition:transform .5s;animation:gradShift 3s linear infinite paused}
@@ -227,7 +214,6 @@ ul{list-style:none}
 .disc-text h3{font-family:var(--ff-h);font-size:1.3rem;letter-spacing:1.5px;margin-bottom:8px}
 .disc-text p{color:var(--text2);font-size:.95rem}
 
-/* ═══════ TESTIMONIALE ═══════ */
 .sec-testi{background:var(--bg2)}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .testi-card{background:rgba(17,17,17,.7);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:36px;transition:all .4s;position:relative;overflow:hidden}
@@ -243,7 +229,6 @@ ul{list-style:none}
 .testi-name{font-family:var(--ff-h);font-size:.88rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text)}
 .testi-loc{font-size:.75rem;color:var(--text3);margin-top:2px}
 
-/* ═══════ TEAM ═══════ */
 .sec-team{background:var(--bg)}
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .team-card{background:rgba(17,17,17,.5);backdrop-filter:blur(8px);border:1px solid var(--border);border-radius:16px;padding:36px 24px;text-align:center;transition:all .5s;position:relative;overflow:hidden}
@@ -256,7 +241,6 @@ ul{list-style:none}
 .team-card h3{font-family:var(--ff-h);font-size:.95rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;color:var(--accent-lt)}
 .team-card p{font-size:.83rem;color:var(--text2);line-height:1.7}
 
-/* ═══════ TICKETS ═══════ */
 .tick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
 .tick-card{background:rgba(17,17,17,.6);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:40px 28px;transition:all .5s;position:relative}
 .tick-card:hover{border-color:var(--border-a);transform:translateY(-6px);box-shadow:0 25px 70px rgba(0,0,0,.4)}
@@ -287,7 +271,6 @@ ul{list-style:none}
 .cb-highlight{padding:18px;background:rgba(232,122,30,.04);border:1px solid var(--border-a);border-radius:12px;transition:all .3s}
 .cb-highlight:hover{background:rgba(232,122,30,.08)}
 
-/* ═══════ MODAL ═══════ */
 .modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(12px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:all .4s}
 .modal-ov.active{opacity:1;visibility:visible}
 .modal{background:rgba(20,20,20,.96);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:24px;padding:44px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;transform:translateY(30px) scale(.95);transition:all .4s cubic-bezier(.34,1.56,.64,1);position:relative}
@@ -297,7 +280,6 @@ ul{list-style:none}
 .modal h2{font-family:var(--ff-d);font-size:2.2rem;letter-spacing:3px;margin-bottom:8px}
 .modal>p{color:var(--text2);font-size:.9rem;margin-bottom:32px}
 
-/* ═══════ FORMS ═══════ */
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .f-grp{margin-bottom:16px}
 .f-grp label{display:block;font-family:var(--ff-h);font-size:.75rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--text2);margin-bottom:8px}
@@ -311,7 +293,6 @@ ul{list-style:none}
 .sum-total span:last-child{background:linear-gradient(135deg,var(--accent),var(--accent-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:1.4rem}
 .disc-grn{color:var(--green)!important}
 
-/* ═══════ CONTACT ═══════ */
 .sec-contact{background:var(--bg2)}
 .contact-wrap{display:grid;grid-template-columns:2fr 1fr;gap:36px;align-items:start}
 .contact-form{background:rgba(17,17,17,.6);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:20px;padding:44px}
@@ -328,7 +309,6 @@ ul{list-style:none}
 .c-info-card a{color:var(--accent-lt);transition:color .3s}
 .c-info-card a:hover{color:var(--accent)}
 
-/* ═══════ FINAL CTA ═══════ */
 .sec-cta{background:radial-gradient(ellipse at center,rgba(232,122,30,.05) 0%,var(--bg) 70%);text-align:center;padding:120px 0;position:relative;overflow:hidden}
 .sec-cta::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(232,122,30,.05) 0%,transparent 70%);animation:ctaPulse 4s ease-in-out infinite}
 @keyframes ctaPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.5}50%{transform:translate(-50%,-50%) scale(1.3);opacity:1}}
@@ -338,7 +318,6 @@ ul{list-style:none}
 .cta-inner h2{font-family:var(--ff-d);font-size:clamp(2rem,5vw,3.8rem);letter-spacing:4px;margin-bottom:18px}
 .cta-inner p{font-size:1.1rem;color:var(--text2);margin-bottom:44px;line-height:1.7}
 
-/* ═══════ FOOTER ═══════ */
 .footer{background:#030303;padding:80px 0 24px;border-top:1px solid var(--border)}
 .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:60px}
 .foot-logo{height:60px;border-radius:8px;margin-bottom:18px;filter:drop-shadow(0 0 10px rgba(232,122,30,.15))}
@@ -355,13 +334,11 @@ ul{list-style:none}
 .foot-bot{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .foot-bot p{font-size:.78rem;color:var(--text3);letter-spacing:1px}
 
-/* ═══════ TOAST ═══════ */
 .toast{position:fixed;bottom:32px;right:32px;display:flex;align-items:center;gap:14px;padding:18px 28px;background:rgba(20,20,20,.97);backdrop-filter:blur(16px);border:1px solid var(--green);border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5);z-index:3000;transform:translateX(calc(100% + 40px));transition:transform .6s cubic-bezier(.34,1.56,.64,1)}
 .toast.show{transform:translateX(0)}
 .toast-ic{width:34px;height:34px;background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.1rem}
 .toast-msg{font-size:.88rem;color:var(--text)}
 
-/* ═══════ LIGHTBOX ═══════ */
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.98);z-index:3000;display:flex;align-items:center;justify-content:center;padding:40px;opacity:0;visibility:hidden;transition:all .4s;cursor:pointer}
 .lightbox.active{opacity:1;visibility:visible}
 .lb-close{position:absolute;top:24px;right:24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#fff;font-size:2rem;cursor:pointer;transition:all .3s;z-index:1;width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:12px}
@@ -369,7 +346,6 @@ ul{list-style:none}
 .lb-img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:8px;transform:scale(.85);transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
 .lightbox.active .lb-img{transform:scale(1)}
 
-/* ═══════ WHATSAPP ═══════ */
 .wa-btn{position:fixed;bottom:32px;left:32px;z-index:1000;width:58px;height:58px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(37,211,102,.3);transition:all .3s;animation:waPulse 3s ease-in-out infinite}
 .wa-btn:hover{transform:scale(1.1) translateY(-3px);box-shadow:0 15px 40px rgba(37,211,102,.4)}
 .wa-btn svg{width:28px;height:28px;fill:#fff}
@@ -377,7 +353,6 @@ ul{list-style:none}
 .wa-tooltip{position:absolute;left:68px;background:rgba(20,20,20,.95);border:1px solid var(--border);color:var(--text);padding:8px 16px;border-radius:10px;font-size:.78rem;font-family:var(--ff-h);letter-spacing:1.5px;white-space:nowrap;opacity:0;transform:translateX(-10px);transition:all .3s;pointer-events:none}
 .wa-btn:hover .wa-tooltip{opacity:1;transform:translateX(0)}
 
-/* ═══════ RESPONSIVE ═══════ */
 @media(max-width:1024px){
 .exp-grid{grid-template-columns:repeat(2,1fr)}.exp-card-lg{grid-column:span 2;grid-row:span 1}
 .feat-grid{grid-template-columns:repeat(2,1fr)}.team-grid{grid-template-columns:repeat(2,1fr)}
@@ -412,7 +387,6 @@ ul{list-style:none}
 .wa-btn{bottom:24px;left:20px}
 }
 
-/* ═══════ MISC ═══════ */
 ::selection{background:var(--accent);color:#000}
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--bg)}
@@ -458,6 +432,14 @@ ul{list-style:none}
 .lp-flag svg{width:100%;height:100%;display:block}
 .lp-lang{font-family:var(--ff-h);font-size:1.05rem;font-weight:600;letter-spacing:3px;text-transform:uppercase}
 @media(max-width:480px){.lp-card{padding:28px 36px}.lp-cards{gap:14px}}
+
+/* REGION SELECTOR */
+.pkg-region-wrap{text-align:center;margin-bottom:40px}
+.pkg-region-selector{display:inline-flex;gap:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:50px;padding:6px;flex-wrap:wrap;justify-content:center}
+.pkg-region{display:inline-flex;align-items:center;gap:8px;font-family:var(--ff-h);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;padding:10px 22px;background:transparent;border:1px solid transparent;border-radius:50px;color:var(--text2);cursor:pointer;transition:all .3s}
+.pkg-region:hover{color:var(--accent-lt);border-color:var(--border-a)}
+.pkg-region.active{background:var(--accent);border-color:var(--accent);color:#000;box-shadow:0 4px 20px var(--glow)}
+.pkg-region svg{flex-shrink:0}
 </style>
 </head>
 <body>
@@ -529,17 +511,15 @@ ul{list-style:none}
             <span class="hero-title-line">LA MAXIMUM</span>
         </h1>
         <p class="hero-sub">Off-road extrem · Poligon cu forțe speciale · Party de neuitat · Turism spectaculos</p>
-        <div class="hero-ctas">
-            <a href="#bilete" class="btn btn-p btn-glow">CUMPĂRĂ BILET</a>
-            <a href="#contact" class="btn btn-s">SOLICITĂ CONSULTANȚĂ</a>
-        </div>
-
-        <!-- COUNTDOWN -->
         <div class="hero-countdown">
             <div class="cd-item"><span class="cd-num" id="cdDays">00</span><span class="cd-label">Zile</span></div>
             <div class="cd-item"><span class="cd-num" id="cdHours">00</span><span class="cd-label">Ore</span></div>
             <div class="cd-item"><span class="cd-num" id="cdMin">00</span><span class="cd-label">Minute</span></div>
             <div class="cd-item"><span class="cd-num" id="cdSec">00</span><span class="cd-label">Secunde</span></div>
+        </div>
+        <div class="hero-ctas">
+            <a href="#bilete" class="btn btn-p btn-glow">CUMPĂRĂ BILET</a>
+            <a href="#contact" class="btn btn-s">SOLICITĂ CONSULTANȚĂ</a>
         </div>
 
         <div class="hero-stats">
@@ -782,53 +762,63 @@ ul{list-style:none}
     <div class="container">
         <div class="sec-head reveal">
             <span class="sec-tag">REZERVĂ-ȚI LOCUL</span>
-            <h2 class="sec-title">Alege-ți <span class="accent">Biletul</span></h2>
-            <p class="sec-sub">Locurile sunt limitate. Asigură-ți participarea la cea mai intensă aventură din România.</p>
+            <h2 class="sec-title">Pachetul Tău <span class="accent">Spartan</span></h2>
+            <p class="sec-sub">Un singur pachet complet, toate incluse. Alege țara ta pentru a vedea prețul în moneda ta.</p>
         </div>
-        <div class="tick-grid">
-            <div class="tick-card reveal">
-                <div class="tick-head"><span class="tick-label">STANDARD</span><div class="tick-price"><span class="price-amt" id="priceStandard">1.200</span> <span class="price-cur">RON</span><br><span class="price-per">/persoană · all-inclusive</span></div></div>
-                <ul class="tick-feats">
-                    <li><span class="ck">✓</span> Transport autocar inclus</li>
-                    <li><span class="ck">✓</span> Cazare completă</li>
-                    <li><span class="ck">✓</span> 2 mese/zi</li>
-                    <li><span class="ck">✓</span> Off-road & Buggy</li>
-                    <li><span class="ck">✓</span> Party cu DJ</li>
-                    <li class="dis"><span class="xx">✗</span> Poligon de tragere</li>
-                    <li class="dis"><span class="xx">✗</span> Vizite turistice</li>
-                </ul>
-                <label class="chk-label"><input type="checkbox" class="own-tr" data-t="standard" data-b="1200"><span class="chk-mark"></span><span>Vin cu transport propriu (-15%)</span></label>
-                <button class="btn btn-ticket" onclick="openCO('standard')">REZERVĂ ACUM →</button>
+
+        <!-- Selector țară -->
+        <div class="pkg-region-wrap reveal">
+            <div class="pkg-region-selector">
+                <button class="pkg-region active" data-region="ro">
+                    <svg width="22" height="15" viewBox="0 0 3 2" style="border-radius:3px"><rect width="1" height="2" fill="#002B7F"/><rect x="1" width="1" height="2" fill="#FCD116"/><rect x="2" width="1" height="2" fill="#CE1126"/></svg>
+                    România
+                </button>
+                <button class="pkg-region" data-region="uk">
+                    <svg width="22" height="15" viewBox="0 0 60 30" style="border-radius:3px"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>
+                    United Kingdom
+                </button>
+                <button class="pkg-region" data-region="ww">
+                    <svg width="22" height="15" viewBox="0 0 24 24" fill="none" stroke="#f0f0f0" stroke-width="2" style="border-radius:3px;background:#1a1a4e"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+                    Worldwide
+                </button>
             </div>
-            <div class="tick-card tick-feat reveal" style="transition-delay:.15s">
-                <div class="tick-pop">CEL MAI POPULAR</div>
-                <div class="tick-head"><span class="tick-label">PREMIUM</span><div class="tick-price"><span class="price-amt" id="pricePremium">1.800</span> <span class="price-cur">RON</span><br><span class="price-per">/persoană · all-inclusive</span></div></div>
+        </div>
+
+        <!-- Pachet unic -->
+        <div style="max-width:520px;margin:0 auto">
+            <div class="tick-card tick-feat reveal" id="mainPackageCard">
+                <div class="tick-pop">PACHET COMPLET ALL-INCLUSIVE</div>
+                <div class="tick-head">
+                    <span class="tick-label">SPARTAN PREMIUM</span>
+                    <div class="tick-price">
+                        <span class="price-amt disc" id="pkgPrice">1.800</span>
+                        <span class="price-cur" id="pkgCur">RON</span>
+                        <br><span class="price-per">/persoană · all-inclusive</span>
+                    </div>
+                </div>
                 <ul class="tick-feats">
-                    <li><span class="ck">✓</span> Transport autocar inclus</li>
-                    <li><span class="ck">✓</span> Cazare premium (vilă/cabană)</li>
-                    <li><span class="ck">✓</span> 2 mese/zi + masă festivă</li>
-                    <li><span class="ck">✓</span> Off-road & Buggy</li>
-                    <li><span class="ck">✓</span> Party cu DJ</li>
-                    <li><span class="ck">✓</span> Poligon de tragere</li>
-                    <li><span class="ck">✓</span> Salina + Castelul Dracula</li>
+                    <li><span class="ck">✓</span> Cazare completă (vilă modernă / cabane)</li>
+                    <li><span class="ck">✓</span> 2 mese/zi + masă festivă cu bucătar privat</li>
+                    <li><span class="ck">✓</span> Off-Road & Buggy extrem o zi întreagă</li>
+                    <li><span class="ck">✓</span> Poligon de tragere cu Forțe Speciale</li>
+                    <li><span class="ck">✓</span> Party cu DJ + grătar + cocktailuri</li>
+                    <li><span class="ck">✓</span> Salina Târgu Ocna + Castelul Dracula</li>
+                    <li><span class="ck">✓</span> Jacuzzi + snacks incluse</li>
+                    <li><span class="ck">✓</span> Pază 24/7 + echipă medicală</li>
                 </ul>
-                <label class="chk-label"><input type="checkbox" class="own-tr" data-t="premium" data-b="1800"><span class="chk-mark"></span><span>Vin cu transport propriu (-15%)</span></label>
-                <button class="btn btn-p btn-ticket" onclick="openCO('premium')">REZERVĂ ACUM →</button>
-            </div>
-            <div class="tick-card reveal" style="transition-delay:.3s">
-                <div class="tick-head"><span class="tick-label">VIP SPARTAN</span><div class="tick-price"><span class="price-amt" id="priceVip">2.500</span> <span class="price-cur">RON</span><br><span class="price-per">/persoană · all-inclusive</span></div></div>
-                <ul class="tick-feats">
-                    <li><span class="ck">✓</span> Transport premium</li>
-                    <li><span class="ck">✓</span> Cazare VIP (vilă + jacuzzi)</li>
-                    <li><span class="ck">✓</span> All meals + masă festivă</li>
-                    <li><span class="ck">✓</span> Off-road VIP (primul pe traseu)</li>
-                    <li><span class="ck">✓</span> Party cu DJ + acces VIP</li>
-                    <li><span class="ck">✓</span> Poligon de tragere extins</li>
-                    <li><span class="ck">✓</span> Toate vizitele turistice</li>
-                    <li><span class="ck">✓</span> Masaj inclus</li>
-                </ul>
-                <label class="chk-label"><input type="checkbox" class="own-tr" data-t="vip" data-b="2500"><span class="chk-mark"></span><span>Vin cu transport propriu (-15%)</span></label>
-                <button class="btn btn-ticket" onclick="openCO('vip')">REZERVĂ ACUM →</button>
+
+                <!-- Transport checkbox -->
+                <div style="margin-top:20px">
+                    <label class="chk-label cb-highlight" id="transportLabel">
+                        <input type="checkbox" id="pkgTransport" checked>
+                        <span class="chk-mark"></span>
+                        <span>Includ transport cu autocarul</span>
+                    </label>
+                    <p id="pkgNoTransportNote" style="display:none;margin-top:8px;font-size:.8rem;color:var(--green);padding-left:34px">Transport propriu → <strong>-15% reducere</strong> aplicată automat</p>
+                </div>
+
+                <button class="btn btn-p btn-full" style="margin-top:20px" onclick="openCO('premium')">REZERVĂ ACUM →</button>
+                <button class="btn btn-ticket" onclick="openCO('premium')" style="margin-top:0">SOLICITĂ CONSULTANȚĂ GRATUITĂ</button>
             </div>
         </div>
     </div>
@@ -1119,21 +1109,52 @@ document.getElementById('lbClose').addEventListener('click', closeLB);
 lb.addEventListener('click', e => { if(e.target===lb) closeLB(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape') { closeLB(); closeCO(); }});
 
-// ═══════ TICKETING ═══════
-const prices = { standard:1200, premium:1800, vip:2500 };
-const labels = { standard:'STANDARD', premium:'PREMIUM', vip:'VIP SPARTAN' };
-document.querySelectorAll('.own-tr').forEach(cb => {
-    cb.addEventListener('change', () => {
-        const t = cb.dataset.t, b = parseInt(cb.dataset.b);
-        const el = document.getElementById('price'+t.charAt(0).toUpperCase()+t.slice(1));
-        el.style.transition='all .3s'; el.style.transform='scale(.8)'; el.style.opacity='0';
-        setTimeout(() => {
-            el.textContent = cb.checked ? Math.round(b*.85).toLocaleString('ro-RO') : b.toLocaleString('ro-RO');
-            el.classList.toggle('disc', cb.checked);
-            el.style.transform='scale(1)'; el.style.opacity='1';
-        }, 200);
+// REGION PRICING
+const regionPrices = {
+    ro: { base: 1800, cur: 'RON', locale: 'ro-RO' },
+    uk: { base: 1099, cur: '£', locale: 'en-GB' },
+    ww: { base: 1250, cur: '€', locale: 'de-DE' }
+};
+let activeRegion = 'ro';
+
+function formatPrice(val, region) {
+    const r = regionPrices[region];
+    if(region === 'uk') return '£' + val.toLocaleString('en-GB');
+    if(region === 'ww') return val.toLocaleString('de-DE') + ' €';
+    return val.toLocaleString('ro-RO') + ' RON';
+}
+
+function updatePkgPrice() {
+    const r = regionPrices[activeRegion];
+    const hasTransport = document.getElementById('pkgTransport').checked;
+    const base = r.base;
+    const price = hasTransport ? base : Math.round(base * 0.85);
+    const el = document.getElementById('pkgPrice');
+    el.style.transition = 'all .3s'; el.style.transform = 'scale(.8)'; el.style.opacity = '0';
+    setTimeout(() => {
+        if(activeRegion === 'uk') { el.textContent = '£' + price.toLocaleString('en-GB'); document.getElementById('pkgCur').textContent = ''; }
+        else if(activeRegion === 'ww') { el.textContent = price.toLocaleString('de-DE'); document.getElementById('pkgCur').textContent = '€'; }
+        else { el.textContent = price.toLocaleString('ro-RO'); document.getElementById('pkgCur').textContent = 'RON'; }
+        el.style.transform = 'scale(1)'; el.style.opacity = '1';
+    }, 200);
+    const note = document.getElementById('pkgNoTransportNote');
+    if(note) note.style.display = hasTransport ? 'none' : 'block';
+}
+
+document.querySelectorAll('.pkg-region').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.pkg-region').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeRegion = btn.dataset.region;
+        updatePkgPrice();
     });
 });
+
+document.getElementById('pkgTransport').addEventListener('change', updatePkgPrice);
+
+// Înlocuiește tot vechiul bloc prices/labels și own-tr listeners:
+const prices = { standard:1200, premium:1800, vip:2500 };
+const labels = { standard:'STANDARD', premium:'SPARTAN PREMIUM', vip:'VIP SPARTAN' };
 
 // ═══════ CHECKOUT ═══════
 let curType = '';
@@ -1155,14 +1176,15 @@ document.getElementById('coQty').addEventListener('input', updateSum);
 function updateSum() {
     const own = document.getElementById('coOwnTr').checked;
     const qty = parseInt(document.getElementById('coQty').value) || 1;
-    const base = prices[curType] || 0;
+    const r = regionPrices[activeRegion];
+    const base = r.base;
     let unit = base, disc = 0;
     const dRow = document.getElementById('sumDiscRow');
-    if(own) { disc = Math.round(base*.15); unit = base-disc; dRow.style.display='flex'; document.getElementById('sumDisc').textContent = `-${(disc*qty).toLocaleString('ro-RO')} RON`; }
+    if(own) { disc = Math.round(base*.15); unit = base-disc; dRow.style.display='flex'; document.getElementById('sumDisc').textContent = '-' + formatPrice(disc*qty, activeRegion); }
     else { dRow.style.display='none'; }
-    document.getElementById('sumType').textContent = labels[curType] || '—';
-    document.getElementById('sumUnit').textContent = base.toLocaleString('ro-RO')+' RON';
-    document.getElementById('sumTotal').textContent = (unit*qty).toLocaleString('ro-RO')+' RON';
+    document.getElementById('sumType').textContent = 'SPARTAN PREMIUM';
+    document.getElementById('sumUnit').textContent = formatPrice(base, activeRegion);
+    document.getElementById('sumTotal').textContent = formatPrice(unit*qty, activeRegion);
 }
 document.getElementById('coForm').addEventListener('submit', e => {
     e.preventDefault(); closeCO();
