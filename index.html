@@ -6,7 +6,6 @@
     <meta name="description" content="Spartan Camp Romania — The ultimate adventure experience. 3 days of extreme off-road, live shooting range with special forces, epic parties and breathtaking tourism. All-inclusive package. June 19, 2026.">
     <meta name="keywords" content="adventure camp Romania, extreme off-road UK, shooting range holiday, adventure holiday Eastern Europe, adrenaline holiday Romania">
     <title>Spartan Camp Romania | The Ultimate Adventure Experience for UK Adventurers</title>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <link rel="preload" href="assets/videos/hero-desktop.mp4" as="video" type="video/mp4" media="(min-width:769px)">
     <link rel="preload" href="assets/videos/hero-mobile.mp4" as="video" type="video/mp4" media="(max-width:768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -877,9 +876,9 @@ ul{list-style:none}
         </div>
         <div class="contact-wrap reveal">
             <form id="contactForm" class="contact-form">
-                <div class="f-row"><div class="f-grp"><label>Your Name *</label><input type="text" required placeholder="John Smith"></div><div class="f-grp"><label>Email *</label><input type="email" required placeholder="john@email.com"></div></div>
-                <div class="f-row"><div class="f-grp"><label>Phone Number *</label><input type="tel" required placeholder="+44 7XXX XXX XXX"></div><div class="f-grp"><label>I'm interested in...</label><select><option value="">Select...</option><option>Extreme Off-Road & Buggy</option><option>Live Shooting Range</option><option>Party & Entertainment</option><option>Tourism (Salt Mine & Castle)</option><option>Full Package</option><option>Group / Corporate Booking</option></select></div></div>
-                <div class="f-grp"><label>Message</label><textarea rows="4" placeholder="Tell us what you'd like to know..."></textarea></div>
+                <div class="f-row"><div class="f-grp"><label>Your Name *</label><input type="text" name="name" required placeholder="John Smith"></div><div class="f-grp"><label>Email *</label><input type="email" name="email" required placeholder="john@email.com"></div></div>
+                <div class="f-row"><div class="f-grp"><label>Phone Number *</label><input type="tel" name="phone" required placeholder="+44 7XXX XXX XXX"></div><div class="f-grp"><label>I'm interested in...</label><select name="interest"><option value="">Select...</option><option>Extreme Off-Road & Buggy</option><option>Live Shooting Range</option><option>Party & Entertainment</option><option>Tourism (Salt Mine & Castle)</option><option>Full Package</option><option>Group / Corporate Booking</option></select></div></div>
+                <div class="f-grp"><label>Message</label><textarea name="message" rows="4" placeholder="Tell us what you'd like to know..."></textarea></div>
                 <div class="f-grp"><label class="chk-label cb-highlight"><input type="checkbox" id="callbackCB" checked><span class="chk-mark"></span><span><strong>Please call me back before I pay</strong></span></label></div>
                 <button type="submit" class="btn btn-p btn-full">SEND MESSAGE</button>
             </form>
@@ -1038,14 +1037,6 @@ document.getElementById('coModal').addEventListener('click',e=>{if(e.target.id==
 document.getElementById('coOwnTr').addEventListener('change',updateSum);
 document.getElementById('coQty').addEventListener('input',updateSum);
 function updateSum(){const qty=parseInt(document.getElementById('coQty').value)||1;const d=currencyData[activeCur];const base=d.price;let display=d.prefix?'£'+base.toLocaleString(d.locale):base.toLocaleString(d.locale)+' '+d.sym;document.getElementById('sumDiscRow').style.display='none';document.getElementById('sumType').textContent='SPARTAN PREMIUM';document.getElementById('sumUnit').textContent=display;document.getElementById('sumTotal').textContent=d.prefix?'£'+(base*qty).toLocaleString(d.locale):(base*qty).toLocaleString(d.locale)+' '+d.sym;}
-// ── EmailJS config ── fill in your 4 IDs from emailjs.com ──
-const EJ_KEY      = 'YOUR_PUBLIC_KEY';
-const EJ_SERVICE  = 'YOUR_SERVICE_ID';
-const EJ_TPL_CONTACT = 'YOUR_CONTACT_TEMPLATE_ID';
-const EJ_TPL_OWNER   = 'YOUR_BOOKING_OWNER_TEMPLATE_ID';
-const EJ_TPL_RECEIPT = 'YOUR_BOOKING_RECEIPT_TEMPLATE_ID';
-if(typeof emailjs !== 'undefined') emailjs.init(EJ_KEY);
-
 document.getElementById('coForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = this.querySelector('[type=submit]');
@@ -1059,26 +1050,24 @@ document.getElementById('coForm').addEventListener('submit', function(e) {
     const cName = document.getElementById('coName').value;
     const cEmail = document.getElementById('coEmail').value;
     const cPhone = document.getElementById('coPhone').value;
-    const ownerP = { booking_ref:ref, customer_name:cName, customer_email:cEmail, customer_phone:cPhone, package:'SPARTAN PREMIUM', qty, unit_price:unitFmt, total:totalFmt, fly_in:flyIn?'YES – free airport transfer needed':'No', camp_date:'19 June 2026', to_email:'denisalexa46@gmail.com' };
-    const receiptP = { booking_ref:ref, customer_name:cName, customer_email:cEmail, package:'SPARTAN PREMIUM', qty, unit_price:unitFmt, total:totalFmt, fly_in:flyIn?'Yes – free airport transfer included':'No', camp_date:'19 June 2026', to_email:cEmail };
-    const send = typeof emailjs !== 'undefined'
-        ? Promise.all([emailjs.send(EJ_SERVICE,EJ_TPL_OWNER,ownerP), emailjs.send(EJ_SERVICE,EJ_TPL_RECEIPT,receiptP)])
-        : Promise.resolve();
-    send.then(()=>{ closeCO(); showToast('🎫 Booking confirmed! Receipt sent to your email.'); e.target.reset(); })
-        .catch(()=>{ closeCO(); showToast('🎫 Booking received! We\'ll confirm by email soon.'); e.target.reset(); })
-        .finally(()=>{ btn.disabled=false; btn.textContent=orig; });
+    const receipt = 'Dear '+cName+',\n\n✅ BOOKING CONFIRMED\n\nBooking Ref: '+ref+'\nPackage: SPARTAN PREMIUM\nSpots: '+qty+'\nPrice/person: '+unitFmt+'\nTotal: '+totalFmt+'\nCamp Date: 19 June 2026\nAirport Transfer: '+(flyIn?'Yes – free transfer included':'No')+'\n\nWe will contact you shortly to confirm your spot and send payment details.\n\nSpartan Camp Team';
+    fetch('https://formsubmit.co/ajax/denisalexa46@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'🎫 New Booking '+ref+' – '+cName,booking_ref:ref,customer_name:cName,customer_email:cEmail,customer_phone:cPhone,package:'SPARTAN PREMIUM',spots:qty,unit_price:unitFmt,total:totalFmt,airport_transfer:flyIn?'YES – transfer needed':'No',camp_date:'19 June 2026',_replyto:cEmail,_autoresponder:receipt})})
+    .then(r=>r.json())
+    .then(()=>{closeCO();showToast('🎫 Booking confirmed! Receipt sent to your email.');e.target.reset();})
+    .catch(()=>{closeCO();showToast('🎫 Booking received! We\'ll confirm by email soon.');e.target.reset();})
+    .finally(()=>{btn.disabled=false;btn.textContent=orig;});
 });
 
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = this.querySelector('[type=submit]');
     const orig = btn.textContent; btn.disabled = true; btn.textContent = 'Sending…';
-    const inputs = this.querySelectorAll('input,textarea,select');
-    const params = { from_name:inputs[0]?.value||'', reply_to:inputs[1]?.value||'', phone:inputs[2]?.value||'', interest:inputs[3]?.value||'', message:this.querySelector('textarea')?.value||'', to_email:'denisalexa46@gmail.com' };
-    const send = typeof emailjs !== 'undefined' ? emailjs.send(EJ_SERVICE, EJ_TPL_CONTACT, params) : Promise.resolve();
-    send.then(()=>{ showToast('📞 Message sent! Our team will contact you soon.'); e.target.reset(); document.getElementById('callbackCB').checked=true; })
-        .catch(()=>{ showToast('📞 Message received! We\'ll be in touch shortly.'); e.target.reset(); })
-        .finally(()=>{ btn.disabled=false; btn.textContent=orig; });
+    const name=this.querySelector('[name=name]').value, email=this.querySelector('[name=email]').value, phone=this.querySelector('[name=phone]').value, interest=this.querySelector('[name=interest]').value||'Not specified', message=this.querySelector('[name=message]').value||'—';
+    fetch('https://formsubmit.co/ajax/denisalexa46@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New enquiry from '+name,name,email,phone,interest,message,_replyto:email,_autoresponder:'Hi '+name+',\n\nThanks for reaching out to Spartan Camp! We\'ve received your message and will get back to you within 24 hours.\n\nBest,\nSpartan Camp Team'})})
+    .then(r=>r.json())
+    .then(()=>{showToast('📞 Message sent! Our team will contact you soon.');e.target.reset();document.getElementById('callbackCB').checked=true;})
+    .catch(()=>{showToast('📞 Message received! We\'ll be in touch shortly.');e.target.reset();})
+    .finally(()=>{btn.disabled=false;btn.textContent=orig;});
 });
 
 function showToast(msg){const t=document.getElementById('toast');document.getElementById('toastMsg').textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4500);}

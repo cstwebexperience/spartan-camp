@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Spartan Camp Romania – Experiența supremă de aventură. 3 zile de off-road extrem, poligon cu forțe speciale, party și turism. Pachet all-inclusive. 19 Iunie 2026.">
     <title>Spartan Camp Adventure Romania | Experiența Supremă de Aventură</title>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <link rel="preload" href="../assets/videos/hero-desktop.mp4" as="video" type="video/mp4" media="(min-width:769px)">
     <link rel="preload" href="../assets/videos/hero-mobile.mp4" as="video" type="video/mp4" media="(max-width:768px)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -856,9 +855,9 @@ ul{list-style:none}
         </div>
         <div class="contact-wrap reveal">
             <form id="contactForm" class="contact-form">
-                <div class="f-row"><div class="f-grp"><label>Numele tău *</label><input type="text" required placeholder="Ion Popescu"></div><div class="f-grp"><label>Email *</label><input type="email" required placeholder="ion@email.com"></div></div>
-                <div class="f-row"><div class="f-grp"><label>Telefon *</label><input type="tel" required placeholder="07XX XXX XXX"></div><div class="f-grp"><label>Ce te interesează?</label><select><option value="">Selectează...</option><option>Off-Road & Buggy</option><option>Poligon de Tragere</option><option>Party & Distracție</option><option>Turism (Salina & Castel)</option><option>Pachet Complet</option></select></div></div>
-                <div class="f-grp"><label>Mesaj</label><textarea rows="4" placeholder="Spune-ne ce vrei să afli..."></textarea></div>
+                <div class="f-row"><div class="f-grp"><label>Numele tău *</label><input type="text" name="name" required placeholder="Ion Popescu"></div><div class="f-grp"><label>Email *</label><input type="email" name="email" required placeholder="ion@email.com"></div></div>
+                <div class="f-row"><div class="f-grp"><label>Telefon *</label><input type="tel" name="phone" required placeholder="07XX XXX XXX"></div><div class="f-grp"><label>Ce te interesează?</label><select name="interest"><option value="">Selectează...</option><option>Off-Road & Buggy</option><option>Poligon de Tragere</option><option>Party & Distracție</option><option>Turism (Salina & Castel)</option><option>Pachet Complet</option></select></div></div>
+                <div class="f-grp"><label>Mesaj</label><textarea name="message" rows="4" placeholder="Spune-ne ce vrei să afli..."></textarea></div>
                 <div class="f-grp"><label class="chk-label cb-highlight"><input type="checkbox" id="callbackCB" checked><span class="chk-mark"></span><span><strong>Vreau să fiu sunat pentru detalii înainte de plată</strong></span></label></div>
                 <button type="submit" class="btn btn-p btn-full">TRIMITE MESAJUL</button>
             </form>
@@ -1135,14 +1134,6 @@ document.getElementById('coModal').addEventListener('click', e => { if(e.target.
 document.getElementById('coOwnTr').addEventListener('change', updateSum);
 document.getElementById('coQty').addEventListener('input', updateSum);
 function updateSum(){const qty=parseInt(document.getElementById('coQty').value)||1;const d=currencyData[activeCur];const base=d.price;let display=d.prefix?'£'+base.toLocaleString(d.locale):base.toLocaleString(d.locale)+' '+d.sym;document.getElementById('sumDiscRow').style.display='none';document.getElementById('sumType').textContent='SPARTAN PREMIUM';document.getElementById('sumUnit').textContent=display;document.getElementById('sumTotal').textContent=d.prefix?'£'+(base*qty).toLocaleString(d.locale):(base*qty).toLocaleString(d.locale)+' '+d.sym;}
-// ── EmailJS config ── completează cele 4 ID-uri de pe emailjs.com ──
-const EJ_KEY      = 'YOUR_PUBLIC_KEY';
-const EJ_SERVICE  = 'YOUR_SERVICE_ID';
-const EJ_TPL_CONTACT = 'YOUR_CONTACT_TEMPLATE_ID';
-const EJ_TPL_OWNER   = 'YOUR_BOOKING_OWNER_TEMPLATE_ID';
-const EJ_TPL_RECEIPT = 'YOUR_BOOKING_RECEIPT_TEMPLATE_ID';
-if(typeof emailjs !== 'undefined') emailjs.init(EJ_KEY);
-
 document.getElementById('coForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = this.querySelector('[type=submit]');
@@ -1156,27 +1147,24 @@ document.getElementById('coForm').addEventListener('submit', function(e) {
     const cName = document.getElementById('coName').value;
     const cEmail = document.getElementById('coEmail').value;
     const cPhone = document.getElementById('coPhone').value;
-    const ownerP = { booking_ref:ref, customer_name:cName, customer_email:cEmail, customer_phone:cPhone, package:'SPARTAN PREMIUM', qty, unit_price:unitFmt, total:totalFmt, fly_in:flyIn?'DA – transfer aeroport necesar':'Nu', camp_date:'19 Iunie 2026', to_email:'denisalexa46@gmail.com' };
-    const receiptP = { booking_ref:ref, customer_name:cName, customer_email:cEmail, package:'SPARTAN PREMIUM', qty, unit_price:unitFmt, total:totalFmt, fly_in:flyIn?'Da – transfer aeroport gratuit inclus':'Nu', camp_date:'19 Iunie 2026', to_email:cEmail };
-    const send = typeof emailjs !== 'undefined'
-        ? Promise.all([emailjs.send(EJ_SERVICE,EJ_TPL_OWNER,ownerP), emailjs.send(EJ_SERVICE,EJ_TPL_RECEIPT,receiptP)])
-        : Promise.resolve();
-    send.then(()=>{ closeCO(); showToast('🎫 Rezervare confirmată! Chitanța a fost trimisă pe email.'); e.target.reset(); })
-        .catch(()=>{ closeCO(); showToast('🎫 Rezervare primită! Te confirmăm prin email în curând.'); e.target.reset(); })
-        .finally(()=>{ btn.disabled=false; btn.textContent=orig; });
+    const receipt = 'Salut '+cName+',\n\n✅ REZERVARE CONFIRMATĂ\n\nRef. Rezervare: '+ref+'\nPachet: SPARTAN PREMIUM\nLocuri: '+qty+'\nPreț/persoană: '+unitFmt+'\nTotal: '+totalFmt+'\nData Taberei: 19 Iunie 2026\nTransfer Aeroport: '+(flyIn?'Da – transfer gratuit inclus':'Nu')+'\n\nÎți vom contacta în curând pentru a confirma locul și a trimite detaliile de plată.\n\nEchipa Spartan Camp';
+    fetch('https://formsubmit.co/ajax/denisalexa46@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'🎫 Rezervare Nouă '+ref+' – '+cName,booking_ref:ref,customer_name:cName,customer_email:cEmail,customer_phone:cPhone,package:'SPARTAN PREMIUM',locuri:qty,unit_price:unitFmt,total:totalFmt,airport_transfer:flyIn?'DA – transfer necesar':'Nu',camp_date:'19 Iunie 2026',_replyto:cEmail,_autoresponder:receipt})})
+    .then(r=>r.json())
+    .then(()=>{closeCO();showToast('🎫 Rezervare confirmată! Chitanța a fost trimisă pe email.');e.target.reset();})
+    .catch(()=>{closeCO();showToast('🎫 Rezervare primită! Te confirmăm prin email în curând.');e.target.reset();})
+    .finally(()=>{btn.disabled=false;btn.textContent=orig;});
 });
 
-// ═══════ CONTACT ═══════
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = this.querySelector('[type=submit]');
     const orig = btn.textContent; btn.disabled = true; btn.textContent = 'Se trimite…';
-    const inputs = this.querySelectorAll('input,textarea,select');
-    const params = { from_name:inputs[0]?.value||'', reply_to:inputs[1]?.value||'', phone:inputs[2]?.value||'', interest:inputs[3]?.value||'', message:this.querySelector('textarea')?.value||'', to_email:'denisalexa46@gmail.com' };
-    const send = typeof emailjs !== 'undefined' ? emailjs.send(EJ_SERVICE, EJ_TPL_CONTACT, params) : Promise.resolve();
-    send.then(()=>{ showToast('📞 Mesaj trimis! Echipa te contactează în curând.'); e.target.reset(); document.getElementById('callbackCB').checked=true; })
-        .catch(()=>{ showToast('📞 Mesaj primit! Te contactăm în curând.'); e.target.reset(); })
-        .finally(()=>{ btn.disabled=false; btn.textContent=orig; });
+    const name=this.querySelector('[name=name]').value, email=this.querySelector('[name=email]').value, phone=this.querySelector('[name=phone]').value, interest=this.querySelector('[name=interest]').value||'Nespecificat', message=this.querySelector('[name=message]').value||'—';
+    fetch('https://formsubmit.co/ajax/denisalexa46@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'Mesaj nou de la '+name,name,email,phone,interest,message,_replyto:email,_autoresponder:'Salut '+name+',\n\nMulțumim că ai contactat Spartan Camp! Am primit mesajul tău și echipa noastră te va contacta în maxim 24 de ore.\n\nCu drag,\nEchipa Spartan Camp'})})
+    .then(r=>r.json())
+    .then(()=>{showToast('📞 Mesaj trimis! Echipa te contactează în curând.');e.target.reset();document.getElementById('callbackCB').checked=true;})
+    .catch(()=>{showToast('📞 Mesaj primit! Te contactăm în curând.');e.target.reset();})
+    .finally(()=>{btn.disabled=false;btn.textContent=orig;});
 });
 
 // ═══════ TOAST ═══════
