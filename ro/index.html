@@ -762,7 +762,7 @@ ul{list-style:none}
         <div class="sec-head reveal">
             <span class="sec-tag">REZERVĂ-ȚI LOCUL</span>
             <h2 class="sec-title">Pachetul Tău <span class="accent">Spartan</span></h2>
-            <p class="sec-sub">Un singur pachet complet, totul inclus. Alege moneda ta și rezervă-ți locul.</p>
+            <p class="sec-sub">Un singur pachet complet, totul inclus. Selectează țara ta — prețul se afișează în moneda locală.</p>
         </div>
 
         <!-- Badge locuri limitate -->
@@ -770,20 +770,20 @@ ul{list-style:none}
             <span style="display:inline-block;padding:10px 28px;background:linear-gradient(135deg,var(--accent),var(--accent-lt));color:#000;font-family:var(--ff-h);font-size:.85rem;font-weight:700;letter-spacing:3px;border-radius:50px;box-shadow:0 4px 24px var(--glow);animation:glowP 3s ease-in-out infinite">⚡ LOCURI LIMITATE — DOAR 15 LOCURI DISPONIBILE</span>
         </div>
 
-        <!-- Selector monedă -->
+        <!-- Selector țară -->
         <div class="pkg-region-wrap reveal">
             <div class="pkg-region-selector">
                 <button class="pkg-region active" data-region="ron">
                     <svg width="22" height="15" viewBox="0 0 3 2" style="border-radius:3px"><rect width="1" height="2" fill="#002B7F"/><rect x="1" width="1" height="2" fill="#FCD116"/><rect x="2" width="1" height="2" fill="#CE1126"/></svg>
-                    RON
-                </button>
-                <button class="pkg-region" data-region="eur">
-                    <svg width="22" height="15" viewBox="0 0 24 24" fill="none" stroke="#f0f0f0" stroke-width="2" style="border-radius:3px;background:#003399"><circle cx="12" cy="12" r="10"/><path d="M14.5 9a4 4 0 100 6M6 11h7M6 13h7"/></svg>
-                    EUR
+                    România
                 </button>
                 <button class="pkg-region" data-region="gbp">
                     <svg width="22" height="15" viewBox="0 0 60 30" style="border-radius:3px"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg>
-                    GBP
+                    United Kingdom
+                </button>
+                <button class="pkg-region" data-region="eur">
+                    <span style="font-size:1.1em;line-height:1">🌍</span>
+                    Mondial
                 </button>
             </div>
         </div>
@@ -795,6 +795,7 @@ ul{list-style:none}
                 <div class="tick-head">
                     <span class="tick-label">SPARTAN PREMIUM</span>
                     <div class="tick-price">
+                        <div id="pkgDiscBadge" style="display:none;margin-bottom:8px"><span style="background:var(--green);color:#000;font-family:var(--ff-b);font-weight:700;font-size:.65rem;letter-spacing:2px;padding:4px 14px;border-radius:20px">✈ ZBOR CU AVIONUL — 15% REDUCERE</span></div>
                         <span class="price-amt disc" id="pkgPrice">4.000</span>
                         <span class="price-cur" id="pkgCur"> RON</span>
                         <br><span class="price-per">/persoană · all-inclusive · 3 zile</span>
@@ -814,7 +815,7 @@ ul{list-style:none}
                 <label class="chk-label cb-highlight" style="margin-top:20px">
                     <input type="checkbox" id="pkgFlyIn">
                     <span class="chk-mark"></span>
-                    <span>Vin cu avionul <strong>(transfer aeroport gratuit inclus)</strong></span>
+                    <span>Vin cu avionul <strong>(transfer aeroport gratuit + 15% reducere)</strong></span>
                 </label>
                 <button class="btn btn-p btn-full" style="margin-top:20px" onclick="openCO('premium')">REZERVĂ ACUM →</button>
                 <button class="btn btn-ticket" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">SOLICITĂ CONSULTANȚĂ GRATUITĂ</button>
@@ -827,21 +828,41 @@ ul{list-style:none}
 <div class="modal-ov" id="coModal">
     <div class="modal">
         <button class="modal-x" id="coClose">&times;</button>
-        <h2>Finalizare Rezervare</h2>
-        <p>Completează datele pentru a confirma biletul</p>
-        <form id="coForm">
-            <input type="hidden" id="coType">
-            <div class="f-row"><div class="f-grp"><label>Nume complet *</label><input type="text" id="coName" required placeholder="Ion Popescu"></div><div class="f-grp"><label>Email *</label><input type="email" id="coEmail" required placeholder="ion@email.com"></div></div>
-            <div class="f-row"><div class="f-grp"><label>Telefon *</label><input type="tel" id="coPhone" required placeholder="07XX XXX XXX"></div><div class="f-grp"><label>Număr bilete *</label><input type="number" id="coQty" min="1" max="20" value="1" required></div></div>
-            <div class="f-grp"><label class="chk-label"><input type="checkbox" id="coOwnTr"><span class="chk-mark"></span><span>Vin cu avionul <strong>(transfer aeroport gratuit inclus)</strong></span></label></div>
+
+        <!-- Pasul 1: Date personale -->
+        <div id="coStep1">
+            <h2>Finalizare Rezervare</h2>
+            <p>Completează datele pentru a confirma biletul</p>
+            <form id="coForm">
+                <input type="hidden" id="coType">
+                <div class="f-row"><div class="f-grp"><label>Nume complet *</label><input type="text" id="coName" required placeholder="Ion Popescu"></div><div class="f-grp"><label>Email *</label><input type="email" id="coEmail" required placeholder="ion@email.com"></div></div>
+                <div class="f-row"><div class="f-grp"><label>Telefon *</label><input type="tel" id="coPhone" required placeholder="07XX XXX XXX"></div><div class="f-grp"><label>Număr bilete *</label><input type="number" id="coQty" min="1" max="20" value="1" required></div></div>
+                <div class="f-grp"><label class="chk-label"><input type="checkbox" id="coOwnTr"><span class="chk-mark"></span><span>Vin cu avionul <strong>(transfer aeroport gratuit + 15% reducere)</strong></span></label></div>
+                <div class="summary">
+                    <div class="sum-row"><span>Pachet:</span><span id="sumType">—</span></div>
+                    <div class="sum-row"><span>Preț/persoană:</span><span id="sumUnit">—</span></div>
+                    <div class="sum-row" id="sumDiscRow" style="display:none"><span>Zbor cu avionul — 15% reducere:</span><span id="sumDisc" class="disc-grn">—</span></div>
+                    <div class="sum-row sum-total"><span>TOTAL:</span><span id="sumTotal">—</span></div>
+                </div>
+                <button type="button" id="coContinueBtn" class="btn btn-p btn-full">CONTINUĂ SPRE PLATĂ →</button>
+            </form>
+        </div>
+
+        <!-- Pasul 2: Plată -->
+        <div id="coStep2" style="display:none">
+            <h2>Alege Metoda de Plată</h2>
+            <p>Locul tău este aproape asigurat. Finalizează plata mai jos.</p>
             <div class="summary">
-                <div class="sum-row"><span>Tip bilet:</span><span id="sumType">—</span></div>
-                <div class="sum-row"><span>Preț unitar:</span><span id="sumUnit">—</span></div>
-                <div class="sum-row" id="sumDiscRow" style="display:none"><span>Reducere transport propriu:</span><span id="sumDisc" class="disc-grn">—</span></div>
-                <div class="sum-row sum-total"><span>TOTAL:</span><span id="sumTotal">—</span></div>
+                <div class="sum-row"><span>Pachet:</span><span>SPARTAN PREMIUM</span></div>
+                <div class="sum-row"><span>Locuri:</span><span id="payQty">—</span></div>
+                <div class="sum-row"><span>Preț/persoană:</span><span id="payUnit">—</span></div>
+                <div class="sum-row" id="payDiscRow" style="display:none"><span>Reducere 15%:</span><span id="payDisc" class="disc-grn">—</span></div>
+                <div class="sum-row sum-total"><span>TOTAL:</span><span id="payTotal">—</span></div>
             </div>
-            <button type="submit" class="btn btn-p btn-full">CONFIRMĂ REZERVAREA</button>
-        </form>
+            <button id="coStripeBtn" class="btn btn-p btn-full" style="margin-bottom:12px">💳 PLĂTEȘTE CU CARDUL →</button>
+            <button id="coReserveBtn" class="btn btn-ticket">REZERVĂ LOCUL — plată prin transfer bancar</button>
+            <button id="coBackBtn" style="background:none;border:none;color:var(--text2);font-size:.8rem;cursor:pointer;display:block;margin:14px auto 0;text-decoration:underline">← Înapoi la date</button>
+        </div>
     </div>
 </div>
 
@@ -1108,50 +1129,115 @@ document.getElementById('lbClose').addEventListener('click', closeLB);
 lb.addEventListener('click', e => { if(e.target===lb) closeLB(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape') { closeLB(); closeCO(); }});
 
-// CURRENCY SELECTOR
+// SELECTOR ȚARĂ / MONEDĂ
 const currencyData = { ron:{price:4000,sym:'RON',locale:'ro-RO',prefix:false}, eur:{price:800,sym:'€',locale:'de-DE',prefix:false}, gbp:{price:680,sym:'£',locale:'en-GB',prefix:true} };
 let activeCur = 'ron';
-function fmtPkg(region){ const d=currencyData[region]; const p=d.price; const el=document.getElementById('pkgPrice'); const cel=document.getElementById('pkgCur'); el.style.transition='all .3s'; el.style.transform='scale(.8)'; el.style.opacity='0'; setTimeout(()=>{ if(d.prefix){ el.textContent='£'+p.toLocaleString(d.locale); cel.textContent=''; } else { el.textContent=p.toLocaleString(d.locale); cel.textContent=' '+d.sym; } el.style.transform='scale(1)'; el.style.opacity='1'; },200); }
-document.querySelectorAll('.pkg-region').forEach(btn=>{ btn.addEventListener('click',()=>{ document.querySelectorAll('.pkg-region').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); activeCur=btn.dataset.region; fmtPkg(activeCur); }); });
-const prices={standard:4000,premium:4000,vip:4000};
-const labels={standard:'SPARTAN PREMIUM',premium:'SPARTAN PREMIUM',vip:'SPARTAN PREMIUM'};
+function fmtMoney(d,n){ return d.prefix?'£'+n.toLocaleString(d.locale):n.toLocaleString(d.locale)+' '+d.sym; }
+function fmtPkg(region, flyIn){
+    const d=currencyData[region]; const base=d.price;
+    const price=flyIn?Math.round(base*0.85):base;
+    const el=document.getElementById('pkgPrice'),cel=document.getElementById('pkgCur'),badge=document.getElementById('pkgDiscBadge');
+    el.style.transition='all .3s';el.style.transform='scale(.8)';el.style.opacity='0';
+    setTimeout(()=>{ el.textContent=d.prefix?'£'+price.toLocaleString(d.locale):price.toLocaleString(d.locale); cel.textContent=d.prefix?'':' '+d.sym; badge.style.display=flyIn?'block':'none'; el.style.transform='scale(1)';el.style.opacity='1'; },200);
+}
+document.querySelectorAll('.pkg-region').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        document.querySelectorAll('.pkg-region').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active'); activeCur=btn.dataset.region;
+        fmtPkg(activeCur, document.getElementById('pkgFlyIn').checked);
+    });
+});
+document.getElementById('pkgFlyIn').addEventListener('change',function(){ fmtPkg(activeCur,this.checked); });
 
 // ═══════ CHECKOUT ═══════
 let curType = '';
-function openCO(type) {
-    curType = type;
-    const cb = document.querySelector(`.own-tr[data-t="${type}"]`);
-    document.getElementById('coType').value = type;
-    document.getElementById('coOwnTr').checked = cb ? cb.checked : false;
+function openCO(type){
+    curType=type; document.getElementById('coType').value=type;
+    document.getElementById('coOwnTr').checked=document.getElementById('pkgFlyIn').checked;
+    document.getElementById('coStep1').style.display='block';
+    document.getElementById('coStep2').style.display='none';
     document.getElementById('coModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
-    updateSum();
+    document.body.style.overflow='hidden'; updateSum();
 }
-window.openCO = openCO;
-function closeCO() { document.getElementById('coModal').classList.remove('active'); document.body.style.overflow=''; }
+window.openCO=openCO;
+function closeCO(){ document.getElementById('coModal').classList.remove('active'); document.body.style.overflow=''; }
 document.getElementById('coClose').addEventListener('click', closeCO);
 document.getElementById('coModal').addEventListener('click', e => { if(e.target.id==='coModal') closeCO(); });
 document.getElementById('coOwnTr').addEventListener('change', updateSum);
 document.getElementById('coQty').addEventListener('input', updateSum);
-function updateSum(){const qty=parseInt(document.getElementById('coQty').value)||1;const d=currencyData[activeCur];const base=d.price;let display=d.prefix?'£'+base.toLocaleString(d.locale):base.toLocaleString(d.locale)+' '+d.sym;document.getElementById('sumDiscRow').style.display='none';document.getElementById('sumType').textContent='SPARTAN PREMIUM';document.getElementById('sumUnit').textContent=display;document.getElementById('sumTotal').textContent=d.prefix?'£'+(base*qty).toLocaleString(d.locale):(base*qty).toLocaleString(d.locale)+' '+d.sym;}
-document.getElementById('coForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('[type=submit]');
-    const orig = btn.textContent; btn.disabled = true; btn.textContent = 'Se trimite…';
-    const qty = parseInt(document.getElementById('coQty').value) || 1;
-    const d = currencyData[activeCur];
-    const unitFmt = d.prefix ? '£'+d.price.toLocaleString(d.locale) : d.price.toLocaleString(d.locale)+' '+d.sym;
-    const totalFmt = d.prefix ? '£'+(d.price*qty).toLocaleString(d.locale) : (d.price*qty).toLocaleString(d.locale)+' '+d.sym;
-    const ref = 'SC-' + Date.now().toString(36).toUpperCase();
-    const flyIn = document.getElementById('coOwnTr').checked;
-    const cName = document.getElementById('coName').value;
-    const cEmail = document.getElementById('coEmail').value;
-    const cPhone = document.getElementById('coPhone').value;
-    const receipt = 'Salut '+cName+',\n\n✅ REZERVARE CONFIRMATĂ\n\nRef. Rezervare: '+ref+'\nPachet: SPARTAN PREMIUM\nLocuri: '+qty+'\nPreț/persoană: '+unitFmt+'\nTotal: '+totalFmt+'\nData Taberei: 19 Iunie 2026\nTransfer Aeroport: '+(flyIn?'Da – transfer gratuit inclus':'Nu')+'\n\nÎți vom contacta în curând pentru a confirma locul și a trimite detaliile de plată.\n\nEchipa Spartan Camp';
-    fetch('https://formsubmit.co/ajax/denisalexa46@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'🎫 Rezervare Nouă '+ref+' – '+cName,booking_ref:ref,customer_name:cName,customer_email:cEmail,customer_phone:cPhone,package:'SPARTAN PREMIUM',locuri:qty,unit_price:unitFmt,total:totalFmt,airport_transfer:flyIn?'DA – transfer necesar':'Nu',camp_date:'19 Iunie 2026',_replyto:cEmail,_autoresponder:receipt})})
+function updateSum(){
+    const qty=parseInt(document.getElementById('coQty').value)||1;
+    const d=currencyData[activeCur]; const base=d.price;
+    const flyIn=document.getElementById('coOwnTr').checked;
+    const unitPrice=flyIn?Math.round(base*0.85):base;
+    const savings=flyIn?base-unitPrice:0;
+    document.getElementById('sumDiscRow').style.display=flyIn?'flex':'none';
+    document.getElementById('sumType').textContent='SPARTAN PREMIUM';
+    document.getElementById('sumUnit').textContent=fmtMoney(d,unitPrice);
+    document.getElementById('sumDisc').textContent='-'+fmtMoney(d,savings)+' per persoană';
+    document.getElementById('sumTotal').textContent=fmtMoney(d,unitPrice*qty);
+}
+
+// Pasul 1 → Pasul 2
+document.getElementById('coContinueBtn').addEventListener('click',function(){
+    const name=document.getElementById('coName').value.trim();
+    const email=document.getElementById('coEmail').value.trim();
+    const phone=document.getElementById('coPhone').value.trim();
+    ['coName','coEmail','coPhone'].forEach(id=>document.getElementById(id).style.borderColor='');
+    if(!name||!email||!phone){
+        if(!name)document.getElementById('coName').style.borderColor='rgba(232,122,30,.8)';
+        if(!email)document.getElementById('coEmail').style.borderColor='rgba(232,122,30,.8)';
+        if(!phone)document.getElementById('coPhone').style.borderColor='rgba(232,122,30,.8)';
+        return;
+    }
+    const qty=parseInt(document.getElementById('coQty').value)||1;
+    const d=currencyData[activeCur]; const base=d.price;
+    const flyIn=document.getElementById('coOwnTr').checked;
+    const unitPrice=flyIn?Math.round(base*0.85):base;
+    const savings=flyIn?base-unitPrice:0;
+    document.getElementById('payQty').textContent=qty;
+    document.getElementById('payUnit').textContent=fmtMoney(d,unitPrice);
+    document.getElementById('payDiscRow').style.display=flyIn?'flex':'none';
+    document.getElementById('payDisc').textContent='-'+fmtMoney(d,savings)+' per persoană';
+    document.getElementById('payTotal').textContent=fmtMoney(d,unitPrice*qty);
+    document.getElementById('coStep1').style.display='none';
+    document.getElementById('coStep2').style.display='block';
+});
+document.getElementById('coBackBtn').addEventListener('click',function(){
+    document.getElementById('coStep1').style.display='block';
+    document.getElementById('coStep2').style.display='none';
+});
+
+// PLATĂ CU STRIPE
+document.getElementById('coStripeBtn').addEventListener('click',async function(){
+    const btn=this; const orig=btn.textContent;
+    btn.disabled=true; btn.textContent='Redirecționare Stripe…';
+    const qty=parseInt(document.getElementById('coQty').value)||1;
+    const flyIn=document.getElementById('coOwnTr').checked;
+    const ref='SC-'+Date.now().toString(36).toUpperCase();
+    try{
+        const res=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({country:activeCur,qty,flyIn,name:document.getElementById('coName').value,email:document.getElementById('coEmail').value,phone:document.getElementById('coPhone').value,ref,lang:'ro'})});
+        const data=await res.json();
+        if(data.url){window.location.href=data.url;}else{throw new Error(data.error||'No URL');}
+    }catch(err){btn.disabled=false;btn.textContent=orig;showToast('❌ Eroare la plată. Încearcă din nou sau contactează-ne.');}
+});
+
+// REZERVARE — transfer bancar
+document.getElementById('coReserveBtn').addEventListener('click',function(){
+    const btn=this; const orig=btn.textContent;
+    btn.disabled=true; btn.textContent='Se trimite…';
+    const qty=parseInt(document.getElementById('coQty').value)||1;
+    const d=currencyData[activeCur]; const base=d.price;
+    const flyIn=document.getElementById('coOwnTr').checked;
+    const unitPrice=flyIn?Math.round(base*0.85):base;
+    const unitFmt=fmtMoney(d,unitPrice), totalFmt=fmtMoney(d,unitPrice*qty);
+    const ref='SC-'+Date.now().toString(36).toUpperCase();
+    const cName=document.getElementById('coName').value, cEmail=document.getElementById('coEmail').value, cPhone=document.getElementById('coPhone').value;
+    const receipt='Salut '+cName+',\n\n📋 REZERVARE PRIMITĂ\n\nRef. Rezervare: '+ref+'\nPachet: SPARTAN PREMIUM\nLocuri: '+qty+'\nPreț/persoană: '+unitFmt+'\nTotal: '+totalFmt+'\nData Taberei: 19 Iunie 2026\nTransfer Aeroport: '+(flyIn?'Da – transfer gratuit inclus':'Nu')+'\nPlată: Transfer bancar — detaliile urmează în 24h\n\nEchipa Spartan Camp';
+    fetch('https://formsubmit.co/ajax/denisalexa46@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'📋 Rezervare '+ref+' – '+cName+' (transfer bancar)',booking_ref:ref,customer_name:cName,customer_email:cEmail,customer_phone:cPhone,package:'SPARTAN PREMIUM',locuri:qty,unit_price:unitFmt,total:totalFmt,airport_transfer:flyIn?'DA':'Nu',camp_date:'19 Iunie 2026',plata:'Transfer Bancar (pending)',_replyto:cEmail,_autoresponder:receipt})})
     .then(r=>r.json())
-    .then(()=>{closeCO();showToast('🎫 Rezervare confirmată! Chitanța a fost trimisă pe email.');e.target.reset();})
-    .catch(()=>{closeCO();showToast('🎫 Rezervare primită! Te confirmăm prin email în curând.');e.target.reset();})
+    .then(()=>{closeCO();showToast('📋 Rezervare primită! Detalii transfer bancar trimise pe email.');})
+    .catch(()=>{closeCO();showToast('📋 Rezervare primită! Îți trimitem detaliile de plată în 24h.');})
     .finally(()=>{btn.disabled=false;btn.textContent=orig;});
 });
 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervare Confirmată — Spartan Camp 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+    :root{--bg:#080808;--bg2:#111;--text:#f0f0f0;--text2:#8a8a8a;--accent:#e87a1e;--green:#22c55e;--border:rgba(255,255,255,0.06);--ff-d:'Bebas Neue',sans-serif;--ff-b:'Inter',sans-serif}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:var(--ff-b);background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:48px 40px;max-width:520px;width:100%;text-align:center}
+    .icon{width:72px;height:72px;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+    .icon svg{width:36px;height:36px;stroke:var(--green);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    h1{font-family:var(--ff-d);font-size:2.4rem;letter-spacing:3px;color:var(--text);margin-bottom:6px}
+    .ref{font-size:.75rem;color:var(--text2);letter-spacing:3px;margin-bottom:32px;font-family:var(--ff-b)}
+    .details{background:rgba(8,8,8,.6);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:24px;text-align:left}
+    .d-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;font-size:.88rem;border-bottom:1px solid var(--border)}
+    .d-row:last-child{border-bottom:none}
+    .d-row span:first-child{color:var(--text2)}
+    .d-row span:last-child{color:var(--text);font-weight:500}
+    .total-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0 0;font-family:'Oswald',sans-serif;font-size:1.1rem;letter-spacing:1px;color:var(--text);border-top:1px solid var(--border);margin-top:4px}
+    .total-row span:last-child{background:linear-gradient(135deg,var(--accent),#f5a623);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:1.4rem}
+    .btn-home{display:inline-flex;align-items:center;gap:8px;margin-top:28px;padding:14px 32px;background:var(--accent);color:#fff;font-family:var(--ff-b);font-weight:700;font-size:.85rem;letter-spacing:1px;text-decoration:none;border-radius:999px;transition:background .3s}
+    .btn-home:hover{background:#c45e0a}
+    .note{font-size:.78rem;color:var(--text2);margin-top:16px;line-height:1.6}
+    .tag{display:inline-block;margin-bottom:20px;padding:5px 16px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);border-radius:999px;font-size:.72rem;color:var(--green);letter-spacing:2px;font-weight:600}
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <span class="tag">PLATĂ REUȘITĂ</span>
+    <h1>REZERVARE CONFIRMATĂ</h1>
+    <p class="ref" id="refDisplay">REF: —</p>
+
+    <div class="details" id="detailsBox"></div>
+
+    <a href="/ro/" class="btn-home">← Înapoi la Spartan Camp</a>
+    <p class="note">Un email de confirmare a fost trimis la adresa ta. Te vom contacta cu 2 săptămâni înainte de tabără cu instrucțiuni detaliate.</p>
+</div>
+
+<script>
+const p = new URLSearchParams(window.location.search);
+const ref     = p.get('ref')     || 'SC-UNKNOWN';
+const name    = p.get('name')    || '';
+const email   = p.get('email')   || '';
+const phone   = p.get('phone')   || '';
+const qty     = parseInt(p.get('qty')) || 1;
+const country = p.get('country') || 'ron';
+const flyIn   = p.get('flyIn')   === 'true';
+
+const cur = { ron:{base:4000,sym:'RON',locale:'ro-RO',prefix:false}, gbp:{base:680,sym:'£',locale:'en-GB',prefix:true}, eur:{base:800,sym:'€',locale:'de-DE',prefix:false} };
+const d = cur[country] || cur.ron;
+const unitPrice = flyIn ? Math.round(d.base * 0.85) : d.base;
+const total = unitPrice * qty;
+const fmt = n => d.prefix ? '£' + n.toLocaleString(d.locale) : n.toLocaleString(d.locale) + ' ' + d.sym;
+
+document.getElementById('refDisplay').textContent = 'REF: ' + ref;
+
+const rows = [
+    ['Nume', name], ['Email', email], ['Telefon', phone || '—'],
+    ['Pachet', 'SPARTAN PREMIUM'], ['Locuri', qty],
+    ['Preț/persoană', fmt(unitPrice) + (flyIn ? ' (reducere 15% aplicată)' : '')],
+    ['Transfer Aeroport', flyIn ? 'Da — transfer gratuit inclus' : 'Nu'],
+    ['Data Taberei', '19 Iunie 2026'],
+];
+const box = document.getElementById('detailsBox');
+rows.forEach(([k, v]) => {
+    const row = document.createElement('div');
+    row.className = 'd-row';
+    row.innerHTML = '<span>' + k + '</span><span>' + v + '</span>';
+    box.appendChild(row);
+});
+const totalRow = document.createElement('div');
+totalRow.className = 'total-row';
+totalRow.innerHTML = '<span>TOTAL PLĂTIT</span><span>' + fmt(total) + '</span>';
+box.appendChild(totalRow);
+
+// Trimite email de confirmare o singură dată per rezervare
+const emailKey = 'sc_sent_ro_' + ref;
+if (!sessionStorage.getItem(emailKey) && name && email) {
+    sessionStorage.setItem(emailKey, '1');
+    const receipt = 'Salut ' + name + ',\n\n✅ PLATĂ CONFIRMATĂ — LOCUL TĂU ESTE ASIGURAT\n\nRef. Rezervare: ' + ref + '\nPachet: SPARTAN PREMIUM\nLocuri: ' + qty + '\nPreț/persoană: ' + fmt(unitPrice) + (flyIn ? ' (reducere 15% pentru zbor cu avionul)' : '') + '\nTotal Plătit: ' + fmt(total) + '\nData Taberei: 19 Iunie 2026\nTransfer Aeroport: ' + (flyIn ? 'Da – transfer gratuit inclus' : 'Nu') + '\n\nTe vom contacta cu 2 săptămâni înainte de tabără cu instrucțiuni și logistică detaliată.\n\nNe vedem la Spartan Camp 2026!\n\nEchipa Spartan Camp\nspartan-expedition.com';
+    fetch('https://formsubmit.co/ajax/denisalexa46@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ _subject: '✅ Plată Confirmată ' + ref + ' – ' + name, booking_ref: ref, customer_name: name, customer_email: email, customer_phone: phone || '—', package: 'SPARTAN PREMIUM', locuri: qty, unit_price: fmt(unitPrice), total_platit: fmt(total), airport_transfer: flyIn ? 'DA' : 'Nu', data_taberei: '19 Iunie 2026', status_plata: 'PLĂTIT prin Stripe', _replyto: email, _autoresponder: receipt })
+    });
+}
+</script>
+</body>
+</html>
