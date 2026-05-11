@@ -1065,6 +1065,7 @@ document.querySelectorAll('.pkg-region').forEach(btn=>{
     });
 });
 document.getElementById('pkgFlyIn').addEventListener('change',function(){ fmtPkg(activeCur,this.checked); });
+fmtPkg(activeCur, false);
 
 let curType='';
 function openCO(type){
