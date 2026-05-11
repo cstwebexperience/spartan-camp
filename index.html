@@ -832,11 +832,6 @@ ul{list-style:none}
                     <li><span class="ck">✓</span> 24/7 security + medical team on site</li>
                     <li><span class="ck">✓</span> Massage on request</li>
                 </ul>
-                <label class="chk-label cb-highlight" style="margin-top:20px">
-                    <input type="checkbox" id="pkgFlyIn">
-                    <span class="chk-mark"></span>
-                    <span>I'm flying in <strong>(free airport transfer included)</strong></span>
-                </label>
                 <button class="btn btn-p btn-full" style="margin-top:20px" onclick="openCO('premium')">BOOK YOUR SPOT →</button>
                 <button class="btn btn-ticket" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">REQUEST A CALLBACK</button>
             </div>
@@ -857,7 +852,6 @@ ul{list-style:none}
                 <input type="hidden" id="coType">
                 <div class="f-row"><div class="f-grp"><label>Full Name *</label><input type="text" id="coName" required placeholder="John Smith"></div><div class="f-grp"><label>Email *</label><input type="email" id="coEmail" required placeholder="john@email.com"></div></div>
                 <div class="f-row"><div class="f-grp"><label>Phone Number *</label><input type="tel" id="coPhone" required placeholder="+44 7XXX XXX XXX"></div><div class="f-grp"><label>Number of Tickets *</label><input type="number" id="coQty" min="1" max="20" value="1" required></div></div>
-                <div class="f-grp"><label class="chk-label"><input type="checkbox" id="coOwnTr"><span class="chk-mark"></span><span>I'm flying in <strong>(free airport transfer included)</strong></span></label></div>
                 <div class="summary">
                     <div class="sum-row"><span>Package:</span><span id="sumType">—</span></div>
                     <div class="sum-row"><span>Price/person:</span><span id="sumUnit">—</span></div>
@@ -1069,7 +1063,6 @@ window.openCO=openCO;
 function closeCO(){document.getElementById('coModal').classList.remove('active');document.body.style.overflow='';}
 document.getElementById('coClose').addEventListener('click',closeCO);
 document.getElementById('coModal').addEventListener('click',e=>{if(e.target.id==='coModal')closeCO();});
-document.getElementById('coOwnTr').addEventListener('change',updateSum);
 document.getElementById('coQty').addEventListener('input',updateSum);
 function updateSum(){
     const qty=parseInt(document.getElementById('coQty').value)||1;
@@ -1109,10 +1102,9 @@ document.getElementById('coStripeBtn').addEventListener('click',async function()
     const btn=this; const orig=btn.textContent;
     btn.disabled=true; btn.textContent='Redirecting to Stripe…';
     const qty=parseInt(document.getElementById('coQty').value)||1;
-    const flyIn=document.getElementById('coOwnTr').checked;
     const ref='SC-'+Date.now().toString(36).toUpperCase();
     try{
-        const res=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({country:activeCur,qty,flyIn,name:document.getElementById('coName').value,email:document.getElementById('coEmail').value,phone:document.getElementById('coPhone').value,ref,lang:'en'})});
+        const res=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({country:activeCur,qty,name:document.getElementById('coName').value,email:document.getElementById('coEmail').value,phone:document.getElementById('coPhone').value,ref,lang:'en'})});
         const data=await res.json();
         if(data.url){window.location.href=data.url;}else{throw new Error(data.error||'No URL');}
     }catch(err){btn.disabled=false;btn.textContent=orig;showToast('❌ Payment error. Please try again or contact us.');}
@@ -1124,12 +1116,11 @@ document.getElementById('coReserveBtn').addEventListener('click',function(){
     btn.disabled=true; btn.textContent='Sending…';
     const qty=parseInt(document.getElementById('coQty').value)||1;
     const d=currencyData[activeCur];
-    const flyIn=document.getElementById('coOwnTr').checked;
     const unitFmt=fmtMoney(d,d.price), totalFmt=fmtMoney(d,d.price*qty);
     const ref='SC-'+Date.now().toString(36).toUpperCase();
     const cName=document.getElementById('coName').value, cEmail=document.getElementById('coEmail').value, cPhone=document.getElementById('coPhone').value;
-    const receipt='Dear '+cName+',\n\n📋 RESERVATION RECEIVED\n\nBooking Ref: '+ref+'\nPackage: SPARTAN PREMIUM\nSpots: '+qty+'\nPrice/person: '+unitFmt+'\nTotal: '+totalFmt+'\nCamp Date: 19 June 2026\nAirport Transfer: '+(flyIn?'Yes – free transfer included':'No')+'\nPayment: Bank transfer — we will send details within 24h\n\nSpartan Camp Team';
-    fetch('https://formsubmit.co/ajax/denisalexa46@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'📋 Reservation '+ref+' – '+cName,booking_ref:ref,customer_name:cName,customer_email:cEmail,customer_phone:cPhone,package:'SPARTAN PREMIUM',spots:qty,unit_price:unitFmt,total:totalFmt,airport_transfer:flyIn?'YES':'No',camp_date:'19 June 2026',payment:'Bank Transfer (pending)',_replyto:cEmail,_autoresponder:receipt})})
+    const receipt='Dear '+cName+',\n\n📋 RESERVATION RECEIVED\n\nBooking Ref: '+ref+'\nPackage: SPARTAN PREMIUM\nSpots: '+qty+'\nPrice/person: '+unitFmt+'\nTotal: '+totalFmt+'\nCamp Date: 19 June 2026\nPayment: Bank transfer — we will send details within 24h\n\nSpartan Camp Team';
+    fetch('https://formsubmit.co/ajax/denisalexa46@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'📋 Reservation '+ref+' – '+cName,booking_ref:ref,customer_name:cName,customer_email:cEmail,customer_phone:cPhone,package:'SPARTAN PREMIUM',spots:qty,unit_price:unitFmt,total:totalFmt,camp_date:'19 June 2026',payment:'Bank Transfer (pending)',_replyto:cEmail,_autoresponder:receipt})})
     .then(r=>r.json())
     .then(()=>{closeCO();showToast('📋 Reservation received! Bank transfer details sent to your email.');})
     .catch(()=>{closeCO();showToast('📋 Reservation received! We\'ll send payment details within 24h.');})
