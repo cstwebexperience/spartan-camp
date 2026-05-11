@@ -1134,11 +1134,16 @@ const currencyData = { ron:{price:4000,sym:'RON',locale:'ro-RO',prefix:false}, e
 let activeCur = 'ron';
 function fmtMoney(d,n){ return d.prefix?'£'+n.toLocaleString(d.locale):n.toLocaleString(d.locale)+' '+d.sym; }
 function fmtPkg(region, flyIn){
+    const isRon = region === 'ron';
+    const pkgFlyInEl = document.getElementById('pkgFlyIn');
+    pkgFlyInEl.parentElement.style.display = isRon ? 'none' : '';
+    if(isRon) pkgFlyInEl.checked = false;
+    const effectiveFlyIn = isRon ? false : flyIn;
     const d=currencyData[region]; const base=d.price;
-    const price=flyIn?Math.round(base*0.85):base;
+    const price=effectiveFlyIn?Math.round(base*0.85):base;
     const el=document.getElementById('pkgPrice'),cel=document.getElementById('pkgCur'),badge=document.getElementById('pkgDiscBadge');
     el.style.transition='all .3s';el.style.transform='scale(.8)';el.style.opacity='0';
-    setTimeout(()=>{ el.textContent=d.prefix?'£'+price.toLocaleString(d.locale):price.toLocaleString(d.locale); cel.textContent=d.prefix?'':' '+d.sym; badge.style.display=flyIn?'block':'none'; el.style.transform='scale(1)';el.style.opacity='1'; },200);
+    setTimeout(()=>{ el.textContent=d.prefix?'£'+price.toLocaleString(d.locale):price.toLocaleString(d.locale); cel.textContent=d.prefix?'':' '+d.sym; badge.style.display=effectiveFlyIn?'block':'none'; el.style.transform='scale(1)';el.style.opacity='1'; },200);
 }
 document.querySelectorAll('.pkg-region').forEach(btn=>{
     btn.addEventListener('click',()=>{
@@ -1166,9 +1171,13 @@ document.getElementById('coModal').addEventListener('click', e => { if(e.target.
 document.getElementById('coOwnTr').addEventListener('change', updateSum);
 document.getElementById('coQty').addEventListener('input', updateSum);
 function updateSum(){
+    const isRon = activeCur === 'ron';
+    const coOwnTrEl = document.getElementById('coOwnTr');
+    coOwnTrEl.closest('.f-grp').style.display = isRon ? 'none' : '';
+    if(isRon) coOwnTrEl.checked = false;
     const qty=parseInt(document.getElementById('coQty').value)||1;
     const d=currencyData[activeCur]; const base=d.price;
-    const flyIn=document.getElementById('coOwnTr').checked;
+    const flyIn=isRon ? false : coOwnTrEl.checked;
     const unitPrice=flyIn?Math.round(base*0.85):base;
     const savings=flyIn?base-unitPrice:0;
     document.getElementById('sumDiscRow').style.display=flyIn?'flex':'none';
