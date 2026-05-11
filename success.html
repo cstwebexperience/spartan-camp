@@ -73,7 +73,6 @@ const rows = [
     ['Name', name], ['Email', email], ['Phone', phone || '—'],
     ['Package', 'SPARTAN PREMIUM'], ['Spots', qty],
     ['Price/person', fmt(unitPrice)],
-    ['Airport Transfer', flyIn ? 'Yes — free transfer included' : 'No'],
     ['Camp Date', '19 June 2026'],
 ];
 const box = document.getElementById('detailsBox');
@@ -92,7 +91,7 @@ box.appendChild(totalRow);
 const emailKey = 'sc_sent_' + ref;
 if (!sessionStorage.getItem(emailKey) && name && email) {
     sessionStorage.setItem(emailKey, '1');
-    const receipt = 'Dear ' + name + ',\n\n✅ PAYMENT CONFIRMED — YOUR SPOT IS SECURED\n\nBooking Ref: ' + ref + '\nPackage: SPARTAN PREMIUM\nSpots: ' + qty + '\nPrice/person: ' + fmt(unitPrice) + '\nTotal Paid: ' + fmt(total) + '\nCamp Date: 19 June 2026\nAirport Transfer: ' + (flyIn ? 'Yes – free transfer included' : 'No') + '\n\nWe will contact you 2 weeks before the camp with detailed instructions and logistics.\n\nSee you at Spartan Camp 2026!\n\nSpartan Camp Team\nspartan-expedition.com';
+    const receipt = 'Dear ' + name + ',\n\n✅ PAYMENT CONFIRMED — YOUR SPOT IS SECURED\n\nBooking Ref: ' + ref + '\nPackage: SPARTAN PREMIUM\nSpots: ' + qty + '\nPrice/person: ' + fmt(unitPrice) + '\nTotal Paid: ' + fmt(total) + '\nCamp Date: 19 June 2026\n\nWe will contact you 2 weeks before the camp with detailed instructions and logistics.\n\nSee you at Spartan Camp 2026!\n\nSpartan Camp Team\nspartan-expedition.com';
     fetch('https://formsubmit.co/ajax/denisalexa46@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
