@@ -44,13 +44,22 @@
 
 <script>
 const p = new URLSearchParams(window.location.search);
-const ref     = p.get('ref')     || 'SC-UNKNOWN';
-const name    = p.get('name')    || '';
-const email   = p.get('email')   || '';
-const phone   = p.get('phone')   || '';
-const qty     = parseInt(p.get('qty')) || 1;
-const country = p.get('country') || 'eur';
-const flyIn   = p.get('flyIn')   === 'true';
+let ref     = p.get('ref');
+let name    = p.get('name')    || '';
+let email   = p.get('email')   || '';
+let phone   = p.get('phone')   || '';
+let qty     = parseInt(p.get('qty')) || 0;
+let country = p.get('country') || '';
+if (!ref) {
+    try {
+        const b = JSON.parse(sessionStorage.getItem('sc_booking') || 'null');
+        if (b) { ref=b.ref; name=b.name||''; email=b.email||''; phone=b.phone||''; qty=parseInt(b.qty)||1; country=b.country||'eur'; sessionStorage.removeItem('sc_booking'); }
+    } catch(e) {}
+}
+ref     = ref     || 'SC-UNKNOWN';
+qty     = qty     || 1;
+country = country || 'eur';
+const flyIn = false;
 
 const cur = { ron:{base:4000,sym:'RON',locale:'ro-RO',prefix:false}, gbp:{base:680,sym:'£',locale:'en-GB',prefix:true}, eur:{base:800,sym:'€',locale:'de-DE',prefix:false} };
 const d = cur[country] || cur.eur;

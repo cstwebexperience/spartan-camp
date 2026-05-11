@@ -1098,16 +1098,17 @@ document.getElementById('coBackBtn').addEventListener('click',function(){
 });
 
 // PAY WITH STRIPE
-document.getElementById('coStripeBtn').addEventListener('click',async function(){
-    const btn=this; const orig=btn.textContent;
-    btn.disabled=true; btn.textContent='Redirecting to Stripe…';
+const stripeLinks={eur:'https://buy.stripe.com/00w4grgMWdAA8KG4Vd4ZG00',gbp:'https://buy.stripe.com/9B69AL40a9kkgd82N54ZG01',ron:'https://buy.stripe.com/28E7sD9ku9kk3qmfzR4ZG02'};
+document.getElementById('coStripeBtn').addEventListener('click',function(){
+    const btn=this,orig=btn.textContent;
     const qty=parseInt(document.getElementById('coQty').value)||1;
     const ref='SC-'+Date.now().toString(36).toUpperCase();
-    try{
-        const res=await fetch('/api/create-checkout',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({country:activeCur,qty,name:document.getElementById('coName').value,email:document.getElementById('coEmail').value,phone:document.getElementById('coPhone').value,ref,lang:'en'})});
-        const data=await res.json();
-        if(data.url){window.location.href=data.url;}else{throw new Error(data.error||'No URL');}
-    }catch(err){btn.disabled=false;btn.textContent=orig;showToast('❌ Payment error. Please try again or contact us.');}
+    const name=document.getElementById('coName').value,email=document.getElementById('coEmail').value,phone=document.getElementById('coPhone').value;
+    const link=stripeLinks[activeCur];
+    if(!link){showToast('❌ Online payment not available for RON. Please use bank transfer below.');return;}
+    sessionStorage.setItem('sc_booking',JSON.stringify({ref,name,email,phone,qty,country:activeCur}));
+    btn.disabled=true;btn.textContent='Redirecting to Stripe…';
+    window.location.href=link+'?prefilled_email='+encodeURIComponent(email)+'&client_reference_id='+encodeURIComponent(ref);
 });
 
 // RESERVE — bank transfer
