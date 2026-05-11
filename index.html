@@ -816,7 +816,6 @@ ul{list-style:none}
                 <div class="tick-head">
                     <span class="tick-label">SPARTAN PREMIUM</span>
                     <div class="tick-price">
-                        <div id="pkgDiscBadge" style="display:none;margin-bottom:8px"><span style="background:var(--green);color:#000;font-family:var(--ff-b);font-weight:700;font-size:.65rem;letter-spacing:2px;padding:4px 14px;border-radius:20px">✈ FLYING IN — 15% OFF</span></div>
                         <span class="price-amt disc" id="pkgPrice">4,000</span>
                         <span class="price-cur" id="pkgCur"> RON</span>
                         <br><span class="price-per">/person · all-inclusive · 3 days</span>
@@ -836,7 +835,7 @@ ul{list-style:none}
                 <label class="chk-label cb-highlight" style="margin-top:20px">
                     <input type="checkbox" id="pkgFlyIn">
                     <span class="chk-mark"></span>
-                    <span>I'm flying in <strong>(free airport transfer + 15% off)</strong></span>
+                    <span>I'm flying in <strong>(free airport transfer included)</strong></span>
                 </label>
                 <button class="btn btn-p btn-full" style="margin-top:20px" onclick="openCO('premium')">BOOK YOUR SPOT →</button>
                 <button class="btn btn-ticket" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">REQUEST A CALLBACK</button>
@@ -858,11 +857,10 @@ ul{list-style:none}
                 <input type="hidden" id="coType">
                 <div class="f-row"><div class="f-grp"><label>Full Name *</label><input type="text" id="coName" required placeholder="John Smith"></div><div class="f-grp"><label>Email *</label><input type="email" id="coEmail" required placeholder="john@email.com"></div></div>
                 <div class="f-row"><div class="f-grp"><label>Phone Number *</label><input type="tel" id="coPhone" required placeholder="+44 7XXX XXX XXX"></div><div class="f-grp"><label>Number of Tickets *</label><input type="number" id="coQty" min="1" max="20" value="1" required></div></div>
-                <div class="f-grp"><label class="chk-label"><input type="checkbox" id="coOwnTr"><span class="chk-mark"></span><span>I'm flying in <strong>(free airport transfer + 15% off)</strong></span></label></div>
+                <div class="f-grp"><label class="chk-label"><input type="checkbox" id="coOwnTr"><span class="chk-mark"></span><span>I'm flying in <strong>(free airport transfer included)</strong></span></label></div>
                 <div class="summary">
                     <div class="sum-row"><span>Package:</span><span id="sumType">—</span></div>
                     <div class="sum-row"><span>Price/person:</span><span id="sumUnit">—</span></div>
-                    <div class="sum-row" id="sumDiscRow" style="display:none"><span>Flying in — 15% off:</span><span id="sumDisc" class="disc-grn">—</span></div>
                     <div class="sum-row sum-total"><span>TOTAL:</span><span id="sumTotal">—</span></div>
                 </div>
                 <button type="button" id="coContinueBtn" class="btn btn-p btn-full">CONTINUE TO PAYMENT →</button>
@@ -877,7 +875,6 @@ ul{list-style:none}
                 <div class="sum-row"><span>Package:</span><span>SPARTAN PREMIUM</span></div>
                 <div class="sum-row"><span>Spots:</span><span id="payQty">—</span></div>
                 <div class="sum-row"><span>Price/person:</span><span id="payUnit">—</span></div>
-                <div class="sum-row" id="payDiscRow" style="display:none"><span>Flying in — 15% off:</span><span id="payDisc" class="disc-grn">—</span></div>
                 <div class="sum-row sum-total"><span>TOTAL:</span><span id="payTotal">—</span></div>
             </div>
             <button id="coStripeBtn" class="btn btn-p btn-full" style="margin-bottom:12px">💳 PAY NOW WITH CARD →</button>
@@ -1045,32 +1042,24 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLB();closeCO()
 const currencyData = { ron:{price:4000,sym:'RON',locale:'ro-RO',prefix:false}, eur:{price:800,sym:'€',locale:'de-DE',prefix:false}, gbp:{price:680,sym:'£',locale:'en-GB',prefix:true} };
 let activeCur = 'ron';
 function fmtMoney(d,n){ return d.prefix?'£'+n.toLocaleString(d.locale):n.toLocaleString(d.locale)+' '+d.sym; }
-function fmtPkg(region, flyIn){
-    const isRon = region === 'ron';
-    const pkgFlyInEl = document.getElementById('pkgFlyIn');
-    pkgFlyInEl.parentElement.style.display = isRon ? 'none' : '';
-    if(isRon) pkgFlyInEl.checked = false;
-    const effectiveFlyIn = isRon ? false : flyIn;
-    const d=currencyData[region]; const base=d.price;
-    const price=effectiveFlyIn?Math.round(base*0.85):base;
-    const el=document.getElementById('pkgPrice'),cel=document.getElementById('pkgCur'),badge=document.getElementById('pkgDiscBadge');
+function fmtPkg(region){
+    const d=currencyData[region];
+    const el=document.getElementById('pkgPrice'),cel=document.getElementById('pkgCur');
     el.style.transition='all .3s';el.style.transform='scale(.8)';el.style.opacity='0';
-    setTimeout(()=>{ el.textContent=d.prefix?'£'+price.toLocaleString(d.locale):price.toLocaleString(d.locale); cel.textContent=d.prefix?'':' '+d.sym; badge.style.display=effectiveFlyIn?'block':'none'; el.style.transform='scale(1)';el.style.opacity='1'; },200);
+    setTimeout(()=>{ el.textContent=d.prefix?'£'+d.price.toLocaleString(d.locale):d.price.toLocaleString(d.locale); cel.textContent=d.prefix?'':' '+d.sym; el.style.transform='scale(1)';el.style.opacity='1'; },200);
 }
 document.querySelectorAll('.pkg-region').forEach(btn=>{
     btn.addEventListener('click',()=>{
         document.querySelectorAll('.pkg-region').forEach(b=>b.classList.remove('active'));
         btn.classList.add('active'); activeCur=btn.dataset.region;
-        fmtPkg(activeCur, document.getElementById('pkgFlyIn').checked);
+        fmtPkg(activeCur);
     });
 });
-document.getElementById('pkgFlyIn').addEventListener('change',function(){ fmtPkg(activeCur,this.checked); });
-fmtPkg(activeCur, false);
+fmtPkg(activeCur);
 
 let curType='';
 function openCO(type){
     curType=type; document.getElementById('coType').value=type;
-    document.getElementById('coOwnTr').checked=document.getElementById('pkgFlyIn').checked;
     document.getElementById('coStep1').style.display='block';
     document.getElementById('coStep2').style.display='none';
     document.getElementById('coModal').classList.add('active');
@@ -1083,20 +1072,11 @@ document.getElementById('coModal').addEventListener('click',e=>{if(e.target.id==
 document.getElementById('coOwnTr').addEventListener('change',updateSum);
 document.getElementById('coQty').addEventListener('input',updateSum);
 function updateSum(){
-    const isRon = activeCur === 'ron';
-    const coOwnTrEl = document.getElementById('coOwnTr');
-    coOwnTrEl.closest('.f-grp').style.display = isRon ? 'none' : '';
-    if(isRon) coOwnTrEl.checked = false;
     const qty=parseInt(document.getElementById('coQty').value)||1;
-    const d=currencyData[activeCur]; const base=d.price;
-    const flyIn=isRon ? false : coOwnTrEl.checked;
-    const unitPrice=flyIn?Math.round(base*0.85):base;
-    const savings=flyIn?base-unitPrice:0;
-    document.getElementById('sumDiscRow').style.display=flyIn?'flex':'none';
+    const d=currencyData[activeCur];
     document.getElementById('sumType').textContent='SPARTAN PREMIUM';
-    document.getElementById('sumUnit').textContent=fmtMoney(d,unitPrice);
-    document.getElementById('sumDisc').textContent='-'+fmtMoney(d,savings)+' per person';
-    document.getElementById('sumTotal').textContent=fmtMoney(d,unitPrice*qty);
+    document.getElementById('sumUnit').textContent=fmtMoney(d,d.price);
+    document.getElementById('sumTotal').textContent=fmtMoney(d,d.price*qty);
 }
 
 // Step 1 → Step 2
@@ -1112,15 +1092,10 @@ document.getElementById('coContinueBtn').addEventListener('click',function(){
         return;
     }
     const qty=parseInt(document.getElementById('coQty').value)||1;
-    const d=currencyData[activeCur]; const base=d.price;
-    const flyIn=document.getElementById('coOwnTr').checked;
-    const unitPrice=flyIn?Math.round(base*0.85):base;
-    const savings=flyIn?base-unitPrice:0;
+    const d=currencyData[activeCur];
     document.getElementById('payQty').textContent=qty;
-    document.getElementById('payUnit').textContent=fmtMoney(d,unitPrice);
-    document.getElementById('payDiscRow').style.display=flyIn?'flex':'none';
-    document.getElementById('payDisc').textContent='-'+fmtMoney(d,savings)+' per person';
-    document.getElementById('payTotal').textContent=fmtMoney(d,unitPrice*qty);
+    document.getElementById('payUnit').textContent=fmtMoney(d,d.price);
+    document.getElementById('payTotal').textContent=fmtMoney(d,d.price*qty);
     document.getElementById('coStep1').style.display='none';
     document.getElementById('coStep2').style.display='block';
 });
@@ -1148,10 +1123,9 @@ document.getElementById('coReserveBtn').addEventListener('click',function(){
     const btn=this; const orig=btn.textContent;
     btn.disabled=true; btn.textContent='Sending…';
     const qty=parseInt(document.getElementById('coQty').value)||1;
-    const d=currencyData[activeCur]; const base=d.price;
+    const d=currencyData[activeCur];
     const flyIn=document.getElementById('coOwnTr').checked;
-    const unitPrice=flyIn?Math.round(base*0.85):base;
-    const unitFmt=fmtMoney(d,unitPrice), totalFmt=fmtMoney(d,unitPrice*qty);
+    const unitFmt=fmtMoney(d,d.price), totalFmt=fmtMoney(d,d.price*qty);
     const ref='SC-'+Date.now().toString(36).toUpperCase();
     const cName=document.getElementById('coName').value, cEmail=document.getElementById('coEmail').value, cPhone=document.getElementById('coPhone').value;
     const receipt='Dear '+cName+',\n\n📋 RESERVATION RECEIVED\n\nBooking Ref: '+ref+'\nPackage: SPARTAN PREMIUM\nSpots: '+qty+'\nPrice/person: '+unitFmt+'\nTotal: '+totalFmt+'\nCamp Date: 19 June 2026\nAirport Transfer: '+(flyIn?'Yes – free transfer included':'No')+'\nPayment: Bank transfer — we will send details within 24h\n\nSpartan Camp Team';

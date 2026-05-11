@@ -54,7 +54,7 @@ const flyIn   = p.get('flyIn')   === 'true';
 
 const cur = { ron:{base:4000,sym:'RON',locale:'ro-RO',prefix:false}, gbp:{base:680,sym:'£',locale:'en-GB',prefix:true}, eur:{base:800,sym:'€',locale:'de-DE',prefix:false} };
 const d = cur[country] || cur.ron;
-const unitPrice = flyIn ? Math.round(d.base * 0.85) : d.base;
+const unitPrice = d.base;
 const total = unitPrice * qty;
 const fmt = n => d.prefix ? '£' + n.toLocaleString(d.locale) : n.toLocaleString(d.locale) + ' ' + d.sym;
 
@@ -63,7 +63,7 @@ document.getElementById('refDisplay').textContent = 'REF: ' + ref;
 const rows = [
     ['Nume', name], ['Email', email], ['Telefon', phone || '—'],
     ['Pachet', 'SPARTAN PREMIUM'], ['Locuri', qty],
-    ['Preț/persoană', fmt(unitPrice) + (flyIn ? ' (reducere 15% aplicată)' : '')],
+    ['Preț/persoană', fmt(unitPrice)],
     ['Transfer Aeroport', flyIn ? 'Da — transfer gratuit inclus' : 'Nu'],
     ['Data Taberei', '19 Iunie 2026'],
 ];
@@ -83,7 +83,7 @@ box.appendChild(totalRow);
 const emailKey = 'sc_sent_ro_' + ref;
 if (!sessionStorage.getItem(emailKey) && name && email) {
     sessionStorage.setItem(emailKey, '1');
-    const receipt = 'Salut ' + name + ',\n\n✅ PLATĂ CONFIRMATĂ — LOCUL TĂU ESTE ASIGURAT\n\nRef. Rezervare: ' + ref + '\nPachet: SPARTAN PREMIUM\nLocuri: ' + qty + '\nPreț/persoană: ' + fmt(unitPrice) + (flyIn ? ' (reducere 15% pentru zbor cu avionul)' : '') + '\nTotal Plătit: ' + fmt(total) + '\nData Taberei: 19 Iunie 2026\nTransfer Aeroport: ' + (flyIn ? 'Da – transfer gratuit inclus' : 'Nu') + '\n\nTe vom contacta cu 2 săptămâni înainte de tabără cu instrucțiuni și logistică detaliată.\n\nNe vedem la Spartan Camp 2026!\n\nEchipa Spartan Camp\nspartan-expedition.com';
+    const receipt = 'Salut ' + name + ',\n\n✅ PLATĂ CONFIRMATĂ — LOCUL TĂU ESTE ASIGURAT\n\nRef. Rezervare: ' + ref + '\nPachet: SPARTAN PREMIUM\nLocuri: ' + qty + '\nPreț/persoană: ' + fmt(unitPrice) + '\nTotal Plătit: ' + fmt(total) + '\nData Taberei: 19 Iunie 2026\nTransfer Aeroport: ' + (flyIn ? 'Da – transfer gratuit inclus' : 'Nu') + '\n\nTe vom contacta cu 2 săptămâni înainte de tabără cu instrucțiuni și logistică detaliată.\n\nNe vedem la Spartan Camp 2026!\n\nEchipa Spartan Camp\nspartan-expedition.com';
     fetch('https://formsubmit.co/ajax/denisalexa46@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },

@@ -54,7 +54,7 @@ const flyIn   = p.get('flyIn')   === 'true';
 
 const cur = { ron:{base:4000,sym:'RON',locale:'ro-RO',prefix:false}, gbp:{base:680,sym:'£',locale:'en-GB',prefix:true}, eur:{base:800,sym:'€',locale:'de-DE',prefix:false} };
 const d = cur[country] || cur.eur;
-const unitPrice = flyIn ? Math.round(d.base * 0.85) : d.base;
+const unitPrice = d.base;
 const total = unitPrice * qty;
 const fmt = n => d.prefix ? '£' + n.toLocaleString(d.locale) : n.toLocaleString(d.locale) + ' ' + d.sym;
 
@@ -63,7 +63,7 @@ document.getElementById('refDisplay').textContent = 'REF: ' + ref;
 const rows = [
     ['Name', name], ['Email', email], ['Phone', phone || '—'],
     ['Package', 'SPARTAN PREMIUM'], ['Spots', qty],
-    ['Price/person', fmt(unitPrice) + (flyIn ? ' (15% off applied)' : '')],
+    ['Price/person', fmt(unitPrice)],
     ['Airport Transfer', flyIn ? 'Yes — free transfer included' : 'No'],
     ['Camp Date', '19 June 2026'],
 ];
@@ -83,7 +83,7 @@ box.appendChild(totalRow);
 const emailKey = 'sc_sent_' + ref;
 if (!sessionStorage.getItem(emailKey) && name && email) {
     sessionStorage.setItem(emailKey, '1');
-    const receipt = 'Dear ' + name + ',\n\n✅ PAYMENT CONFIRMED — YOUR SPOT IS SECURED\n\nBooking Ref: ' + ref + '\nPackage: SPARTAN PREMIUM\nSpots: ' + qty + '\nPrice/person: ' + fmt(unitPrice) + (flyIn ? ' (15% flying-in discount applied)' : '') + '\nTotal Paid: ' + fmt(total) + '\nCamp Date: 19 June 2026\nAirport Transfer: ' + (flyIn ? 'Yes – free transfer included' : 'No') + '\n\nWe will contact you 2 weeks before the camp with detailed instructions and logistics.\n\nSee you at Spartan Camp 2026!\n\nSpartan Camp Team\nspartan-expedition.com';
+    const receipt = 'Dear ' + name + ',\n\n✅ PAYMENT CONFIRMED — YOUR SPOT IS SECURED\n\nBooking Ref: ' + ref + '\nPackage: SPARTAN PREMIUM\nSpots: ' + qty + '\nPrice/person: ' + fmt(unitPrice) + '\nTotal Paid: ' + fmt(total) + '\nCamp Date: 19 June 2026\nAirport Transfer: ' + (flyIn ? 'Yes – free transfer included' : 'No') + '\n\nWe will contact you 2 weeks before the camp with detailed instructions and logistics.\n\nSee you at Spartan Camp 2026!\n\nSpartan Camp Team\nspartan-expedition.com';
     fetch('https://formsubmit.co/ajax/denisalexa46@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },

@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
 
     const p = prices[country] || prices['eur'];
     const numQty = Math.max(1, parseInt(qty) || 1);
-    const unitAmount = flyIn ? Math.round(p.amount * 0.85) : p.amount;
+    const unitAmount = p.amount;
 
     const baseUrl = 'https://spartan-expedition.com';
     const successPath = lang === 'ro' ? '/ro/success.html' : '/success.html';
