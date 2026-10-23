@@ -7,10 +7,6 @@
     <title>Spartan Camp Adventure Romania | Experiența Supremă de Aventură</title>
     <link rel="preload" href="../assets/videos/hero-desktop.mp4" as="video" type="video/mp4" media="(min-width:769px)">
     <link rel="preload" href="../assets/videos/hero-mobile.mp4" as="video" type="video/mp4" media="(max-width:768px)">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
 :root {
     --bg: #080808;
@@ -441,7 +437,8 @@ ul{list-style:none}
 .pkg-region.active{background:var(--accent);border-color:var(--accent);color:#000;box-shadow:0 4px 20px var(--glow)}
 .pkg-region svg{flex-shrink:0}
 </style>
-</head>
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+  </head>
 <body>
 
 <div id="lang-picker" role="dialog" aria-modal="true" aria-label="Selectează limba">
@@ -850,6 +847,7 @@ ul{list-style:none}
                 <div class="sum-row"><span>Preț/persoană:</span><span id="payUnit">—</span></div>
                 <div class="sum-row sum-total"><span>TOTAL:</span><span id="payTotal">—</span></div>
             </div>
+            <p style="font-size:.78rem;color:var(--text2);line-height:1.6;margin:0 0 12px">Prețul include toate taxele. Plătind, accepți <a href="/terms.html#ro" target="_blank" style="text-decoration:underline">Termenii și condițiile</a> (inclusiv politica de anulare) și confirmi că ai citit <a href="/privacy.html#ro" target="_blank" style="text-decoration:underline">Politica de confidențialitate</a>. Participanții trebuie să aibă minimum 18 ani.</p>
             <button id="coStripeBtn" class="btn btn-p btn-full" style="margin-bottom:12px">💳 PLĂTEȘTE CU CARDUL →</button>
             <button id="coReserveBtn" class="btn btn-ticket">REZERVĂ LOCUL — plată prin transfer bancar</button>
             <button id="coBackBtn" style="background:none;border:none;color:var(--text2);font-size:.8rem;cursor:pointer;display:block;margin:14px auto 0;text-decoration:underline">← Înapoi la date</button>
@@ -922,8 +920,8 @@ ul{list-style:none}
             <div class="foot-links"><h4>Acțiune</h4><ul>
                 <li><a href="#bilete">Cumpără Bilet</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#">Termeni & Condiții</a></li>
-                <li><a href="#">Politica de Confidențialitate</a></li>
+                <li><a href="/terms.html#ro">Termeni & Condiții</a></li>
+                <li><a href="/privacy.html#ro">Politica de Confidențialitate</a></li>
                 <li><a href="#">GDPR</a></li>
             </ul></div>
         </div>

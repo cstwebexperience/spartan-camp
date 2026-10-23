@@ -8,10 +8,6 @@
     <title>Spartan Camp Romania | The Ultimate Adventure Experience for UK Adventurers</title>
     <link rel="preload" href="assets/videos/hero-desktop.mp4" as="video" type="video/mp4" media="(min-width:769px)">
     <link rel="preload" href="assets/videos/hero-mobile.mp4" as="video" type="video/mp4" media="(max-width:768px)">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
 :root {
     --bg: #080808;
@@ -471,7 +467,8 @@ ul{list-style:none}
 .lp-lang{font-family:var(--ff-h);font-size:1.05rem;font-weight:600;letter-spacing:3px;text-transform:uppercase}
 @media(max-width:480px){.lp-card{padding:28px 36px}.lp-cards{gap:14px}}
 </style>
-</head>
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+  </head>
 <body>
 
 <div id="lang-picker" role="dialog" aria-modal="true" aria-label="Select language">
@@ -871,6 +868,7 @@ ul{list-style:none}
                 <div class="sum-row"><span>Price/person:</span><span id="payUnit">—</span></div>
                 <div class="sum-row sum-total"><span>TOTAL:</span><span id="payTotal">—</span></div>
             </div>
+            <p style="font-size:.78rem;color:var(--text2);line-height:1.6;margin:0 0 12px">Total includes all taxes. By paying you agree to the <a href="/terms.html" target="_blank" style="text-decoration:underline">Terms &amp; Conditions</a> (including the cancellation policy) and confirm you have read the <a href="/privacy.html" target="_blank" style="text-decoration:underline">Privacy Policy</a>. Participants must be 18+.</p>
             <button id="coStripeBtn" class="btn btn-p btn-full" style="margin-bottom:12px">💳 PAY NOW WITH CARD →</button>
             <button id="coReserveBtn" class="btn btn-ticket">RESERVE SPOT — we'll send bank transfer details</button>
             <button id="coBackBtn" style="background:none;border:none;color:var(--text2);font-size:.8rem;cursor:pointer;display:block;margin:14px auto 0;text-decoration:underline">← Back to details</button>
@@ -944,8 +942,8 @@ ul{list-style:none}
                 <li><a href="#tickets">Buy a Ticket</a></li>
                 <li><a href="#contact">Contact Us</a></li>
                 <li><a href="/ro/">🇷🇴 Versiunea Română</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms & Conditions</a></li>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
             </ul></div>
         </div>
         <div class="foot-bot">
